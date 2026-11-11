@@ -1,0 +1,276 @@
+{
+  "complete_corpus_actual_lexical_dpe_duetrank": [
+    {
+      "dataset": "msmarco",
+      "split": "test",
+      "documents": 8841823,
+      "queries": 43,
+      "posting_budget": 50000,
+      "cloud_depth": 200,
+      "client_lexical_depth": 100,
+      "materialized_candidate_rows": 36026,
+      "lexical_plaintext_ndcg_at_10": 0.3792973457559621,
+      "lexical_dpe_ndcg_at_10": 0.3792973457559621,
+      "heldout_queries": 19,
+      "heldout_semantic_ndcg_at_10": 0.4450261037798311,
+      "heldout_calibrated_fixed_rrf_ndcg_at_10": 0.4862242654444067,
+      "heldout_duetrank_ndcg_at_10": 0.45713263994749764,
+      "duetrank_vs_semantic": {
+        "mean_absolute_gain": 0.01210653616766651,
+        "ci95_low": 0.001037155007363329,
+        "ci95_high": 0.025580125983420174,
+        "one_sided_bootstrap_p": 0.013597280543891222,
+        "query_win_fraction": 0.3157894736842105,
+        "query_tie_fraction": 0.5789473684210527,
+        "query_loss_fraction": 0.10526315789473684
+      },
+      "duetrank_vs_fixed": {
+        "mean_absolute_gain": -0.029091625496909333,
+        "ci95_low": -0.07936607014168114,
+        "ci95_high": 0.01770401742425705,
+        "one_sided_bootstrap_p": 0.8788242351529694,
+        "query_win_fraction": 0.42105263157894735,
+        "query_tie_fraction": 0.0,
+        "query_loss_fraction": 0.5789473684210527
+      },
+      "client_inference_ms": 1.6361431586311053,
+      "dpe_online_steady_mean_ms": null,
+      "dpe_online_steady_p95_ms": null
+    },
+    {
+      "dataset": "nq",
+      "split": "test",
+      "documents": 2681468,
+      "queries": 3452,
+      "posting_budget": 50000,
+      "cloud_depth": 500,
+      "client_lexical_depth": 300,
+      "materialized_candidate_rows": 1562587,
+      "lexical_plaintext_ndcg_at_10": 0.2757640983714153,
+      "lexical_dpe_ndcg_at_10": 0.275602639417007,
+      "heldout_queries": 1739,
+      "heldout_semantic_ndcg_at_10": 0.5149153037844015,
+      "heldout_calibrated_fixed_rrf_ndcg_at_10": 0.5125345470944694,
+      "heldout_duetrank_ndcg_at_10": 0.5191028323034069,
+      "duetrank_vs_semantic": {
+        "mean_absolute_gain": 0.004187528519005354,
+        "ci95_low": 0.0019792357568324077,
+        "ci95_high": 0.006391886526956053,
+        "one_sided_bootstrap_p": 0.0001999600079984003,
+        "query_win_fraction": 0.07878090856814261,
+        "query_tie_fraction": 0.8602645198389879,
+        "query_loss_fraction": 0.06095457159286947
+      },
+      "duetrank_vs_fixed": {
+        "mean_absolute_gain": 0.0065682852089376555,
+        "ci95_low": 0.003631162856722301,
+        "ci95_high": 0.009473961752364025,
+        "one_sided_bootstrap_p": 0.0001999600079984003,
+        "query_win_fraction": 0.09258194364577343,
+        "query_tie_fraction": 0.8412880966072456,
+        "query_loss_fraction": 0.06612995974698102
+      },
+      "client_inference_ms": 1.7479919953994205,
+      "dpe_online_steady_mean_ms": 2.0922208345501643,
+      "dpe_online_steady_p95_ms": 3.7777859938796596
+    },
+    {
+      "dataset": "hotpotqa",
+      "split": "test",
+      "documents": 5233329,
+      "queries": 7405,
+      "posting_budget": 50000,
+      "cloud_depth": 200,
+      "client_lexical_depth": 100,
+      "materialized_candidate_rows": 2729389,
+      "lexical_plaintext_ndcg_at_10": 0.5785188890778804,
+      "lexical_dpe_ndcg_at_10": 0.5785005009008596,
+      "heldout_queries": 3740,
+      "heldout_semantic_ndcg_at_10": 0.6410812661982176,
+      "heldout_calibrated_fixed_rrf_ndcg_at_10": 0.6554589996919082,
+      "heldout_duetrank_ndcg_at_10": 0.6869463297545199,
+      "duetrank_vs_semantic": {
+        "mean_absolute_gain": 0.045865063556302314,
+        "ci95_low": 0.04117420875445583,
+        "ci95_high": 0.05078176456096746,
+        "one_sided_bootstrap_p": 0.0001999600079984003,
+        "query_win_fraction": 0.26898395721925134,
+        "query_tie_fraction": 0.567379679144385,
+        "query_loss_fraction": 0.16363636363636364
+      },
+      "duetrank_vs_fixed": {
+        "mean_absolute_gain": 0.031487330062611577,
+        "ci95_low": 0.02770386178730738,
+        "ci95_high": 0.0355294486015273,
+        "one_sided_bootstrap_p": 0.0001999600079984003,
+        "query_win_fraction": 0.23609625668449197,
+        "query_tie_fraction": 0.618716577540107,
+        "query_loss_fraction": 0.14518716577540106
+      },
+      "client_inference_ms": 1.5989674224622825,
+      "dpe_online_steady_mean_ms": 7.916533643903897,
+      "dpe_online_steady_p95_ms": 16.18042596732266
+    },
+    {
+      "dataset": "msmarco",
+      "split": "dev",
+      "documents": 8841823,
+      "queries": 6980,
+      "posting_budget": 250000,
+      "cloud_depth": 500,
+      "client_lexical_depth": 300,
+      "materialized_candidate_rows": 3890193,
+      "lexical_plaintext_ndcg_at_10": 0.21987270153088384,
+      "lexical_dpe_ndcg_at_10": 0.21967831559602574,
+      "heldout_queries": 3526,
+      "heldout_semantic_ndcg_at_10": 0.2835972040163669,
+      "heldout_calibrated_fixed_rrf_ndcg_at_10": 0.29228697410252497,
+      "heldout_duetrank_ndcg_at_10": 0.3022371353319266,
+      "duetrank_vs_semantic": {
+        "mean_absolute_gain": 0.018639931315559743,
+        "ci95_low": 0.01301242981002104,
+        "ci95_high": 0.024076187766880707,
+        "one_sided_bootstrap_p": 0.0001999600079984003,
+        "query_win_fraction": 0.18179239931934202,
+        "query_tie_fraction": 0.6392512762336926,
+        "query_loss_fraction": 0.1789563244469654
+      },
+      "duetrank_vs_fixed": {
+        "mean_absolute_gain": 0.009950161229401686,
+        "ci95_low": 0.005537199017494989,
+        "ci95_high": 0.014294781408420632,
+        "one_sided_bootstrap_p": 0.0001999600079984003,
+        "query_win_fraction": 0.1511627906976744,
+        "query_tie_fraction": 0.6783891094724901,
+        "query_loss_fraction": 0.1704480998298355
+      },
+      "client_inference_ms": 1.7426285138963844,
+      "dpe_online_steady_mean_ms": 10.712882742581112,
+      "dpe_online_steady_p95_ms": 17.736277994699773
+    }
+  ],
+  "msmarco_dev_semantic_cell_major": {
+    "documents": 8841823,
+    "queries": 6980,
+    "semantic_dpe_mean": {
+      "nDCG@10": 0.2881045936148537,
+      "MRR@10": 0.2335630713603493,
+      "Recall@10": 0.47243314231136574,
+      "Recall@100": 0.7819006685768862
+    },
+    "timing": {
+      "execution_order": "cell-major batched evaluation; protocol scores unchanged",
+      "probes": 128,
+      "cloud_depth": 200,
+      "posting_reads_query_equivalent": 8017492583,
+      "dpe_cell_scoring_seconds": 190.2672027000226,
+      "exact_client_rerank_seconds": 159.54590440000175,
+      "total_seconds": 349.81310710002435,
+      "throughput_queries_per_second_all_repeats": 99.76755956723146,
+      "latency_warning": "throughput execution; do not interpret as independent online latency"
+    }
+  },
+  "msmarco_dev_planner": {
+    "semantic_dpe_mean": {
+      "nDCG@10": 0.2881045936148537,
+      "MRR@10": 0.2335630713603493,
+      "Recall@10": 0.47243314231136574,
+      "Recall@100": 0.7819006685768862
+    },
+    "budget_50k_cap_1000": {
+      "posting_budget": 50000,
+      "candidate_cap": 1000,
+      "lexical_metrics": {
+        "nDCG@10": 0.15494711752832704,
+        "MRR@10": 0.12033912084413517,
+        "Recall@10": 0.27067812798471824,
+        "Recall@100": 0.5026981852913085
+      },
+      "relevant_candidate_coverage": 0.7035936007640878,
+      "mean_selected_terms": 1.8760744985673352,
+      "mean_estimated_postings": 20358.875358166188,
+      "latency_mean_ms": 21.00327597442517,
+      "latency_p95_ms": 44.07557004306,
+      "hybrid_by_semantic_weight": {
+        "0.8": {
+          "nDCG@10": 0.2842392528111054,
+          "MRR@10": 0.22579097876017648,
+          "Recall@10": 0.4807664756446991,
+          "Recall@100": 0.7819006685768862
+        },
+        "0.9": {
+          "nDCG@10": 0.2898413533348185,
+          "MRR@10": 0.232182880793196,
+          "Recall@10": 0.48358404966571156,
+          "Recall@100": 0.7819006685768862
+        },
+        "0.95": {
+          "nDCG@10": 0.29066071427727885,
+          "MRR@10": 0.23483962113976445,
+          "Recall@10": 0.47892788920725876,
+          "Recall@100": 0.7819006685768862
+        },
+        "0.98": {
+          "nDCG@10": 0.28987367942354797,
+          "MRR@10": 0.2353862509664802,
+          "Recall@10": 0.47415234001910217,
+          "Recall@100": 0.7819006685768862
+        },
+        "1.0": {
+          "nDCG@10": 0.2881045936148537,
+          "MRR@10": 0.2335630713603493,
+          "Recall@10": 0.47243314231136574,
+          "Recall@100": 0.7819006685768862
+        }
+      }
+    },
+    "budget_250k_cap_1000": {
+      "posting_budget": 250000,
+      "candidate_cap": 1000,
+      "lexical_metrics": {
+        "nDCG@10": 0.2106560840895597,
+        "MRR@10": 0.16721022649747577,
+        "Recall@10": 0.3565186246418338,
+        "Recall@100": 0.6212631327602673
+      },
+      "relevant_candidate_coverage": 0.8114971346704871,
+      "mean_selected_terms": 2.8945558739255013,
+      "mean_estimated_postings": 110826.78724928366,
+      "latency_mean_ms": 85.07820858130096,
+      "latency_p95_ms": 162.6741599640809,
+      "hybrid_by_semantic_weight": {
+        "0.8": {
+          "nDCG@10": 0.29276428139992694,
+          "MRR@10": 0.23501967071451313,
+          "Recall@10": 0.4874522445081185,
+          "Recall@100": 0.7819006685768862
+        },
+        "0.9": {
+          "nDCG@10": 0.2945232023830914,
+          "MRR@10": 0.23724831718742895,
+          "Recall@10": 0.4876671442215855,
+          "Recall@100": 0.7819006685768862
+        },
+        "0.95": {
+          "nDCG@10": 0.2937888170168226,
+          "MRR@10": 0.23806266202756174,
+          "Recall@10": 0.48229465138490923,
+          "Recall@100": 0.7819006685768862
+        },
+        "0.98": {
+          "nDCG@10": 0.29024398030248155,
+          "MRR@10": 0.23567272706599357,
+          "Recall@10": 0.4747970391595032,
+          "Recall@100": 0.7819006685768862
+        },
+        "1.0": {
+          "nDCG@10": 0.2881045936148537,
+          "MRR@10": 0.2335630713603493,
+          "Recall@10": 0.47243314231136574,
+          "Recall@100": 0.7819006685768862
+        }
+      }
+    }
+  },
+  "scope_warning": "Every reported complete-corpus query workload uses the full released HMAC index. Lexical coordinates are materialized for the union of every candidate row touched by that workload; results equal full-table row reads, but deployment-wide offline DPE storage/build cost is not measured."
+}

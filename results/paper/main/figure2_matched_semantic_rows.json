@@ -1,0 +1,86 @@
+{
+  "status": "passed",
+  "rows": [
+    {
+      "dataset": "nq",
+      "queries": 3452,
+      "scan_percent": 13.19415486428327,
+      "plain_all_query_ndcg10": 0.5178211578054439,
+      "protected_all_query_ndcg10": 0.5178954734794763,
+      "retention_percent": 100.01435161018668,
+      "semantic_inputs": [
+        {
+          "path": "<WORKSPACE>\\experiment_plaintext_float_matched_20261109\\semantic\\results\\nq\\verification.json",
+          "bytes": 11164,
+          "sha256": "509cde7af0576016cd5651f8737dd765b7e115001f4d6ea12bc6182a04fd53aa"
+        },
+        {
+          "path": "<WORKSPACE>\\experiment_plaintext_float_matched_20261109\\semantic\\results\\nq\\rankings.npz",
+          "bytes": 924741,
+          "sha256": "8e6625f333096f16ea632d10594114da6754623865f512d4074c4983a913d9b5"
+        },
+        {
+          "path": "<WORKSPACE>\\experiment_plaintext_float_matched_20261109\\semantic\\results\\nq\\per_query_metrics.npz",
+          "bytes": 45196,
+          "sha256": "4be97a65a8b33e249cd462ae722dc34d844cc3afdc688231495d9b6c5fe4ba33"
+        }
+      ],
+      "reference_role": "Matched floating Plain, not a full-corpus exhaustive oracle."
+    },
+    {
+      "dataset": "hotpotqa",
+      "queries": 7405,
+      "scan_percent": 12.814459237680847,
+      "plain_all_query_ndcg10": 0.639809811892837,
+      "protected_all_query_ndcg10": 0.6396169449432216,
+      "retention_percent": 99.96985558113826,
+      "semantic_inputs": [
+        {
+          "path": "<WORKSPACE>\\experiment_plaintext_float_matched_20261109\\semantic\\results\\hotpotqa\\verification.json",
+          "bytes": 11186,
+          "sha256": "9b2e163404b06074ca78575617b1a046cb7d7e4920fc5dacda42624abd00a522"
+        },
+        {
+          "path": "<WORKSPACE>\\experiment_plaintext_float_matched_20261109\\semantic\\results\\hotpotqa\\rankings.npz",
+          "bytes": 2570073,
+          "sha256": "460648a098098b27a06b503222eed62ae888f09bb38db20d1544fcd70a3799c4"
+        },
+        {
+          "path": "<WORKSPACE>\\experiment_plaintext_float_matched_20261109\\semantic\\results\\hotpotqa\\per_query_metrics.npz",
+          "bytes": 182097,
+          "sha256": "3c341210b77542c5c02f78d4beb7f6d612bb20138f0224926268cd297d9483a0"
+        }
+      ],
+      "reference_role": "Matched floating Plain, not a full-corpus exhaustive oracle."
+    },
+    {
+      "dataset": "msmarco",
+      "queries": 6980,
+      "scan_percent": 12.990973538448104,
+      "plain_all_query_ndcg10": 0.2881045936148537,
+      "protected_all_query_ndcg10": 0.2880468515053884,
+      "retention_percent": 99.97995793515791,
+      "semantic_inputs": [
+        {
+          "path": "<WORKSPACE>\\experiment_plaintext_float_matched_20261109\\semantic\\results\\msmarco_dev\\verification.json",
+          "bytes": 11195,
+          "sha256": "e3d0ca5e8f7c6803fe35ffc750a434fef4633e5fef880e4cb1a4500b532bd293"
+        },
+        {
+          "path": "<WORKSPACE>\\experiment_plaintext_float_matched_20261109\\semantic\\results\\msmarco_dev\\rankings.npz",
+          "bytes": 2192445,
+          "sha256": "5315f14b2ee9f796a6a9378955ccbb121b3a7d2d08a893df361d395a9670e1c3"
+        },
+        {
+          "path": "<WORKSPACE>\\experiment_plaintext_float_matched_20261109\\semantic\\results\\msmarco_dev\\per_query_metrics.npz",
+          "bytes": 107665,
+          "sha256": "65fd25e751310063d310215204d72d7ba6221c291133da431c0a05b18b2f3b67"
+        }
+      ],
+      "reference_role": "Matched floating Plain, not a full-corpus exhaustive oracle."
+    }
+  ],
+  "all_queries": 17837,
+  "figure_queries": 9005,
+  "cohort_note": "Table uses all queries, while Figure uses reused outer; no raw-mean equality is asserted between cohorts."
+}

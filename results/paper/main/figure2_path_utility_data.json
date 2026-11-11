@@ -1,0 +1,436 @@
+{
+  "schema": "matched-plain-floating-final257-v1",
+  "status": "passed",
+  "matched_plaintext_rerun": true,
+  "integer_results_used": false,
+  "historical_plain_values_used": false,
+  "plain_effective_repeats": 1,
+  "protected_repeats": 3,
+  "metric": "reused-outer nDCG@10",
+  "datasets": [
+    {
+      "dataset": "nq",
+      "queries": 3452,
+      "outer_queries": 1739,
+      "plain": {
+        "semantic": 0.5149307554289104,
+        "lexical": 0.2739679327411709,
+        "fixed_rrf": 0.5149307554289104,
+        "duetrank": 0.5193288599447411,
+        "standard_rrf": 0.4204287975269884
+      },
+      "protected": {
+        "semantic": 0.5149372924909441,
+        "lexical": 0.2680146974566751,
+        "fixed_rrf": 0.5149372924909441,
+        "duetrank": 0.5184928856177089,
+        "standard_rrf": 0.4108601213184367
+      },
+      "model": {
+        "path": "<WORKSPACE>\\experiment_project_then_lift_20261107\\results\\nq\\projectlift_r256_noisy_fp16\\fusion\\duetrank.joblib",
+        "bytes": 367768,
+        "sha256": "b62b60bf269720308a9a762e2864a8bce255596e1ee8ae43dce523594f777bc5"
+      },
+      "semantic_backoff_weight": 0.5,
+      "fixed_rrf_semantic_weight": 1.0,
+      "inputs": [
+        {
+          "path": "<WORKSPACE>\\experiment_plaintext_float_matched_20261109\\fusion\\nq\\results.json",
+          "bytes": 8158,
+          "sha256": "2ade1b40406e8a7a0ff8ed2bfeb7d0d184740addf04b27e4d06a21a32ff4b0dc"
+        },
+        {
+          "path": "<WORKSPACE>\\experiment_plaintext_float_matched_20261109\\fusion\\nq\\metrics.npz",
+          "bytes": 29844,
+          "sha256": "3a18b33e3c7ff0464f86d98d5129921e36866d5a076e1cb74d3f63f4f2bc1bd8"
+        },
+        {
+          "path": "<WORKSPACE>\\experiment_project_then_lift_20261107\\results\\nq\\projectlift_r256_noisy_fp16\\fusion\\holdout_metrics.npz",
+          "bytes": 36469,
+          "sha256": "f8e2371250a72f5128dd769c754d23cb27d78dd72e57e9eb65a9cc835ac0648d"
+        },
+        {
+          "path": "<WORKSPACE>\\experiment_plaintext_float_matched_20261109\\protected_replay\\nq\\verification.json",
+          "bytes": 7692,
+          "sha256": "3c6ae27eef2309cd5edeed9427f31bd2c4d838f4975f3c99614ae218494211ed"
+        }
+      ],
+      "encoder_provenance": {
+        "mode": "original floating-study cached query embeddings; no encoder execution",
+        "query_ids_sha256": "1099b89c76f46b7e1c8036c104e249f09c6d594c19cfff9aeab343dd4f04680d",
+        "embedding_path": "<WORKSPACE>\\duetdpe_experiments\\cache\\full_semantic\\nq_2681468\\query_embeddings.npy",
+        "embedding_sha256": "252b19d0382e7af1298430e68371f626edf96c47645bd070a4660823fe13422c",
+        "dtype": "float32",
+        "shape": [
+          3452,
+          384
+        ],
+        "frozen_config_sha256": "149fb6ff7d30f24ca9d404c7e9cf5691b47202388c1a53104735404171f2d1f9"
+      },
+      "paired_intervals": {
+        "semantic": {
+          "plain_mean": 0.5149307554289104,
+          "protected_mean": 0.5149372924909441,
+          "protected_minus_plain": 6.5370620336846486e-06,
+          "paired_difference_ci95": [
+            0.0,
+            1.7458608210452198e-05
+          ],
+          "protected_over_plain": 1.0000126950312538,
+          "paired_ratio_ci95": [
+            1.0,
+            1.0000341763053517
+          ]
+        },
+        "lexical": {
+          "plain_mean": 0.2739679327411709,
+          "protected_mean": 0.2680146974566751,
+          "protected_minus_plain": -0.005953235284495817,
+          "paired_difference_ci95": [
+            -0.010748018942619637,
+            -0.0013575833567313893
+          ],
+          "protected_over_plain": 0.9782703208184583,
+          "paired_ratio_ci95": [
+            0.9610508272981156,
+            0.9950103158146119
+          ]
+        },
+        "fixed_rrf": {
+          "plain_mean": 0.5149307554289104,
+          "protected_mean": 0.5149372924909441,
+          "protected_minus_plain": 6.5370620336846486e-06,
+          "paired_difference_ci95": [
+            0.0,
+            1.7458608210452198e-05
+          ],
+          "protected_over_plain": 1.0000126950312538,
+          "paired_ratio_ci95": [
+            1.0,
+            1.0000341763053517
+          ]
+        },
+        "duetrank": {
+          "plain_mean": 0.5193288599447411,
+          "protected_mean": 0.5184928856177089,
+          "protected_minus_plain": -0.0008359743270321962,
+          "paired_difference_ci95": [
+            -0.0024643498800335033,
+            0.0007697460888666294
+          ],
+          "protected_over_plain": 0.9983902794712369,
+          "paired_ratio_ci95": [
+            0.9952636075664109,
+            1.0014787988109592
+          ]
+        },
+        "standard_rrf": {
+          "plain_mean": 0.4204287975269884,
+          "protected_mean": 0.4108601213184367,
+          "protected_minus_plain": -0.00956867620855173,
+          "paired_difference_ci95": [
+            -0.01709180854338071,
+            -0.0021704154938094597
+          ],
+          "protected_over_plain": 0.9772406736530994,
+          "paired_ratio_ci95": [
+            0.9593350897952734,
+            0.9947956233429215
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "hotpotqa",
+      "queries": 7405,
+      "outer_queries": 3740,
+      "plain": {
+        "semantic": 0.6410812661982186,
+        "lexical": 0.587359445431846,
+        "fixed_rrf": 0.6545425049571977,
+        "duetrank": 0.6868660019540376,
+        "standard_rrf": 0.6539836922424084
+      },
+      "protected": {
+        "semantic": 0.6408977307190804,
+        "lexical": 0.5679695886755377,
+        "fixed_rrf": 0.6467162095085213,
+        "duetrank": 0.6817255964642008,
+        "standard_rrf": 0.6340555459811861
+      },
+      "model": {
+        "path": "<WORKSPACE>\\experiment_project_then_lift_20261107\\results\\hotpotqa\\projectlift_r256_noisy_fp16\\fusion\\duetrank.joblib",
+        "bytes": 360488,
+        "sha256": "6484e43bee71bf728863699d74ab5daac7bc60d703839cd224bb198e9ceb6dcf"
+      },
+      "semantic_backoff_weight": 0.0,
+      "fixed_rrf_semantic_weight": 0.9,
+      "inputs": [
+        {
+          "path": "<WORKSPACE>\\experiment_plaintext_float_matched_20261109\\fusion\\hotpotqa\\results.json",
+          "bytes": 8220,
+          "sha256": "f8136f8bb5db395233256d54bd326e93ff74d5a52ac1d5cfd6e63e080d9c734a"
+        },
+        {
+          "path": "<WORKSPACE>\\experiment_plaintext_float_matched_20261109\\fusion\\hotpotqa\\metrics.npz",
+          "bytes": 142329,
+          "sha256": "4dba8e553c0c2e92e2689cbe969655d913f3c6d6c5ac7cd97e2e5671ea270823"
+        },
+        {
+          "path": "<WORKSPACE>\\experiment_project_then_lift_20261107\\results\\hotpotqa\\projectlift_r256_noisy_fp16\\fusion\\holdout_metrics.npz",
+          "bytes": 205580,
+          "sha256": "c9d7267d5b5c30807d32baa28c70974c83505fa25ffdb96132cd2cc8fa579163"
+        },
+        {
+          "path": "<WORKSPACE>\\experiment_plaintext_float_matched_20261109\\protected_replay\\hotpotqa\\verification.json",
+          "bytes": 7752,
+          "sha256": "01eab3ab53942466ca6317da660cc5fbcf756211a76b8b61d3eccf4287e41f7e"
+        }
+      ],
+      "encoder_provenance": {
+        "mode": "original floating-study cached query embeddings; no encoder execution",
+        "query_ids_sha256": "fc5c4bbd3b2a0304803f118cc098eec9d78521ac7f769877774239f52a4ecf6c",
+        "embedding_path": "<WORKSPACE>\\duetdpe_experiments\\cache\\full_semantic\\hotpotqa_5233329\\query_embeddings.npy",
+        "embedding_sha256": "9732932b2600059225bd03ae52d7fbe4de0405b15e9120eeda70d762e8acc180",
+        "dtype": "float32",
+        "shape": [
+          7405,
+          384
+        ],
+        "frozen_config_sha256": "149fb6ff7d30f24ca9d404c7e9cf5691b47202388c1a53104735404171f2d1f9"
+      },
+      "paired_intervals": {
+        "semantic": {
+          "plain_mean": 0.6410812661982186,
+          "protected_mean": 0.6408977307190804,
+          "protected_minus_plain": -0.00018353547913818602,
+          "paired_difference_ci95": [
+            -0.0005726303486134094,
+            0.00016798128380109936
+          ],
+          "protected_over_plain": 0.99971370949548,
+          "paired_ratio_ci95": [
+            0.999106228669373,
+            1.0002627826608352
+          ]
+        },
+        "lexical": {
+          "plain_mean": 0.587359445431846,
+          "protected_mean": 0.5679695886755377,
+          "protected_minus_plain": -0.019389856756308332,
+          "paired_difference_ci95": [
+            -0.0227117633608091,
+            -0.01612319709773579
+          ],
+          "protected_over_plain": 0.9669880906706927,
+          "paired_ratio_ci95": [
+            0.9613779652482836,
+            0.9725213325679956
+          ]
+        },
+        "fixed_rrf": {
+          "plain_mean": 0.6545425049571977,
+          "protected_mean": 0.6467162095085213,
+          "protected_minus_plain": -0.007826295448676412,
+          "paired_difference_ci95": [
+            -0.00984727805196001,
+            -0.00581352100783989
+          ],
+          "protected_over_plain": 0.9880431058496527,
+          "paired_ratio_ci95": [
+            0.9849626286070154,
+            0.9911038801978103
+          ]
+        },
+        "duetrank": {
+          "plain_mean": 0.6868660019540376,
+          "protected_mean": 0.6817255964642008,
+          "protected_minus_plain": -0.005140405489836741,
+          "paired_difference_ci95": [
+            -0.006867349957454111,
+            -0.0034934880491719646
+          ],
+          "protected_over_plain": 0.9925161451065957,
+          "paired_ratio_ci95": [
+            0.9899974573996652,
+            0.9949158800154145
+          ]
+        },
+        "standard_rrf": {
+          "plain_mean": 0.6539836922424084,
+          "protected_mean": 0.6340555459811861,
+          "protected_minus_plain": -0.0199281462612223,
+          "paired_difference_ci95": [
+            -0.02360588240231536,
+            -0.016298475439012933
+          ],
+          "protected_over_plain": 0.9695280685166754,
+          "paired_ratio_ci95": [
+            0.963942092938609,
+            0.9750451439323766
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "msmarco",
+      "queries": 6980,
+      "outer_queries": 3526,
+      "plain": {
+        "semantic": 0.28359720401636535,
+        "lexical": 0.2257488235200477,
+        "fixed_rrf": 0.2931016165414651,
+        "duetrank": 0.302931045420139,
+        "standard_rrf": 0.28387926940070796
+      },
+      "protected": {
+        "semantic": 0.283482898876244,
+        "lexical": 0.21889717474954662,
+        "fixed_rrf": 0.2906187132278967,
+        "duetrank": 0.2994924498369602,
+        "standard_rrf": 0.2731917739621296
+      },
+      "model": {
+        "path": "<WORKSPACE>\\experiment_project_then_lift_20261107\\results\\msmarco_dev\\projectlift_r256_noisy_fp16\\fusion\\duetrank.joblib",
+        "bytes": 130208,
+        "sha256": "f79ea985b74a0782e9bc63d633d8be7b0fb0b6cee58ad2142e6b6092fe5a603d"
+      },
+      "semantic_backoff_weight": 0.0,
+      "fixed_rrf_semantic_weight": 0.9,
+      "inputs": [
+        {
+          "path": "<WORKSPACE>\\experiment_plaintext_float_matched_20261109\\fusion\\msmarco_dev\\results.json",
+          "bytes": 8252,
+          "sha256": "892ac0a39178e8d956867f2076eb220b5244b99251d2e5fd5252bf2105a57372"
+        },
+        {
+          "path": "<WORKSPACE>\\experiment_plaintext_float_matched_20261109\\fusion\\msmarco_dev\\metrics.npz",
+          "bytes": 59548,
+          "sha256": "d06c98b1a55925fe6415edcc33b5cd4a7ed73179e9752927c94ef0f66efe1fc7"
+        },
+        {
+          "path": "<WORKSPACE>\\experiment_project_then_lift_20261107\\results\\msmarco_dev\\projectlift_r256_noisy_fp16\\fusion\\holdout_metrics.npz",
+          "bytes": 108594,
+          "sha256": "97aa9999a6fa6bdd5849ab8b2b6e1347bb263a059a3cf0716cd2fb232c8a826b"
+        },
+        {
+          "path": "<WORKSPACE>\\experiment_plaintext_float_matched_20261109\\protected_replay\\msmarco_dev\\verification.json",
+          "bytes": 7781,
+          "sha256": "adc7069e29227f1ab275f713dccf9fc75125f81921e8c752890238c976d2808a"
+        }
+      ],
+      "encoder_provenance": {
+        "mode": "original floating-study cached query embeddings; no encoder execution",
+        "query_ids_sha256": "c8c5c209f441a2391694543619ec8b003051d99cac5ea7bc96c7477014807e1a",
+        "embedding_path": "<WORKSPACE>\\duetdpe_experiments\\cache\\full_semantic\\msmarco_8841823\\query_embeddings_dev.npy",
+        "embedding_sha256": "b01a0593cd3bc8639485bc232a9fafad404ac6eb243a5f39ac1212df3f68aee8",
+        "dtype": "float32",
+        "shape": [
+          6980,
+          384
+        ],
+        "frozen_config_sha256": "149fb6ff7d30f24ca9d404c7e9cf5691b47202388c1a53104735404171f2d1f9"
+      },
+      "paired_intervals": {
+        "semantic": {
+          "plain_mean": 0.28359720401636535,
+          "protected_mean": 0.283482898876244,
+          "protected_minus_plain": -0.00011430514012134019,
+          "paired_difference_ci95": [
+            -0.00038859102159793935,
+            0.00010053277752924972
+          ],
+          "protected_over_plain": 0.9995969454617234,
+          "paired_ratio_ci95": [
+            0.998603189558734,
+            1.0003568272545755
+          ]
+        },
+        "lexical": {
+          "plain_mean": 0.2257488235200477,
+          "protected_mean": 0.21889717474954662,
+          "protected_minus_plain": -0.006851648770501068,
+          "paired_difference_ci95": [
+            -0.010057001415213356,
+            -0.0038812935841868357
+          ],
+          "protected_over_plain": 0.9696492381946229,
+          "paired_ratio_ci95": [
+            0.9555782870880799,
+            0.9826571616982127
+          ]
+        },
+        "fixed_rrf": {
+          "plain_mean": 0.2931016165414651,
+          "protected_mean": 0.2906187132278967,
+          "protected_minus_plain": -0.0024829033135684297,
+          "paired_difference_ci95": [
+            -0.005215437235146156,
+            0.00021748450401539902
+          ],
+          "protected_over_plain": 0.9915288651667427,
+          "paired_ratio_ci95": [
+            0.9822877809854582,
+            1.0007427024972806
+          ]
+        },
+        "duetrank": {
+          "plain_mean": 0.302931045420139,
+          "protected_mean": 0.2994924498369602,
+          "protected_minus_plain": -0.003438595583178772,
+          "paired_difference_ci95": [
+            -0.006006652883251172,
+            -0.0008871154666358191
+          ],
+          "protected_over_plain": 0.9886489165268296,
+          "paired_ratio_ci95": [
+            0.9802267855798474,
+            0.9970904135765184
+          ]
+        },
+        "standard_rrf": {
+          "plain_mean": 0.28387926940070796,
+          "protected_mean": 0.2731917739621296,
+          "protected_minus_plain": -0.010687495438578332,
+          "paired_difference_ci95": [
+            -0.0149833098034407,
+            -0.0066342690406618905
+          ],
+          "protected_over_plain": 0.9623519693384427,
+          "paired_ratio_ci95": [
+            0.947302882230173,
+            0.9764718217348148
+          ]
+        }
+      }
+    }
+  ],
+  "figure_methods": [
+    "semantic",
+    "lexical",
+    "fixed_rrf",
+    "duetrank"
+  ],
+  "scope": "Same original floating query embeddings, routed cells, local return slots, lexical planner and quotas; fixed protected-trained fusion model and calibration weights. Actual deduplicated semantic candidate counts may differ.",
+  "plain_definition": "Original384D semantic dot and original1024D hashed lexical dot before protected projection/lift/noise, then native reranking. Retains route and budget restrictions.",
+  "pairing": "Average three Protected repetitions within each query, then pair with deterministic Plain. Percentile paired-query bootstrap, 10000 resamples, seed20261109; conditional on frozen model/index and reused outer cohort.",
+  "no_new_model_fit_or_selection": true,
+  "no_timing_or_privacy_measurement": true,
+  "source_bindings": [
+    {
+      "path": "<WORKSPACE>\\experiment_plaintext_float_matched_20261109\\EXECUTION_PLAN.txt",
+      "bytes": 4543,
+      "sha256": "116f33e625d24cf20b37100d5aeee5f0f2be42a91966cfc1e07ee06715c91ce7"
+    },
+    {
+      "path": "<WORKSPACE>\\experiment_plaintext_float_matched_20261109\\run_fusion.py",
+      "bytes": 8818,
+      "sha256": "d3f960b6efb1b209b33471ce66bdb90d669b26a274edadb2fe546259b83a5cdd"
+    },
+    {
+      "path": "<WORKSPACE>\\experiment_plaintext_float_matched_20261109\\assemble_results.py",
+      "bytes": 6210,
+      "sha256": "e6795c661224463318a63f232e8cc9f0e4ea6819b71aebc975f8bec4dbff2ea3"
+    }
+  ]
+}

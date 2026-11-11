@@ -1,0 +1,94 @@
+Matched-budget component ablation, registered before evaluating new variants.
+2026-11-09. Prior experiment trees remain immutable.
+
+Question: separately measure early pruning, semantic and lexical CCADPE,
+native reranking, and DuetRank at matched downstream candidate budgets.
+
+Seven registered rows:
+full: floating final257 system under the new common semantic budget below.
+late_route: generate all2048 semantic local query views and actually score
+all stored semantic compartment copies. Apply the same original128 routed
+cell eligibility only after scoring; emit exactly the same local slots as
+full. This is a late-filter execution control, not unrestricted full-corpus
+retrieval quality. Query generation/upload, all scans and filtering are timed.
+plain_semantic: replace semantic CCADPE local views by native384 FP32 dot
+products in a newly prepared contiguous, cell-replicated FP32 index. Same
+original routes and local return depths. Retain lexical final257.
+plain_lexical: replace lexical final257 local distance by historical saved
+FP16 hashed1024 features cast toFP32, with the same pool and cell quotas.
+planner_quota_lexical: same pool and quotas; select first planner positions
+within each cell, without lexical numerical query construction or scoring.
+no_native: same protected candidates/payload/join authentication and decryption;
+retain semantic FP16 decoding, omit native semantic dot products and the BM25
+stage (including lexical token parsing). Semantic ranking is rank-major
+round-robin over local rank then frozen route order, stable first-occurrence
+deduplication. Lexical ranking restores original planner order. Never compare
+raw cross-cell CCADPE scores. Native scored counts are intentionally zero.
+fixed_rrf: replace only frozen DuetRank/backoff by the already calibrated
+fixed RRF (semantic weights1/.9/.9 for NQ/HotpotQA/MS MARCO, constant60).
+
+Common candidate admission, before native scores:
+For each query/repeat, B*=min(distinct full semantic returns, distinct
+plain_semantic returns). This is an offline owner-only matching policy.
+Every row admits the first B* distinct documents under rank-major round-robin
+and route order, before any native feature scoring. Thus full is a new
+common-budget variant; do not copy old Full quality/times into this table.
+Store B* outside server manifests. All variants retain2048/2048/4096 semantic
+wire slots and the same planner cap1000, 16-cell quotas and lexical cap300.
+Record raw copies, unique counts, discarded unique candidates, admitted B*,
+native score counts, lexical pool/valid/dummy counts separately.
+All native-scoring rows score B* semantic candidates and every selected
+lexical candidate. no_native preserves admission but deliberately skips
+those score computations. Per-path output100; fused top100; Fetch20.
+
+Precision and protection:
+All live semantic return payloads contain384 native FP16 values, decrypted
+and scored inFP32. Preserve real AES-GCM feature/join/document wrappers.
+Plain controls expose unprotected numerical input representations and are
+component references, not equal-security alternative schemes. They replace
+the representation chain including width/precision; not a pure-noise test.
+New contiguous Plain semantic storage avoids a random-gather-only artifact.
+Fresh protected stores are prepared offline for every possible selected
+candidate/Fetch document. No online record synthesis, missing-record fallback,
+cached output replay, or manufactured network bytes. Changed Top20 may change
+Fetch bytes even when Search slot budgets are identical.
+
+Quality panel: cached original queries, full17,837 metadata, report9,005 reused
+outer queries; same frozen final257 fusion model and calibrated RRF, no fit
+or tuning. Three existing protected query-noise repetitions, query-paired
+10,000 bootstrap resamples after averaging repetitions. Recompute native
+semantic scores on admitted B*, never truncate a previously native-ranked
+list and call it equal scoring work. Retain negative and zero differences.
+The cached panel uses original FP32 native features, not live FP16 payloads.
+
+Joint quality/cost panel: retain the established16 fixed queries per corpus
+(48 unique total;22 outer and26 calibration), fresh CPU encoding and actual
+FP16 Search+Fetch. Recompute nDCG@10 and Recall@100 from fused top100 for these
+same calls; do not use Fetch20 as Recall@100. Distinct query units, not repeated
+executions, define paired intervals. Fixed-model reused-cohort results are
+exploratory, not independent confirmation or equivalence proof.
+
+Formal timing: one CPU2 client, one serialized server worker per active mode,
+same workstation; initial two full warmup passes per mode then three measured
+passes. Cyclic mode order and cyclic query order fixed before results. Actual
+TCP streaming proxy100Mbps each direction,20ms RTT, no TLS or packet/header
+model. Include fresh raw-text encoder, query/token preparation, all Search
+selection and record reads, framed transport, record authentication/recovery,
+admission/reranking/fusion, Fetch20 and document authenticate/decrypt/parse/ID
+checks. Exclude process/model startup and LLM generation. Separate stage clocks
+are nested diagnostics, not summed to reconstruct endpoint latency.
+Report measured mean/p50/p95, actual upload/Search-download/Fetch bytes and
+total bytes, observed sequential batch throughput. All variants run anew;
+never splice earlier cross-system measurements. Paired95% bootstrap CIs on
+latency differences/ratios, bytes and quality,16 query units per corpus.
+
+No heavy scientific process was running at initial process inventory. Stop
+preparation, quality evaluation, hashing and plotting before formal timing.
+Functional acceptance must verify same candidate budgets, late-route exact
+selection equivalence, plaintext cell scoring, expected native-score counters,
+actual wrappers/Fetch identities, frozen models, runtime providers and wire
+byte reconciliation. Preserve failed attempts and all valid slow observations.
+Formal output is written to a fresh run directory, never overwrite old runs.
+
+Publication: retain original manuscript framework/results. This round's new
+and edited text must be BLUE; earlier red revisions remain red.

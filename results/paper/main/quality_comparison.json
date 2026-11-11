@@ -1,0 +1,869 @@
+{
+  "configuration_sha256": "149fb6ff7d30f24ca9d404c7e9cf5691b47202388c1a53104735404171f2d1f9",
+  "primary_direct_control": "planner first 300, no CCADPE filtering, exact native BM25; independently calibrated identical fusion procedure",
+  "secondary_direct_control": "all planner <=1000, more client scoring work; separately calibrated identical fusion procedure",
+  "bootstrap_policy": "paired held-out queries, average three noise repeats per query before resampling; conditional on the fixed repeat-zero calibration models",
+  "datasets": {
+    "nq": {
+      "query_count": 3452,
+      "holdout_count": 1739,
+      "query_ids_sha256": "8b460055e92ec160a0ebe514efe1ada92b0c2e63e843c41b94cfd1ed5d4ba619",
+      "methods": {
+        "duet": {
+          "semantic": {
+            "heldout_ndcg10": 0.5149372924909454,
+            "per_repeat": [
+              0.5149439088813398,
+              0.5149339842957462,
+              0.5149339842957462
+            ]
+          },
+          "lexical": {
+            "heldout_ndcg10": 0.27210065800033306,
+            "per_repeat": [
+              0.2718987018244386,
+              0.2722923390430782,
+              0.27211093313348317
+            ]
+          },
+          "duetrank": {
+            "heldout_ndcg10": 0.5205236930780963,
+            "per_repeat": [
+              0.520472466806778,
+              0.5204661938427592,
+              0.5206324185847476
+            ]
+          },
+          "fixed_rrf": {
+            "heldout_ndcg10": 0.5149372924909454,
+            "per_repeat": [
+              0.5149439088813398,
+              0.5149339842957462,
+              0.5149339842957462
+            ]
+          },
+          "standard_rrf": {
+            "heldout_ndcg10": 0.41895946061396605,
+            "per_repeat": [
+              0.4186741150693922,
+              0.41910852815902266,
+              0.4190957386134818
+            ]
+          }
+        },
+        "direct300": {
+          "semantic": {
+            "heldout_ndcg10": 0.5149372924909454,
+            "per_repeat": [
+              0.5149439088813398,
+              0.5149339842957462,
+              0.5149339842957462
+            ]
+          },
+          "lexical": {
+            "heldout_ndcg10": 0.27297838093432725,
+            "per_repeat": [
+              0.2729783809343275,
+              0.2729783809343275,
+              0.2729783809343275
+            ]
+          },
+          "duetrank": {
+            "heldout_ndcg10": 0.5221090547110852,
+            "per_repeat": [
+              0.5221152267912645,
+              0.5221059686709933,
+              0.5221059686709933
+            ]
+          },
+          "fixed_rrf": {
+            "heldout_ndcg10": 0.5149372924909454,
+            "per_repeat": [
+              0.5149439088813398,
+              0.5149339842957462,
+              0.5149339842957462
+            ]
+          },
+          "standard_rrf": {
+            "heldout_ndcg10": 0.4195986404863783,
+            "per_repeat": [
+              0.41943268582737997,
+              0.4194290910139325,
+              0.41993414461782086
+            ]
+          }
+        },
+        "direct1000": {
+          "semantic": {
+            "heldout_ndcg10": 0.5149372924909454,
+            "per_repeat": [
+              0.5149439088813398,
+              0.5149339842957462,
+              0.5149339842957462
+            ]
+          },
+          "lexical": {
+            "heldout_ndcg10": 0.27562145394987747,
+            "per_repeat": [
+              0.27562145394987797,
+              0.27562145394987797,
+              0.27562145394987797
+            ]
+          },
+          "duetrank": {
+            "heldout_ndcg10": 0.520890229784513,
+            "per_repeat": [
+              0.5208187111058441,
+              0.5209445003603578,
+              0.520907477887333
+            ]
+          },
+          "fixed_rrf": {
+            "heldout_ndcg10": 0.5133788923133404,
+            "per_repeat": [
+              0.5133850643935198,
+              0.5133758062732487,
+              0.5133758062732487
+            ]
+          },
+          "standard_rrf": {
+            "heldout_ndcg10": 0.42560761068552666,
+            "per_repeat": [
+              0.42545264121989546,
+              0.42547207113773783,
+              0.4258981196989444
+            ]
+          }
+        }
+      },
+      "paired_comparisons": {
+        "duet_fusion_minus_semantic": {
+          "mean_difference": 0.005586400587150803,
+          "ci95": [
+            0.0031812962685734097,
+            0.008081731720445495
+          ],
+          "one_sided_p_nonpositive": 0.0001999600079984003,
+          "win_fraction": 0.09660724554341575,
+          "tie_fraction": 0.8378378378378378,
+          "loss_fraction": 0.0655549166187464,
+          "queries": 1739
+        },
+        "duet_lexical_minus_direct300": {
+          "mean_difference": -0.0008777229339942052,
+          "ci95": [
+            -0.00284824418207934,
+            0.000769719466287522
+          ],
+          "one_sided_p_nonpositive": 0.8338332333533294,
+          "win_fraction": 0.014951121334100058,
+          "tie_fraction": 0.9775733179988499,
+          "loss_fraction": 0.007475560667050029,
+          "queries": 1739
+        },
+        "duet_fusion_minus_direct300_fusion": {
+          "mean_difference": -0.001585361632988898,
+          "ci95": [
+            -0.00407548744537997,
+            0.0008701582457575727
+          ],
+          "one_sided_p_nonpositive": 0.9038192361527695,
+          "win_fraction": 0.041403105232892465,
+          "tie_fraction": 0.9177688326624497,
+          "loss_fraction": 0.04082806210465785,
+          "queries": 1739
+        },
+        "direct300_fusion_minus_semantic": {
+          "mean_difference": 0.0071717622201397015,
+          "ci95": [
+            0.00394393729158417,
+            0.010438065627540625
+          ],
+          "one_sided_p_nonpositive": 0.0003999200159968006,
+          "win_fraction": 0.10925819436457734,
+          "tie_fraction": 0.8102357676825762,
+          "loss_fraction": 0.08050603795284646,
+          "queries": 1739
+        },
+        "duet_lexical_minus_direct1000": {
+          "mean_difference": -0.0035207959495444285,
+          "ci95": [
+            -0.007478482711491868,
+            4.381495740757575e-05
+          ],
+          "one_sided_p_nonpositive": 0.9738052389522096,
+          "win_fraction": 0.039677975848188614,
+          "tie_fraction": 0.9430707303047728,
+          "loss_fraction": 0.017251293847038527,
+          "queries": 1739
+        },
+        "duet_fusion_minus_direct1000_fusion": {
+          "mean_difference": -0.00036653670641678725,
+          "ci95": [
+            -0.0020774449791885747,
+            0.001322983526750937
+          ],
+          "one_sided_p_nonpositive": 0.6752649470105979,
+          "win_fraction": 0.04427832087406555,
+          "tie_fraction": 0.9143185738930419,
+          "loss_fraction": 0.041403105232892465,
+          "queries": 1739
+        },
+        "direct1000_fusion_minus_semantic": {
+          "mean_difference": 0.005952937293567591,
+          "ci95": [
+            0.003509173256656004,
+            0.008591668962830912
+          ],
+          "one_sided_p_nonpositive": 0.0001999600079984003,
+          "win_fraction": 0.10005750431282347,
+          "tie_fraction": 0.8171362852213916,
+          "loss_fraction": 0.08280621046578493,
+          "queries": 1739
+        }
+      },
+      "selections": {
+        "duet": {
+          "max_leaf_nodes": 31,
+          "semantic_backoff_weight": 0.5,
+          "inner_validation_ndcg": 0.5291306471949918,
+          "fixed_rrf_semantic_weight": 1.0,
+          "training_rows": 398291,
+          "model_path": "<WORKSPACE>\\experiment_revision_20261107\\results\\nq\\duetrank.joblib"
+        },
+        "direct300": {
+          "max_leaf_nodes": 31,
+          "semantic_backoff_weight": 0.5,
+          "inner_validation_ndcg": 0.5293661438198282,
+          "fixed_rrf_semantic_weight": 1.0,
+          "training_rows": 397994,
+          "model_path": "<WORKSPACE>\\experiment_revision_20261107\\direct_bm25\\nq\\fusion_300\\duetrank.joblib"
+        },
+        "direct1000": {
+          "max_leaf_nodes": 31,
+          "semantic_backoff_weight": 0.5,
+          "inner_validation_ndcg": 0.5306949591986864,
+          "fixed_rrf_semantic_weight": 0.98,
+          "training_rows": 396791,
+          "model_path": "<WORKSPACE>\\experiment_revision_20261107\\direct_bm25\\nq\\fusion_1000\\duetrank.joblib"
+        }
+      },
+      "candidate_counts": {
+        "ccadpe_exact_bm25_mean": 299.40758980301274,
+        "ccadpe_exact_bm25_max": 300,
+        "direct": {
+          "300": {
+            "candidate_rule": "First <= 300 FTS5 planner candidates; no CCADPE filtering; exact native BM25",
+            "scored_candidates_mean": 299.40758980301274,
+            "scored_candidates_max": 300,
+            "all_queries": {
+              "nDCG@10": 0.275508871267557,
+              "MRR@10": 0.239260539093969,
+              "Recall@10": 0.4282058709926613,
+              "Recall@100": 0.6651699497875628
+            },
+            "heldout_ndcg_at_10": 0.2729783809343273,
+            "calibration_ndcg_at_10": 0.2780777695101061,
+            "bm25_kernel_ms": {
+              "mean_ms": 0.2173213496939673,
+              "p50_ms": 0.20499993115663528,
+              "p95_ms": 0.26729999226517975
+            }
+          },
+          "1000": {
+            "candidate_rule": "First <= 1000 FTS5 planner candidates; no CCADPE filtering; exact native BM25",
+            "scored_candidates_mean": 995.5909617612978,
+            "scored_candidates_max": 1000,
+            "all_queries": {
+              "nDCG@10": 0.27942736059868034,
+              "MRR@10": 0.24263286523570418,
+              "Recall@10": 0.43453070683661643,
+              "Recall@100": 0.6981942835071455
+            },
+            "heldout_ndcg_at_10": 0.27562145394987747,
+            "calibration_ndcg_at_10": 0.28329103348967166,
+            "bm25_kernel_ms": {
+              "mean_ms": 0.42053487903637077,
+              "p50_ms": 0.4141000099480152,
+              "p95_ms": 0.506900018081069
+            }
+          }
+        }
+      }
+    },
+    "hotpotqa": {
+      "query_count": 7405,
+      "holdout_count": 3740,
+      "query_ids_sha256": "c476b8bcccfa637e597454e9f24abe83af3738a47b873661b172effb2ca5710c",
+      "methods": {
+        "duet": {
+          "semantic": {
+            "heldout_ndcg10": 0.6408977307190794,
+            "per_repeat": [
+              0.6408935948536961,
+              0.6408988178482972,
+              0.6409007794552479
+            ]
+          },
+          "lexical": {
+            "heldout_ndcg10": 0.5774618785725008,
+            "per_repeat": [
+              0.5774491873433759,
+              0.5774267545105342,
+              0.5775096938635713
+            ]
+          },
+          "duetrank": {
+            "heldout_ndcg10": 0.6843241488745767,
+            "per_repeat": [
+              0.6842965161367275,
+              0.6843249500058893,
+              0.6843509804811282
+            ]
+          },
+          "fixed_rrf": {
+            "heldout_ndcg10": 0.6518993438993539,
+            "per_repeat": [
+              0.6519505330305346,
+              0.6518270882523036,
+              0.6519204104152316
+            ]
+          },
+          "standard_rrf": {
+            "heldout_ndcg10": 0.6447280831391257,
+            "per_repeat": [
+              0.6448039396453712,
+              0.6449331848617471,
+              0.6444471249102653
+            ]
+          }
+        },
+        "direct300": {
+          "semantic": {
+            "heldout_ndcg10": 0.6408977307190794,
+            "per_repeat": [
+              0.6408935948536961,
+              0.6408988178482972,
+              0.6409007794552479
+            ]
+          },
+          "lexical": {
+            "heldout_ndcg10": 0.5810292793381235,
+            "per_repeat": [
+              0.5810292793381177,
+              0.5810292793381177,
+              0.5810292793381177
+            ]
+          },
+          "duetrank": {
+            "heldout_ndcg10": 0.6858698588967382,
+            "per_repeat": [
+              0.6858874550033984,
+              0.6858787616242638,
+              0.6858433600625665
+            ]
+          },
+          "fixed_rrf": {
+            "heldout_ndcg10": 0.6530576311316244,
+            "per_repeat": [
+              0.6530956137648372,
+              0.6529949081437114,
+              0.653082371486334
+            ]
+          },
+          "standard_rrf": {
+            "heldout_ndcg10": 0.6487396744438245,
+            "per_repeat": [
+              0.6487422928819583,
+              0.6489619713385121,
+              0.6485147591110102
+            ]
+          }
+        },
+        "direct1000": {
+          "semantic": {
+            "heldout_ndcg10": 0.6408977307190794,
+            "per_repeat": [
+              0.6408935948536961,
+              0.6408988178482972,
+              0.6409007794552479
+            ]
+          },
+          "lexical": {
+            "heldout_ndcg10": 0.5887446149099537,
+            "per_repeat": [
+              0.5887446149099488,
+              0.5887446149099488,
+              0.5887446149099488
+            ]
+          },
+          "duetrank": {
+            "heldout_ndcg10": 0.6877792330298856,
+            "per_repeat": [
+              0.6877800698730603,
+              0.687845596917813,
+              0.6877120322987995
+            ]
+          },
+          "fixed_rrf": {
+            "heldout_ndcg10": 0.6571712438503388,
+            "per_repeat": [
+              0.6572636603983237,
+              0.6571096596491293,
+              0.6571404115035732
+            ]
+          },
+          "standard_rrf": {
+            "heldout_ndcg10": 0.6553243291463073,
+            "per_repeat": [
+              0.6554514804607038,
+              0.6555546321554229,
+              0.6549668748228024
+            ]
+          }
+        }
+      },
+      "paired_comparisons": {
+        "duet_fusion_minus_semantic": {
+          "mean_difference": 0.04342641815549739,
+          "ci95": [
+            0.0388912761327774,
+            0.04798828645496998
+          ],
+          "one_sided_p_nonpositive": 0.0001999600079984003,
+          "win_fraction": 0.2556149732620321,
+          "tie_fraction": 0.5689839572192513,
+          "loss_fraction": 0.1754010695187166,
+          "queries": 3740
+        },
+        "duet_lexical_minus_direct300": {
+          "mean_difference": -0.003567400765622925,
+          "ci95": [
+            -0.005297292996615652,
+            -0.0019786474107032015
+          ],
+          "one_sided_p_nonpositive": 1.0,
+          "win_fraction": 0.01898395721925134,
+          "tie_fraction": 0.9668449197860962,
+          "loss_fraction": 0.014171122994652407,
+          "queries": 3740
+        },
+        "duet_fusion_minus_direct300_fusion": {
+          "mean_difference": -0.001545710022161466,
+          "ci95": [
+            -0.002754208387386083,
+            -0.00035937096528167477
+          ],
+          "one_sided_p_nonpositive": 0.9956008798240352,
+          "win_fraction": 0.05080213903743316,
+          "tie_fraction": 0.8957219251336899,
+          "loss_fraction": 0.053475935828877004,
+          "queries": 3740
+        },
+        "direct300_fusion_minus_semantic": {
+          "mean_difference": 0.044972128177658846,
+          "ci95": [
+            0.04042776816122908,
+            0.04965564257596198
+          ],
+          "one_sided_p_nonpositive": 0.0001999600079984003,
+          "win_fraction": 0.260427807486631,
+          "tie_fraction": 0.5700534759358289,
+          "loss_fraction": 0.1695187165775401,
+          "queries": 3740
+        },
+        "duet_lexical_minus_direct1000": {
+          "mean_difference": -0.01128273633745294,
+          "ci95": [
+            -0.014159878751460566,
+            -0.008481743803809082
+          ],
+          "one_sided_p_nonpositive": 1.0,
+          "win_fraction": 0.0572192513368984,
+          "tie_fraction": 0.8994652406417112,
+          "loss_fraction": 0.04331550802139037,
+          "queries": 3740
+        },
+        "duet_fusion_minus_direct1000_fusion": {
+          "mean_difference": -0.003455084155308845,
+          "ci95": [
+            -0.005382241250782791,
+            -0.001588393466599628
+          ],
+          "one_sided_p_nonpositive": 0.9996000799840032,
+          "win_fraction": 0.08636363636363636,
+          "tie_fraction": 0.8318181818181818,
+          "loss_fraction": 0.08181818181818182,
+          "queries": 3740
+        },
+        "direct1000_fusion_minus_semantic": {
+          "mean_difference": 0.04688150231080622,
+          "ci95": [
+            0.04206329564424658,
+            0.0516525103520564
+          ],
+          "one_sided_p_nonpositive": 0.0001999600079984003,
+          "win_fraction": 0.27406417112299464,
+          "tie_fraction": 0.5588235294117647,
+          "loss_fraction": 0.16711229946524064,
+          "queries": 3740
+        }
+      },
+      "selections": {
+        "duet": {
+          "max_leaf_nodes": 31,
+          "semantic_backoff_weight": 0.0,
+          "inner_validation_ndcg": 0.6721561685150922,
+          "fixed_rrf_semantic_weight": 0.9,
+          "training_rows": 876837,
+          "model_path": "<WORKSPACE>\\experiment_revision_20261107\\results\\hotpotqa\\duetrank.joblib"
+        },
+        "direct300": {
+          "max_leaf_nodes": 31,
+          "semantic_backoff_weight": 0.0,
+          "inner_validation_ndcg": 0.6736280545613651,
+          "fixed_rrf_semantic_weight": 0.9,
+          "training_rows": 876524,
+          "model_path": "<WORKSPACE>\\experiment_revision_20261107\\direct_bm25\\hotpotqa\\fusion_300\\duetrank.joblib"
+        },
+        "direct1000": {
+          "max_leaf_nodes": 15,
+          "semantic_backoff_weight": 0.0,
+          "inner_validation_ndcg": 0.6774400473279935,
+          "fixed_rrf_semantic_weight": 0.8,
+          "training_rows": 874077,
+          "model_path": "<WORKSPACE>\\experiment_revision_20261107\\direct_bm25\\hotpotqa\\fusion_1000\\duetrank.joblib"
+        }
+      },
+      "candidate_counts": {
+        "ccadpe_exact_bm25_mean": 298.03646185010126,
+        "ccadpe_exact_bm25_max": 300,
+        "direct": {
+          "300": {
+            "candidate_rule": "First <= 300 FTS5 planner candidates; no CCADPE filtering; exact native BM25",
+            "scored_candidates_mean": 298.03646185010126,
+            "scored_candidates_max": 300,
+            "all_queries": {
+              "nDCG@10": 0.5767179785879577,
+              "MRR@10": 0.7464218192341082,
+              "Recall@10": 0.5977042538825118,
+              "Recall@100": 0.70101282916948
+            },
+            "heldout_ndcg_at_10": 0.5810292793381235,
+            "calibration_ndcg_at_10": 0.572318452037993,
+            "bm25_kernel_ms": {
+              "mean_ms": 0.20547650140068122,
+              "p50_ms": 0.202000024728477,
+              "p95_ms": 0.24339999072253704
+            }
+          },
+          "1000": {
+            "candidate_rule": "First <= 1000 FTS5 planner candidates; no CCADPE filtering; exact native BM25",
+            "scored_candidates_mean": 990.997974341661,
+            "scored_candidates_max": 1000,
+            "all_queries": {
+              "nDCG@10": 0.5834364564244304,
+              "MRR@10": 0.7506209339463897,
+              "Recall@10": 0.6092505064145848,
+              "Recall@100": 0.7320729237002026
+            },
+            "heldout_ndcg_at_10": 0.5887446149099536,
+            "calibration_ndcg_at_10": 0.5780196725947286,
+            "bm25_kernel_ms": {
+              "mean_ms": 0.4334335178130537,
+              "p50_ms": 0.42129994835704565,
+              "p95_ms": 0.5292800487950443
+            }
+          }
+        }
+      }
+    },
+    "msmarco": {
+      "query_count": 6980,
+      "holdout_count": 3526,
+      "query_ids_sha256": "b1726d111e93b6ee4984f6c96b15620937b407eefa3514606123c5f8b1656b58",
+      "methods": {
+        "duet": {
+          "semantic": {
+            "heldout_ndcg10": 0.28348289887624556,
+            "per_repeat": [
+              0.283482898876244,
+              0.283482898876244,
+              0.283482898876244
+            ]
+          },
+          "lexical": {
+            "heldout_ndcg10": 0.22577672320581582,
+            "per_repeat": [
+              0.22577559206861117,
+              0.2257755920686112,
+              0.2257789854802238
+            ]
+          },
+          "duetrank": {
+            "heldout_ndcg10": 0.30232352229707676,
+            "per_repeat": [
+              0.3022997160893721,
+              0.30236434788926003,
+              0.3023065029125973
+            ]
+          },
+          "fixed_rrf": {
+            "heldout_ndcg10": 0.29335915059818285,
+            "per_repeat": [
+              0.2933569881994507,
+              0.2933569881994507,
+              0.2933634753956432
+            ]
+          },
+          "standard_rrf": {
+            "heldout_ndcg10": 0.2821968476083892,
+            "per_repeat": [
+              0.28219622885795875,
+              0.28214806503909784,
+              0.2822462489281092
+            ]
+          }
+        },
+        "direct300": {
+          "semantic": {
+            "heldout_ndcg10": 0.28348289887624556,
+            "per_repeat": [
+              0.283482898876244,
+              0.283482898876244,
+              0.283482898876244
+            ]
+          },
+          "lexical": {
+            "heldout_ndcg10": 0.22724832827721814,
+            "per_repeat": [
+              0.22724832827721775,
+              0.22724832827721775,
+              0.22724832827721775
+            ]
+          },
+          "duetrank": {
+            "heldout_ndcg10": 0.30236437390473697,
+            "per_repeat": [
+              0.3023485933862455,
+              0.30227454149517935,
+              0.3024699868327838
+            ]
+          },
+          "fixed_rrf": {
+            "heldout_ndcg10": 0.29328432919942454,
+            "per_repeat": [
+              0.2932821668006925,
+              0.2932821668006925,
+              0.293288653996885
+            ]
+          },
+          "standard_rrf": {
+            "heldout_ndcg10": 0.28330305049016646,
+            "per_repeat": [
+              0.28332772740543904,
+              0.2832424571962481,
+              0.28333896686880966
+            ]
+          }
+        },
+        "direct1000": {
+          "semantic": {
+            "heldout_ndcg10": 0.28348289887624556,
+            "per_repeat": [
+              0.283482898876244,
+              0.283482898876244,
+              0.283482898876244
+            ]
+          },
+          "lexical": {
+            "heldout_ndcg10": 0.22692151173279607,
+            "per_repeat": [
+              0.22692151173279568,
+              0.22692151173279568,
+              0.22692151173279568
+            ]
+          },
+          "duetrank": {
+            "heldout_ndcg10": 0.3033408318702812,
+            "per_repeat": [
+              0.30338131839377946,
+              0.3032722875671389,
+              0.3033688896499227
+            ]
+          },
+          "fixed_rrf": {
+            "heldout_ndcg10": 0.2933005960666494,
+            "per_repeat": [
+              0.29329843366791725,
+              0.29329843366791725,
+              0.2933049208641098
+            ]
+          },
+          "standard_rrf": {
+            "heldout_ndcg10": 0.28437883136510766,
+            "per_repeat": [
+              0.2844109875683135,
+              0.284311614398816,
+              0.2844138921281909
+            ]
+          }
+        }
+      },
+      "paired_comparisons": {
+        "duet_fusion_minus_semantic": {
+          "mean_difference": 0.018840623420831225,
+          "ci95": [
+            0.012840884817826654,
+            0.024639298968702896
+          ],
+          "one_sided_p_nonpositive": 0.0001999600079984003,
+          "win_fraction": 0.19398752127056154,
+          "tie_fraction": 0.6236528644356211,
+          "loss_fraction": 0.18235961429381736,
+          "queries": 3526
+        },
+        "duet_lexical_minus_direct300": {
+          "mean_difference": -0.001471605071402318,
+          "ci95": [
+            -0.002895451651316467,
+            -0.00014935417525595724
+          ],
+          "one_sided_p_nonpositive": 0.9868026394721056,
+          "win_fraction": 0.00935904707884288,
+          "tie_fraction": 0.9844015882019286,
+          "loss_fraction": 0.006239364719228588,
+          "queries": 3526
+        },
+        "duet_fusion_minus_direct300_fusion": {
+          "mean_difference": -4.08516076601557e-05,
+          "ci95": [
+            -0.00274538281509551,
+            0.002796819341815144
+          ],
+          "one_sided_p_nonpositive": 0.5040991801639672,
+          "win_fraction": 0.07855927396483267,
+          "tie_fraction": 0.8502552467385139,
+          "loss_fraction": 0.07118547929665343,
+          "queries": 3526
+        },
+        "direct300_fusion_minus_semantic": {
+          "mean_difference": 0.01888147502849138,
+          "ci95": [
+            0.012997945242256939,
+            0.02445790411615659
+          ],
+          "one_sided_p_nonpositive": 0.0001999600079984003,
+          "win_fraction": 0.18547929665343166,
+          "tie_fraction": 0.6366988088485536,
+          "loss_fraction": 0.17782189449801475,
+          "queries": 3526
+        },
+        "duet_lexical_minus_direct1000": {
+          "mean_difference": -0.0011447885269802527,
+          "ci95": [
+            -0.0029013365859565507,
+            0.0004540904877351586
+          ],
+          "one_sided_p_nonpositive": 0.9098180363927214,
+          "win_fraction": 0.016165626772546796,
+          "tie_fraction": 0.9761769710720363,
+          "loss_fraction": 0.007657402155416903,
+          "queries": 3526
+        },
+        "duet_fusion_minus_direct1000_fusion": {
+          "mean_difference": -0.0010173095732044595,
+          "ci95": [
+            -0.0038178319169708676,
+            0.0016995557933021765
+          ],
+          "one_sided_p_nonpositive": 0.7624475104979004,
+          "win_fraction": 0.08876914350538855,
+          "tie_fraction": 0.8312535450935905,
+          "loss_fraction": 0.07997731140102099,
+          "queries": 3526
+        },
+        "direct1000_fusion_minus_semantic": {
+          "mean_difference": 0.01985793299403569,
+          "ci95": [
+            0.014020614691035197,
+            0.02543545979123804
+          ],
+          "one_sided_p_nonpositive": 0.0001999600079984003,
+          "win_fraction": 0.19256948383437322,
+          "tie_fraction": 0.6352807714123653,
+          "loss_fraction": 0.17214974475326147,
+          "queries": 3526
+        }
+      },
+      "selections": {
+        "duet": {
+          "max_leaf_nodes": 15,
+          "semantic_backoff_weight": 0.0,
+          "inner_validation_ndcg": 0.3059766630575205,
+          "fixed_rrf_semantic_weight": 0.9,
+          "training_rows": 795319,
+          "model_path": "<WORKSPACE>\\experiment_revision_20261107\\results\\msmarco_dev\\duetrank.joblib"
+        },
+        "direct300": {
+          "max_leaf_nodes": 15,
+          "semantic_backoff_weight": 0.0,
+          "inner_validation_ndcg": 0.3084993781209323,
+          "fixed_rrf_semantic_weight": 0.9,
+          "training_rows": 794870,
+          "model_path": "<WORKSPACE>\\experiment_revision_20261107\\direct_bm25\\msmarco\\fusion_300\\duetrank.joblib"
+        },
+        "direct1000": {
+          "max_leaf_nodes": 31,
+          "semantic_backoff_weight": 0.0,
+          "inner_validation_ndcg": 0.3076399445812058,
+          "fixed_rrf_semantic_weight": 0.9,
+          "training_rows": 795335,
+          "model_path": "<WORKSPACE>\\experiment_revision_20261107\\direct_bm25\\msmarco\\fusion_1000\\duetrank.joblib"
+        }
+      },
+      "candidate_counts": {
+        "ccadpe_exact_bm25_mean": 291.7329512893983,
+        "ccadpe_exact_bm25_max": 300,
+        "direct": {
+          "300": {
+            "candidate_rule": "First <= 300 FTS5 planner candidates; no CCADPE filtering; exact native BM25",
+            "scored_candidates_mean": 291.7329512893983,
+            "scored_candidates_max": 300,
+            "all_queries": {
+              "nDCG@10": 0.22373433123144143,
+              "MRR@10": 0.17935797289307315,
+              "Recall@10": 0.37404489016236864,
+              "Recall@100": 0.6370343839541547
+            },
+            "heldout_ndcg_at_10": 0.22724832827721814,
+            "calibration_ndcg_at_10": 0.22014708352344817,
+            "bm25_kernel_ms": {
+              "mean_ms": 0.19258436912678736,
+              "p50_ms": 0.188400037586689,
+              "p95_ms": 0.2357050427235662
+            }
+          },
+          "1000": {
+            "candidate_rule": "First <= 1000 FTS5 planner candidates; no CCADPE filtering; exact native BM25",
+            "scored_candidates_mean": 961.3905444126075,
+            "scored_candidates_max": 1000,
+            "all_queries": {
+              "nDCG@10": 0.22349149908323077,
+              "MRR@10": 0.17926615727475326,
+              "Recall@10": 0.3735434574976122,
+              "Recall@100": 0.6361867239732569
+            },
+            "heldout_ndcg_at_10": 0.22692151173279607,
+            "calibration_ndcg_at_10": 0.21998998645949963,
+            "bm25_kernel_ms": {
+              "mean_ms": 0.4031504296069234,
+              "p50_ms": 0.404300051741302,
+              "p95_ms": 0.4890049982350319
+            }
+          }
+        }
+      }
+    }
+  }
+}

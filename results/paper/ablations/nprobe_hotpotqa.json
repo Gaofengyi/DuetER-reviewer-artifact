@@ -1,0 +1,54 @@
+{
+  "experiment": "final dual-Compartment-DPE nprobe ablation",
+  "projection_dimension": 256,
+  "semantic_cells": 2048,
+  "fixed_seed": 20260917,
+  "datasets": {
+    "hotpotqa": {
+      "rows": [
+        {
+          "nprobe": 64,
+          "local_depth": 16,
+          "scan_percent": 6.637542106280322,
+          "mean_union": 959.9638082376772,
+          "reference_top100_coverage": 0.6390735989196489,
+          "nDCG@10": 0.6294964685181322,
+          "nDCG@10_retention": 0.9732987698657527,
+          "Recall@100": 0.7457123565158676,
+          "Recall@100_retention": 0.9401549331744276,
+          "batch_server_ms_per_query": 3.411217393654013,
+          "interactive_server_ms": 718.3730399992783,
+          "client_rerank_ms_per_query": 62.748056448345054
+        },
+        {
+          "nprobe": 128,
+          "local_depth": 16,
+          "scan_percent": 12.814459237680847,
+          "mean_union": 1927.2811613774477,
+          "reference_top100_coverage": 0.6900337609723161,
+          "nDCG@10": 0.63925464338804,
+          "nDCG@10_retention": 0.9883864154237555,
+          "Recall@100": 0.761782579338285,
+          "Recall@100_retention": 0.9604154252149486,
+          "batch_server_ms_per_query": 3.379842862933321,
+          "interactive_server_ms": 1423.7359200022183,
+          "client_rerank_ms_per_query": 11.554235705606208
+        },
+        {
+          "nprobe": 256,
+          "local_depth": 16,
+          "scan_percent": 25.031745513497782,
+          "mean_union": 3866.3261309925724,
+          "reference_top100_coverage": 0.7214463200540177,
+          "nDCG@10": 0.6436497529195105,
+          "nDCG@10_retention": 0.9951819336106575,
+          "Recall@100": 0.7698176907494936,
+          "Recall@100_retention": 0.9705456712352091,
+          "batch_server_ms_per_query": 5.173702916948868,
+          "interactive_server_ms": 2736.431419994915,
+          "client_rerank_ms_per_query": 13.577835732615998
+        }
+      ]
+    }
+  }
+}

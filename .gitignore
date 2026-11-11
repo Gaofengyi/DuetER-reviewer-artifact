@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.venv/
+.deps/
+.gpu_deps/
+cache/
+data/
+results/generated/
+experiments/results/
+*.sqlite3
+*.npz
+*.npy
+.env
+docs/LOCAL_EVIDENCE_MAP.md

@@ -1,0 +1,324 @@
+{
+  "status": "decision_complete",
+  "decision_date": "2026-11-07",
+  "decision": "Remove the current lexical CCADPE refinement from the default research architecture; retain it as a historical/ablation variant.",
+  "replacement": "Same budgeted HMAC-FTS5 planner (<=1000) -> planner first <=300 -> 300 padded protected records -> authenticated client decryption -> exact native BM25 -> existing semantic branch and separately calibrated fusion -> protected Top20 Fetch.",
+  "scope": "Lexical CCADPE only. Does not decide the value or safety of semantic CCADPE.",
+  "config_sha256": "149fb6ff7d30f24ca9d404c7e9cf5691b47202388c1a53104735404171f2d1f9",
+  "datasets": {
+    "nq": {
+      "name": "NQ",
+      "quality_holdout_queries": 1739,
+      "quality_means": {
+        "duet": {
+          "lexical": 0.27210065800033306,
+          "duetrank": 0.5205236930780963
+        },
+        "direct300": {
+          "lexical": 0.27297838093432725,
+          "duetrank": 0.5221090547110852
+        },
+        "direct1000": {
+          "lexical": 0.27562145394987747,
+          "duetrank": 0.520890229784513
+        }
+      },
+      "ccadpe_minus_direct300": {
+        "lexical": {
+          "mean_difference": -0.0008777229339942052,
+          "ci95": [
+            -0.00284824418207934,
+            0.000769719466287522
+          ],
+          "one_sided_p_nonpositive": 0.8338332333533294,
+          "win_fraction": 0.014951121334100058,
+          "tie_fraction": 0.9775733179988499,
+          "loss_fraction": 0.007475560667050029,
+          "queries": 1739
+        },
+        "fused": {
+          "mean_difference": -0.001585361632988898,
+          "ci95": [
+            -0.00407548744537997,
+            0.0008701582457575727
+          ],
+          "one_sided_p_nonpositive": 0.9038192361527695,
+          "win_fraction": 0.041403105232892465,
+          "tie_fraction": 0.9177688326624497,
+          "loss_fraction": 0.04082806210465785,
+          "queries": 1739
+        }
+      },
+      "ccadpe_query_metric_outcomes": {
+        "lexical": {
+          "win": 26,
+          "tie": 1700,
+          "loss": 13
+        },
+        "fused": {
+          "win": 72,
+          "tie": 1596,
+          "loss": 71
+        }
+      },
+      "candidates": {
+        "planner_mean": 995.5909617612978,
+        "ccadpe_survivors_mean": 957.9058516801854,
+        "ccadpe_removal_fraction_of_all_planner_occurrences": 0.037852001000936886,
+        "ccadpe_exact_input_mean": 299.40758980301274,
+        "direct300_exact_input_mean": 299.40758980301274,
+        "ccadpe_transmitted_lexical_slots": 1024,
+        "direct300_transmitted_lexical_slots": 300,
+        "fixed_slot_reduction_fraction": 0.70703125
+      },
+      "measured_loopback": {
+        "ccadpe_mean_ms": 772.9733,
+        "direct300_mean_ms": 642.6172416666667,
+        "direct300_minus_ccadpe_ms": -130.3560583333333,
+        "direct300_time_reduction_fraction": 0.1686423817398781,
+        "ccadpe_download_mib": 3.7613071401913962,
+        "direct300_download_mib": 3.4008312622706094,
+        "direct300_download_reduction_fraction": 0.09583792667951174,
+        "ccadpe_record_lookup_ms": 537.9072770833333,
+        "direct300_record_lookup_ms": 426.55538958333335,
+        "ccadpe_semantic_scan_ms": 138.48080833333333,
+        "direct300_semantic_scan_ms": 129.47113541666667
+      }
+    },
+    "hotpotqa": {
+      "name": "HotpotQA",
+      "quality_holdout_queries": 3740,
+      "quality_means": {
+        "duet": {
+          "lexical": 0.5774618785725008,
+          "duetrank": 0.6843241488745767
+        },
+        "direct300": {
+          "lexical": 0.5810292793381235,
+          "duetrank": 0.6858698588967382
+        },
+        "direct1000": {
+          "lexical": 0.5887446149099537,
+          "duetrank": 0.6877792330298856
+        }
+      },
+      "ccadpe_minus_direct300": {
+        "lexical": {
+          "mean_difference": -0.003567400765622925,
+          "ci95": [
+            -0.005297292996615652,
+            -0.0019786474107032015
+          ],
+          "one_sided_p_nonpositive": 1.0,
+          "win_fraction": 0.01898395721925134,
+          "tie_fraction": 0.9668449197860962,
+          "loss_fraction": 0.014171122994652407,
+          "queries": 3740
+        },
+        "fused": {
+          "mean_difference": -0.001545710022161466,
+          "ci95": [
+            -0.002754208387386083,
+            -0.00035937096528167477
+          ],
+          "one_sided_p_nonpositive": 0.9956008798240352,
+          "win_fraction": 0.05080213903743316,
+          "tie_fraction": 0.8957219251336899,
+          "loss_fraction": 0.053475935828877004,
+          "queries": 3740
+        }
+      },
+      "ccadpe_query_metric_outcomes": {
+        "lexical": {
+          "win": 71,
+          "tie": 3616,
+          "loss": 53
+        },
+        "fused": {
+          "win": 190,
+          "tie": 3350,
+          "loss": 200
+        }
+      },
+      "candidates": {
+        "planner_mean": 990.997974341661,
+        "ccadpe_survivors_mean": 953.696691424713,
+        "ccadpe_removal_fraction_of_all_planner_occurrences": 0.037640120245178044,
+        "ccadpe_exact_input_mean": 298.03646185010126,
+        "direct300_exact_input_mean": 298.03646185010126,
+        "ccadpe_transmitted_lexical_slots": 1024,
+        "direct300_transmitted_lexical_slots": 300,
+        "fixed_slot_reduction_fraction": 0.70703125
+      },
+      "measured_loopback": {
+        "ccadpe_mean_ms": 947.1071416666667,
+        "direct300_mean_ms": 812.78246875,
+        "direct300_minus_ccadpe_ms": -134.3246729166667,
+        "direct300_time_reduction_fraction": 0.1418262697082926,
+        "ccadpe_download_mib": 3.640621324380239,
+        "direct300_download_mib": 3.3592787981033325,
+        "direct300_download_reduction_fraction": 0.07727871184867074,
+        "ccadpe_record_lookup_ms": 537.8714729166667,
+        "direct300_record_lookup_ms": 429.5607229166667,
+        "ccadpe_semantic_scan_ms": 270.45492083333335,
+        "direct300_semantic_scan_ms": 255.71349166666667
+      }
+    },
+    "msmarco": {
+      "name": "MS MARCO",
+      "quality_holdout_queries": 3526,
+      "quality_means": {
+        "duet": {
+          "lexical": 0.22577672320581582,
+          "duetrank": 0.30232352229707676
+        },
+        "direct300": {
+          "lexical": 0.22724832827721814,
+          "duetrank": 0.30236437390473697
+        },
+        "direct1000": {
+          "lexical": 0.22692151173279607,
+          "duetrank": 0.3033408318702812
+        }
+      },
+      "ccadpe_minus_direct300": {
+        "lexical": {
+          "mean_difference": -0.001471605071402318,
+          "ci95": [
+            -0.002895451651316467,
+            -0.00014935417525595724
+          ],
+          "one_sided_p_nonpositive": 0.9868026394721056,
+          "win_fraction": 0.00935904707884288,
+          "tie_fraction": 0.9844015882019286,
+          "loss_fraction": 0.006239364719228588,
+          "queries": 3526
+        },
+        "fused": {
+          "mean_difference": -4.08516076601557e-05,
+          "ci95": [
+            -0.00274538281509551,
+            0.002796819341815144
+          ],
+          "one_sided_p_nonpositive": 0.5040991801639672,
+          "win_fraction": 0.07855927396483267,
+          "tie_fraction": 0.8502552467385139,
+          "loss_fraction": 0.07118547929665343,
+          "queries": 3526
+        }
+      },
+      "ccadpe_query_metric_outcomes": {
+        "lexical": {
+          "win": 33,
+          "tie": 3471,
+          "loss": 22
+        },
+        "fused": {
+          "win": 277,
+          "tie": 2998,
+          "loss": 251
+        }
+      },
+      "candidates": {
+        "planner_mean": 961.3905444126075,
+        "ccadpe_survivors_mean": 925.4822349570201,
+        "ccadpe_removal_fraction_of_all_planner_occurrences": 0.037350387586271405,
+        "ccadpe_exact_input_mean": 291.7329512893983,
+        "direct300_exact_input_mean": 291.7329512893983,
+        "ccadpe_transmitted_lexical_slots": 1024,
+        "direct300_transmitted_lexical_slots": 300,
+        "fixed_slot_reduction_fraction": 0.70703125
+      },
+      "measured_loopback": {
+        "ccadpe_mean_ms": 1557.4928499999999,
+        "direct300_mean_ms": 1604.13190625,
+        "direct300_minus_ccadpe_ms": 46.63905625000007,
+        "direct300_time_reduction_fraction": -0.029944956890171293,
+        "ccadpe_download_mib": 6.908082624276479,
+        "direct300_download_mib": 6.599457760651906,
+        "direct300_download_reduction_fraction": 0.04467590797770704,
+        "ccadpe_record_lookup_ms": 928.957375,
+        "direct300_record_lookup_ms": 886.8067729166668,
+        "ccadpe_semantic_scan_ms": 457.7107104166667,
+        "direct300_semantic_scan_ms": 543.9533770833333
+      }
+    }
+  },
+  "decision_basis": [
+    "No demonstrated aggregate quality benefit over direct300, including lexical-only comparison without fusion-model confounding.",
+    "Lower direct300 point-estimate latency on two corpora; small reverse difference on MS MARCO is not a stable mode advantage under fixed-order single-run measurement.",
+    "Direct300 reduces measured total download on all three corpora and reduces fixed lexical record slots from 1024 to 300.",
+    "Native feature and document protection are provided by existing AEAD wrappers retained in the direct route, not by the lexical distance-refinement step.",
+    "Removing lexical numerical coordinates removes an observable geometric channel in a clean implementation; no whole-transcript privacy dominance is proven.",
+    "CCADPE removes few planner candidates, after which the separate planner-order cap performs most of the reduction."
+  ],
+  "limits": [
+    "Quality intervals are conditional on fixed calibration models; three repeats average query noise, not independent document-index seeds.",
+    "NQ and MS fused intervals include zero; do not call direct300 strictly statistically better everywhere or infer equivalence from non-significance.",
+    "Some queries improve with CCADPE; aggregate removal is an architecture decision, not universal per-query dominance.",
+    "Latency uses 16 unique queries, 3 measured passes, 2 warmup passes, CPU and loopback. Modes ran in fixed order once; storage/cache effects remain.",
+    "Existing direct controls still load legacy lexical coordinate/partition caches. Bypassing scoring is measured; a clean coordinate-free server has not been benchmarked.",
+    "HMAC-FTS5 continues to expose declared equality, incidence, frequencies, lengths, positions and access patterns; eliminating CCADPE does not eliminate those leakages.",
+    "Changed candidates and Fetch outputs prevent asserting whole-transcript privacy dominance without a dedicated argument.",
+    "The current heldout results informed this architecture decision. Future performance confirmation should use a new independent evaluation or disclose post-selection reuse.",
+    "The controls are matched budgeted-planner BM25, not unbudgeted full-term global BM25."
+  ],
+  "engineering_next": [
+    "Introduce an explicit direct300 main profile without overwriting frozen benchmark config or results.",
+    "Separate direct record lookup/alias handling from legacy lexical partition assignments; retain protected payload, join, fixed-slot padding and Fetch.",
+    "Do not build/store/load lexical CCADPE document coordinates or keys in the simplified server; omit lexical query views and transforms.",
+    "Revalidate selection order, native BM25, cross-path join and final outputs; then measure the cleaned implementation on independent queries.",
+    "Revise method/algorithms/contributions to distinguish semantic distance ranking from the keyed lexical planner and exact client scoring; keep negative ablation results."
+  ],
+  "reintroduction_gate": "Only reconsider a newly specified variant if a preregistered matched comparison shows a meaningful quality/cost or precisely defined privacy benefit with acceptable tradeoffs; validate on independent data. Existing evidence does not meet this gate.",
+  "source_files": [
+    {
+      "path": "<WORKSPACE>\\experiment_revision_20261107\\config.json",
+      "sha256": "149fb6ff7d30f24ca9d404c7e9cf5691b47202388c1a53104735404171f2d1f9"
+    },
+    {
+      "path": "<WORKSPACE>\\experiment_revision_20261107\\quality_comparison.json",
+      "sha256": "c59d05faae3d2bd0de0c0b19cf10367f116a8dc75ba46e39782059b979149aa4"
+    },
+    {
+      "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\PROTOCOL_TIMING_SUMMARY.json",
+      "sha256": "e0b89c3caef8824f6f8bef1c3a6318c31cc1c93675a8528a7ace17fc6c4bbb11"
+    },
+    {
+      "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\server.py",
+      "sha256": "1b4fba66b9aac904ce446b2eb9ada41b15e6c80145f941135aad3ba60277b6f8"
+    },
+    {
+      "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\client.py",
+      "sha256": "674fb96d8398e7537bed3ebc16c1de2cc7547454ed99d0b04a8c2750dc69a840"
+    },
+    {
+      "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\records.py",
+      "sha256": "c8f04b4eb06a9b2a8badf6bc0b8c75460d57d23504398aaf12e0a158d692c6ce"
+    },
+    {
+      "path": "<WORKSPACE>\\experiment_revision_20261107\\results\\nq\\lexical.json",
+      "sha256": "a426100f6ef9a504975be52ebd40b0146dff068eabb0ee9b57938b0c70bc68a6"
+    },
+    {
+      "path": "<WORKSPACE>\\experiment_revision_20261107\\direct_bm25\\nq\\quality.json",
+      "sha256": "cf0c3d14cd0c29e1ad3dc09001ad7fad091c090fb0c6a8e42d2d830e03ec62a5"
+    },
+    {
+      "path": "<WORKSPACE>\\experiment_revision_20261107\\results\\hotpotqa\\lexical.json",
+      "sha256": "51c1c6ba16979e2290513363a0e1ea838b4cffc36a2ae8faae483fe8f7338509"
+    },
+    {
+      "path": "<WORKSPACE>\\experiment_revision_20261107\\direct_bm25\\hotpotqa\\quality.json",
+      "sha256": "b499d26bd11b3a5279b560da3d2458c6fb3cbb386efcf42933f1e122e97d5f95"
+    },
+    {
+      "path": "<WORKSPACE>\\experiment_revision_20261107\\results\\msmarco_dev\\lexical.json",
+      "sha256": "60c24f0b5484cef21ec937ea173d56ace9a5f9defd8efe2a2fe36227389dcc97"
+    },
+    {
+      "path": "<WORKSPACE>\\experiment_revision_20261107\\direct_bm25\\msmarco\\quality.json",
+      "sha256": "fa13e8630c9555c164a0846b6c81423182735fe087fd0254b51a7afe52412bdd"
+    }
+  ]
+}

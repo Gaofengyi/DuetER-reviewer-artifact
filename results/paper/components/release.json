@@ -1,0 +1,14 @@
+{
+  "schema": "matched-component-quality-release-v1",
+  "status": "released",
+  "authorization": "Root explicitly authorized sequential all-9005-outer quality execution after all three smoke checks; no formal timing is active. Preparation may proceed separately. Stop CPU/IO after quality completion until formal timing ends.",
+  "formal_timing_active": false,
+  "datasets": ["nq", "hotpotqa", "msmarco"],
+  "script_sha256": "e9e6659c533cd241baf4465c91b99a5c9a0c7680b18bc206fbc52a842830e0a9",
+  "plan_sha256": "25fabd87048274a96acbf90d8e5a155a59c037d150a0f07dba8fa506f9d1a3a1",
+  "smoke_sha256": {
+    "nq": "024dee7dd33db99556851a688cf37716430fa5ff7d516d40a3081c68b1c34d7f",
+    "hotpotqa": "5cb5f5c7dd96621b354f67ec11276c3ff3b25e57df55461e5a9d996a52965e4d",
+    "msmarco": "0b46a29e06642bf6c0ca3822f62d428401c1dad303f54d03e17bc03eb47d6a87"
+  }
+}

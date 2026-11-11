@@ -1,0 +1,347 @@
+{
+  "experiment": "complete-corpus dual-path Compartment-DPE",
+  "dataset": "msmarco",
+  "documents": 8841823,
+  "queries": 6980,
+  "configuration": {
+    "split": "dev",
+    "semantic_retention_reference": "pre-compartment global-DPE IVF",
+    "projection_dimension": 256,
+    "semantic_cells": 2048,
+    "semantic_probes": 128,
+    "semantic_top_per_cell_sweep": [
+      8,
+      16,
+      32,
+      64
+    ],
+    "lexical_cells": 64,
+    "lexical_top_per_cell_sweep": [
+      4,
+      8,
+      16
+    ],
+    "posting_budget": 250000,
+    "repeats": 1,
+    "selection_rule": "smallest local depth retaining >=98% nDCG@10 and >=95% Recall@100 of the path-specific plaintext reference"
+  },
+  "setup": {
+    "semantic": {
+      "variant": "cell-keyed coordinate-selection Compartment-DPE",
+      "base_coordinates_server_visible": false,
+      "posting_entries": 17683646,
+      "cells": 2048,
+      "nonempty_cells": 2048,
+      "base_work_dimension": 512,
+      "projection_dimension": 256,
+      "ciphertext_bytes": 9054026880,
+      "norm_bytes": 70734712,
+      "build_seconds": 329.79776929999935
+    },
+    "lexical_candidate_scoped": {
+      "variant": "keyed document-partition Compartment-DPE",
+      "base_coordinates_server_visible": false,
+      "materialized_candidate_rows": 3890193,
+      "cells": 64,
+      "projection_dimension": 256,
+      "base_work_dimension": 2048,
+      "ciphertext_bytes": 1991778944,
+      "norm_bytes": 15560900,
+      "cell_bytes": 7780514,
+      "build_seconds": 473.0552925999946,
+      "scope": "full-corpus query workload candidate union; full deployment storage is estimated separately"
+    },
+    "estimated_full_server_storage_bytes": 16082911746,
+    "estimated_full_server_storage_gib": 14.97837877459824,
+    "storage_scope_note": "semantic compartments are fully materialized; lexical full-deployment coordinates are estimated for one keyed compartment copy per document, while the executed cache materializes every row touched by the complete dev workload"
+  },
+  "rq1_utility": {
+    "exact_dense_metrics": {
+      "nDCG@10": 0.2881045936148537,
+      "MRR@10": 0.2335630713603493,
+      "Recall@10": 0.47243314231136574,
+      "Recall@100": 0.7819006685768862
+    },
+    "budget_bm25_metrics": {
+      "nDCG@10": 0.2106560840895597,
+      "MRR@10": 0.16721022649747577,
+      "Recall@10": 0.3565186246418338,
+      "Recall@100": 0.6212631327602673
+    },
+    "budget_candidate_relevant_coverage": 0.8114971346704871,
+    "semantic_sweep": [
+      {
+        "top_per_cell": 8,
+        "metrics": {
+          "nDCG@10": 0.28672147912107215,
+          "MRR@10": 0.23266236867239734,
+          "Recall@10": 0.46907831900668573,
+          "Recall@100": 0.6560052531041071
+        },
+        "ndcg_retention_vs_exact_dense": 0.9951992626135266,
+        "recall100_retention_vs_exact_dense": 0.8389879679960913,
+        "candidate_mean": 973.358452722063,
+        "candidate_p95": 999.0,
+        "dense_top100_coverage_mean": 0.5131060171919771
+      },
+      {
+        "top_per_cell": 16,
+        "metrics": {
+          "nDCG@10": 0.28789745075453316,
+          "MRR@10": 0.2332557306590258,
+          "Recall@10": 0.4725047755491881,
+          "Recall@100": 0.7225047755491882
+        },
+        "ndcg_retention_vs_exact_dense": 0.9992810150726112,
+        "recall100_retention_vs_exact_dense": 0.9240365235448607,
+        "candidate_mean": 1934.475787965616,
+        "candidate_p95": 1984.0,
+        "dense_top100_coverage_mean": 0.6707965616045845
+      },
+      {
+        "top_per_cell": 32,
+        "metrics": {
+          "nDCG@10": 0.2879869793679193,
+          "MRR@10": 0.23341406285532357,
+          "Recall@10": 0.4722898758357211,
+          "Recall@100": 0.7619746895893027
+        },
+        "ndcg_retention_vs_exact_dense": 0.9995917654576114,
+        "recall100_retention_vs_exact_dense": 0.9745159714163563,
+        "candidate_mean": 3842.069770773639,
+        "candidate_p95": 3935.0,
+        "dense_top100_coverage_mean": 0.8232808022922636
+      },
+      {
+        "top_per_cell": 64,
+        "metrics": {
+          "nDCG@10": 0.2880484114208393,
+          "MRR@10": 0.23351412198117072,
+          "Recall@10": 0.4722898758357211,
+          "Recall@100": 0.7772086914995223
+        },
+        "ndcg_retention_vs_exact_dense": 0.9998049937583103,
+        "recall100_retention_vs_exact_dense": 0.9939992670860563,
+        "candidate_mean": 7621.939971346705,
+        "candidate_p95": 7795.0,
+        "dense_top100_coverage_mean": 0.9355845272206302
+      }
+    ],
+    "lexical_sweep": [
+      {
+        "top_per_cell": 4,
+        "metrics": {
+          "nDCG@10": 0.19851191528658008,
+          "MRR@10": 0.1595781029699368,
+          "Recall@10": 0.32939350525310407,
+          "Recall@100": 0.5037368672397325
+        },
+        "ndcg_retention_vs_budget_bm25": 0.9423507331608018,
+        "recall100_retention_vs_budget_bm25": 0.8108269116205777,
+        "relevant_candidate_coverage": 0.537225405921681,
+        "coverage_retention_vs_budget_candidates": 0.6620176251636727,
+        "candidate_mean": 249.01848137535816,
+        "candidate_p95": 256.0
+      },
+      {
+        "top_per_cell": 8,
+        "metrics": {
+          "nDCG@10": 0.20677749942001095,
+          "MRR@10": 0.16458543684904714,
+          "Recall@10": 0.3482569245463228,
+          "Recall@100": 0.5765281757402102
+        },
+        "ndcg_retention_vs_budget_bm25": 0.9815880719215317,
+        "recall100_retention_vs_budget_bm25": 0.9279935430559028,
+        "relevant_candidate_coverage": 0.6490329512893983,
+        "coverage_retention_vs_budget_candidates": 0.7997969722381604,
+        "candidate_mean": 493.9694842406877,
+        "candidate_p95": 512.0
+      },
+      {
+        "top_per_cell": 16,
+        "metrics": {
+          "nDCG@10": 0.2096041698782121,
+          "MRR@10": 0.16638826351935235,
+          "Recall@10": 0.3546561604584527,
+          "Recall@100": 0.6164637058261699
+        },
+        "ndcg_retention_vs_budget_bm25": 0.9950064854955702,
+        "recall100_retention_vs_budget_bm25": 0.9922747275976709,
+        "relevant_candidate_coverage": 0.7143147086914996,
+        "coverage_retention_vs_budget_candidates": 0.8802430448279414,
+        "candidate_mean": 876.9310888252149,
+        "candidate_p95": 927.0
+      }
+    ],
+    "selected_semantic_top_per_cell": 32,
+    "selected_lexical_top_per_cell": 16,
+    "selected_semantic": {
+      "top_per_cell": 32,
+      "metrics": {
+        "nDCG@10": 0.2879869793679193,
+        "MRR@10": 0.23341406285532357,
+        "Recall@10": 0.4722898758357211,
+        "Recall@100": 0.7619746895893027
+      },
+      "ndcg_retention_vs_exact_dense": 0.9995917654576114,
+      "recall100_retention_vs_exact_dense": 0.9745159714163563,
+      "candidate_mean": 3842.069770773639,
+      "candidate_p95": 3935.0,
+      "dense_top100_coverage_mean": 0.8232808022922636
+    },
+    "selected_lexical": {
+      "top_per_cell": 16,
+      "metrics": {
+        "nDCG@10": 0.2096041698782121,
+        "MRR@10": 0.16638826351935235,
+        "Recall@10": 0.3546561604584527,
+        "Recall@100": 0.6164637058261699
+      },
+      "ndcg_retention_vs_budget_bm25": 0.9950064854955702,
+      "recall100_retention_vs_budget_bm25": 0.9922747275976709,
+      "relevant_candidate_coverage": 0.7143147086914996,
+      "coverage_retention_vs_budget_candidates": 0.8802430448279414,
+      "candidate_mean": 876.9310888252149,
+      "candidate_p95": 927.0
+    },
+    "duetrank": {
+      "dataset": "msmarco",
+      "split": "dev",
+      "scale": "full",
+      "documents": 8841823,
+      "posting_budget": 250000,
+      "lexical_source": "budgeted-dpe",
+      "lexical_depth": 300,
+      "selection": {
+        "inner_validation_queries": 1665,
+        "max_leaf_nodes": 31,
+        "semantic_backoff_weight": 0.0,
+        "inner_validation_ndcg_at_10": 0.30496109641675234,
+        "training_rows": 797000,
+        "training_positives": 3208,
+        "model_path": "<HOME>\\Desktop\\Codex\\duetdpe_experiments\\results\\budgeted_lexical_dpe\\msmarco_dev_full_b250000_duetrank_budgeted-dpe_dual-compartment.joblib",
+        "model_bytes": 339832,
+        "client_inference_mean_ms_per_query": 5.249930913216393,
+        "selected_fixed_rrf_semantic_weight": 0.95
+      },
+      "calibration": {
+        "queries": 3454,
+        "semantic_ndcg_at_10": 0.29258126968881176,
+        "calibrated_fixed_rrf_ndcg_at_10": 0.2975201341479567,
+        "learned_ranker_ndcg_at_10": null,
+        "semantic_backoff_ndcg_at_10": null,
+        "backoff_vs_semantic": null,
+        "backoff_vs_calibrated_fixed_rrf": null
+      },
+      "held_out": {
+        "queries": 3526,
+        "semantic_ndcg_at_10": 0.2834865032566423,
+        "calibrated_fixed_rrf_ndcg_at_10": 0.2893910559602912,
+        "learned_ranker_ndcg_at_10": 0.2969183742670372,
+        "semantic_backoff_ndcg_at_10": 0.2969183742670372,
+        "backoff_vs_semantic": {
+          "mean_absolute_gain": 0.013431871010394931,
+          "ci95_low": 0.007905866030837448,
+          "ci95_high": 0.01873108262329471,
+          "one_sided_bootstrap_p": 0.0001999600079984003,
+          "query_win_fraction": 0.1744186046511628,
+          "query_tie_fraction": 0.6474758933635848,
+          "query_loss_fraction": 0.1781055019852524
+        },
+        "backoff_vs_calibrated_fixed_rrf": {
+          "mean_absolute_gain": 0.0075273183067460165,
+          "ci95_low": 0.0028291563028832343,
+          "ci95_high": 0.012060089622563592,
+          "one_sided_bootstrap_p": 0.0007998400319936012,
+          "query_win_fraction": 0.14634146341463414,
+          "query_tie_fraction": 0.6778218944980148,
+          "query_loss_fraction": 0.1758366420873511
+        }
+      },
+      "warning": "Hyperparameters use only an inner split of the calibration half. The outer SHA-256 split is untouched until final evaluation."
+    },
+    "matched_budget_recall": {
+      "outer_holdout_queries": 3526,
+      "semantic_recall_at_20": 0.5848459065986009,
+      "duetrank_recall_at_20": 0.6218094157685763,
+      "pisces_union_at_10_recall": 0.5723671771601436,
+      "pisces_union_mean_output_documents": 17.636698808848553,
+      "duetrank_recall_at_pisces_cardinality": 0.6035640007562867
+    }
+  },
+  "rq2_efficiency": {
+    "semantic": {
+      "query_routing_ms_per_query": 0.04553908309488981,
+      "posting_entries_read_mean": 1148638.8862464183,
+      "posting_entries_read_p95": 1291405.0999999999,
+      "batch_server_seconds": 8.222434700001031,
+      "batch_server_ms_per_query_repeat": 1.1779992406878268,
+      "batch_throughput_queries_per_second": 848.896981814781,
+      "interactive_server_latency_ms": {
+        "mean": 924.9351199978264,
+        "p50": 924.3642000074033,
+        "p95": 1130.9779400005937
+      },
+      "interactive_latency_sample_queries": 5,
+      "client_rerank_ms_per_query_repeat": 58.88270901146111,
+      "by_top_per_cell": {
+        "8": {
+          "candidate_mean": 973.358452722063,
+          "candidate_p95": 999.0,
+          "dense_top100_coverage_mean": 0.5131060171919771
+        },
+        "16": {
+          "candidate_mean": 1934.475787965616,
+          "candidate_p95": 1984.0,
+          "dense_top100_coverage_mean": 0.6707965616045845
+        },
+        "32": {
+          "candidate_mean": 3842.069770773639,
+          "candidate_p95": 3935.0,
+          "dense_top100_coverage_mean": 0.8232808022922636
+        },
+        "64": {
+          "candidate_mean": 7621.939971346705,
+          "candidate_p95": 7795.0,
+          "dense_top100_coverage_mean": 0.9355845272206302
+        }
+      }
+    },
+    "lexical": {
+      "active_cells_mean": 62.828796561604584,
+      "active_cells_max": 64,
+      "server_latency_ms": {
+        "mean": 12.95467391123553,
+        "p50": 1.5660999924875796,
+        "p95": 79.62619499667197
+      },
+      "by_top_per_cell": {
+        "4": {
+          "candidate_mean": 249.01848137535816,
+          "candidate_p95": 256.0
+        },
+        "8": {
+          "candidate_mean": 493.9694842406877,
+          "candidate_p95": 512.0
+        },
+        "16": {
+          "candidate_mean": 876.9310888252149,
+          "candidate_p95": 927.0
+        }
+      }
+    },
+    "lexical_candidate_lookup_mean_ms": 85.07820858130096,
+    "communication": {
+      "semantic_padded_records": 4096,
+      "lexical_padded_records": 1024,
+      "upload_bytes": 101408,
+      "download_bytes": 5713936,
+      "total_bytes": 5815344,
+      "total_mib": 5.5459442138671875
+    },
+    "server_online_mean_ms_batched": 99.21088173322431,
+    "server_online_mean_ms_interactive_sample": 1022.9680024903629
+  },
+  "caveat": "Both paths expose cell labels, cell sizes, probes, access timing, and within-cell distance order. Candidate-scoped lexical materialization preserves online results but does not measure full offline build time."
+}

@@ -1,0 +1,49 @@
+{
+  "status": "complete",
+  "functional": false,
+  "datasets": [
+    "hotpotqa",
+    "msmarco",
+    "nq"
+  ],
+  "source_sha256": {
+    "<WORKSPACE>\\experiment_matched_budget_components_20261109\\EXPERIMENT_PLAN.txt": "d9cff51eac30b9b618602f64388bd217d677fd84ee5cce77eed9db5ed57d1c1c",
+    "<WORKSPACE>\\experiment_matched_budget_components_20261109\\FUSION_POOL_AMENDMENT.json": "73d9dc2c9ed70303b1658f03d24f2f65574bbfc584dbaa33864b2737516a0c2f",
+    "<WORKSPACE>\\experiment_matched_budget_components_20261109\\components_client.py": "362d899d7fb645c40642add4505384c82547ff79af9be1a43aac762ceb7a1a33",
+    "<WORKSPACE>\\experiment_matched_budget_components_20261109\\server_adapter.py": "3f7487bce8e832dd964fac27e30eee52601a415dcb79a164961a3c6c93b83a27",
+    "<WORKSPACE>\\experiment_matched_budget_components_20261109\\run_components.py": "d52c0ca857086c2a6ba9bf7b233aeb5b3cf4a97466241d87901a668f1771cd1a",
+    "<WORKSPACE>\\experiment_matched_budget_components_20261109\\validate_components.py": "f848d79e189005ce0b01b068b3322841b06a41bc02894c260072d9543c2c4f27",
+    "<WORKSPACE>\\experiment_matched_budget_components_20261109\\build_plain_index.py": "a8a74afdca846c4da8e520fd6f28061cf8e9d474f410d185c789496a66916868",
+    "<WORKSPACE>\\experiment_matched_budget_components_20261109\\proxy_entry.py": "8490066afe325f1811629b75aa1748730c80953ce21907a546a7268ec10a35df",
+    "<WORKSPACE>\\experiment_pprag_precision_network_20261108\\client_adapter.py": "2a212ff802348b66eb66dd1fc49d1869b9f1f06d52779aa9c054bf6747eac78a",
+    "<WORKSPACE>\\experiment_pprag_precision_network_20261108\\client_runtime_binding.py": "aa8b24ee97099f3a272432732b55948ec8840c7971d5cb7d0b02db0782f299e9",
+    "<WORKSPACE>\\experiment_pprag_precision_network_20261108\\runtime_binding.json": "da2a8aaae4d0f82c6c090d656de27e7fd7e72870756270bd398b72f4104e78f7",
+    "<WORKSPACE>\\experiment_pprag_precision_network_20261108\\network_proxy.py": "814d6aad25306ae797904b4665972e44f7d06c4a73b9415cca27bef2bcc594c0",
+    "<WORKSPACE>\\experiment_pprag_precision_network_20261108\\benchmark_suite.py": "b2c0fc1388efdbb4031aa0ee7fb1792856bcca0b3162bc7859e72d1fe52e9da8",
+    "<WORKSPACE>\\experiment_pprag_precision_network_20261108\\common.py": "a089274d1201fa4c25ec4515796c032917a9314336efe11cd29cce1bdc28461d",
+    "<WORKSPACE>\\experiment_pprag_precision_network_20261108\\noise_schedule.py": "b13e4dc816d267626bbbda9130a572cc0e4856e71f269128f22f59851f55ba45",
+    "<WORKSPACE>\\experiment_projectlift_protocol_20261107\\protocol\\client.py": "790739830e6aa07d5a4a61274309e3d558e7febf57a0c2967163a23b8056c128",
+    "<WORKSPACE>\\experiment_projectlift_protocol_20261107\\protocol\\records.py": "c8f04b4eb06a9b2a8badf6bc0b8c75460d57d23504398aaf12e0a158d692c6ce",
+    "<WORKSPACE>\\experiment_projectlift_protocol_20261107\\protocol\\wire.py": "9458f7dee0a4548f1ee1ed4103224daa1501250211e3e1f4608229c7787c47a6",
+    "<WORKSPACE>\\experiment_projectlift_protocol_20261107\\protocol\\bindings.py": "c6e4f73476b1ff7ad21744686e8c570e2527473c8b445b2d93c80d20dfce502c",
+    "<WORKSPACE>\\experiment_projectlift_protocol_20261107\\protocol\\config.json": "97b8f993ce2a60c60edcb06e5d0cdd044a5ab4c94d642fd7667c388ef93806df",
+    "<WORKSPACE>\\experiment_projectlift_protocol_20261107\\protocol\\selection.py": "0606f70dea93d4d635d31f5bb51dfe7f0671ad64f61ae9330e0804017c069a38",
+    "<WORKSPACE>\\experiment_revision_20261107\\unified_pipeline.py": "6241bb97b4d829861968459cab48465e5c0c5a52cf6ec2404c4e3b825446856e",
+    "<WORKSPACE>\\experiment_project_then_lift_20261107\\project_then_lift_geometry.py": "d9a718b6cf60e0dbf2c410c5418ed4b5f456e8403a51f58247a8983b80538c2b",
+    "<WORKSPACE>\\duetdpe_experiments\\benchmark_million_lexical_dpe.py": "334f9556264a2a7aa05dfe47c06924ffa0e01499bea22603663009a5873d53d8",
+    "<WORKSPACE>\\duetdpe_experiments\\benchmark_budgeted_lexical_candidates.py": "867733e644df4f46d06c74e7907bccfc0865f8f53cb3ac57dcc31c7aef3ff185",
+    "<WORKSPACE>\\duetdpe_experiments\\experiment_candidate_rank_fusion.py": "1d56a673fe56e8625f040219b54cfc066e9c2aaa3f0c6d8d3c7f1c4701bdfc2f",
+    "<WORKSPACE>\\duetdpe_experiments\\experiment_adaptive_fusion.py": "1e212dc441bd1167173362204af7cc124d1d38be530c73f12f62a6dfd692df7a"
+  },
+  "profile": {
+    "id": "symmetric100_rtt20",
+    "upload_mbps": 100,
+    "download_mbps": 100,
+    "mbps": 100,
+    "rtt_ms": 20
+  },
+  "acceptance": {
+    "path": "<WORKSPACE>\\experiment_matched_budget_components_20261109\\validation\\acceptance_all_v6.json",
+    "sha256": "92f699c157157b6338098a5b4eab946e22594dd05e4aab8af94d84a3b292e83a"
+  }
+}

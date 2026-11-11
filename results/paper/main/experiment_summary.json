@@ -1,0 +1,4547 @@
+{
+  "complete": true,
+  "config_sha256": "149fb6ff7d30f24ca9d404c7e9cf5691b47202388c1a53104735404171f2d1f9",
+  "quality_controls": {
+    "configuration_sha256": "149fb6ff7d30f24ca9d404c7e9cf5691b47202388c1a53104735404171f2d1f9",
+    "primary_direct_control": "planner first 300, no CCADPE filtering, exact native BM25; independently calibrated identical fusion procedure",
+    "secondary_direct_control": "all planner <=1000, more client scoring work; separately calibrated identical fusion procedure",
+    "bootstrap_policy": "paired held-out queries, average three noise repeats per query before resampling; conditional on the fixed repeat-zero calibration models",
+    "datasets": {
+      "nq": {
+        "query_count": 3452,
+        "holdout_count": 1739,
+        "query_ids_sha256": "8b460055e92ec160a0ebe514efe1ada92b0c2e63e843c41b94cfd1ed5d4ba619",
+        "methods": {
+          "duet": {
+            "semantic": {
+              "heldout_ndcg10": 0.5149372924909454,
+              "per_repeat": [
+                0.5149439088813398,
+                0.5149339842957462,
+                0.5149339842957462
+              ]
+            },
+            "lexical": {
+              "heldout_ndcg10": 0.27210065800033306,
+              "per_repeat": [
+                0.2718987018244386,
+                0.2722923390430782,
+                0.27211093313348317
+              ]
+            },
+            "duetrank": {
+              "heldout_ndcg10": 0.5205236930780963,
+              "per_repeat": [
+                0.520472466806778,
+                0.5204661938427592,
+                0.5206324185847476
+              ]
+            },
+            "fixed_rrf": {
+              "heldout_ndcg10": 0.5149372924909454,
+              "per_repeat": [
+                0.5149439088813398,
+                0.5149339842957462,
+                0.5149339842957462
+              ]
+            },
+            "standard_rrf": {
+              "heldout_ndcg10": 0.41895946061396605,
+              "per_repeat": [
+                0.4186741150693922,
+                0.41910852815902266,
+                0.4190957386134818
+              ]
+            }
+          },
+          "direct300": {
+            "semantic": {
+              "heldout_ndcg10": 0.5149372924909454,
+              "per_repeat": [
+                0.5149439088813398,
+                0.5149339842957462,
+                0.5149339842957462
+              ]
+            },
+            "lexical": {
+              "heldout_ndcg10": 0.27297838093432725,
+              "per_repeat": [
+                0.2729783809343275,
+                0.2729783809343275,
+                0.2729783809343275
+              ]
+            },
+            "duetrank": {
+              "heldout_ndcg10": 0.5221090547110852,
+              "per_repeat": [
+                0.5221152267912645,
+                0.5221059686709933,
+                0.5221059686709933
+              ]
+            },
+            "fixed_rrf": {
+              "heldout_ndcg10": 0.5149372924909454,
+              "per_repeat": [
+                0.5149439088813398,
+                0.5149339842957462,
+                0.5149339842957462
+              ]
+            },
+            "standard_rrf": {
+              "heldout_ndcg10": 0.4195986404863783,
+              "per_repeat": [
+                0.41943268582737997,
+                0.4194290910139325,
+                0.41993414461782086
+              ]
+            }
+          },
+          "direct1000": {
+            "semantic": {
+              "heldout_ndcg10": 0.5149372924909454,
+              "per_repeat": [
+                0.5149439088813398,
+                0.5149339842957462,
+                0.5149339842957462
+              ]
+            },
+            "lexical": {
+              "heldout_ndcg10": 0.27562145394987747,
+              "per_repeat": [
+                0.27562145394987797,
+                0.27562145394987797,
+                0.27562145394987797
+              ]
+            },
+            "duetrank": {
+              "heldout_ndcg10": 0.520890229784513,
+              "per_repeat": [
+                0.5208187111058441,
+                0.5209445003603578,
+                0.520907477887333
+              ]
+            },
+            "fixed_rrf": {
+              "heldout_ndcg10": 0.5133788923133404,
+              "per_repeat": [
+                0.5133850643935198,
+                0.5133758062732487,
+                0.5133758062732487
+              ]
+            },
+            "standard_rrf": {
+              "heldout_ndcg10": 0.42560761068552666,
+              "per_repeat": [
+                0.42545264121989546,
+                0.42547207113773783,
+                0.4258981196989444
+              ]
+            }
+          }
+        },
+        "paired_comparisons": {
+          "duet_fusion_minus_semantic": {
+            "mean_difference": 0.005586400587150803,
+            "ci95": [
+              0.0031812962685734097,
+              0.008081731720445495
+            ],
+            "one_sided_p_nonpositive": 0.0001999600079984003,
+            "win_fraction": 0.09660724554341575,
+            "tie_fraction": 0.8378378378378378,
+            "loss_fraction": 0.0655549166187464,
+            "queries": 1739
+          },
+          "duet_lexical_minus_direct300": {
+            "mean_difference": -0.0008777229339942052,
+            "ci95": [
+              -0.00284824418207934,
+              0.000769719466287522
+            ],
+            "one_sided_p_nonpositive": 0.8338332333533294,
+            "win_fraction": 0.014951121334100058,
+            "tie_fraction": 0.9775733179988499,
+            "loss_fraction": 0.007475560667050029,
+            "queries": 1739
+          },
+          "duet_fusion_minus_direct300_fusion": {
+            "mean_difference": -0.001585361632988898,
+            "ci95": [
+              -0.00407548744537997,
+              0.0008701582457575727
+            ],
+            "one_sided_p_nonpositive": 0.9038192361527695,
+            "win_fraction": 0.041403105232892465,
+            "tie_fraction": 0.9177688326624497,
+            "loss_fraction": 0.04082806210465785,
+            "queries": 1739
+          },
+          "direct300_fusion_minus_semantic": {
+            "mean_difference": 0.0071717622201397015,
+            "ci95": [
+              0.00394393729158417,
+              0.010438065627540625
+            ],
+            "one_sided_p_nonpositive": 0.0003999200159968006,
+            "win_fraction": 0.10925819436457734,
+            "tie_fraction": 0.8102357676825762,
+            "loss_fraction": 0.08050603795284646,
+            "queries": 1739
+          },
+          "duet_lexical_minus_direct1000": {
+            "mean_difference": -0.0035207959495444285,
+            "ci95": [
+              -0.007478482711491868,
+              4.381495740757575e-05
+            ],
+            "one_sided_p_nonpositive": 0.9738052389522096,
+            "win_fraction": 0.039677975848188614,
+            "tie_fraction": 0.9430707303047728,
+            "loss_fraction": 0.017251293847038527,
+            "queries": 1739
+          },
+          "duet_fusion_minus_direct1000_fusion": {
+            "mean_difference": -0.00036653670641678725,
+            "ci95": [
+              -0.0020774449791885747,
+              0.001322983526750937
+            ],
+            "one_sided_p_nonpositive": 0.6752649470105979,
+            "win_fraction": 0.04427832087406555,
+            "tie_fraction": 0.9143185738930419,
+            "loss_fraction": 0.041403105232892465,
+            "queries": 1739
+          },
+          "direct1000_fusion_minus_semantic": {
+            "mean_difference": 0.005952937293567591,
+            "ci95": [
+              0.003509173256656004,
+              0.008591668962830912
+            ],
+            "one_sided_p_nonpositive": 0.0001999600079984003,
+            "win_fraction": 0.10005750431282347,
+            "tie_fraction": 0.8171362852213916,
+            "loss_fraction": 0.08280621046578493,
+            "queries": 1739
+          }
+        },
+        "selections": {
+          "duet": {
+            "max_leaf_nodes": 31,
+            "semantic_backoff_weight": 0.5,
+            "inner_validation_ndcg": 0.5291306471949918,
+            "fixed_rrf_semantic_weight": 1.0,
+            "training_rows": 398291,
+            "model_path": "<WORKSPACE>\\experiment_revision_20261107\\results\\nq\\duetrank.joblib"
+          },
+          "direct300": {
+            "max_leaf_nodes": 31,
+            "semantic_backoff_weight": 0.5,
+            "inner_validation_ndcg": 0.5293661438198282,
+            "fixed_rrf_semantic_weight": 1.0,
+            "training_rows": 397994,
+            "model_path": "<WORKSPACE>\\experiment_revision_20261107\\direct_bm25\\nq\\fusion_300\\duetrank.joblib"
+          },
+          "direct1000": {
+            "max_leaf_nodes": 31,
+            "semantic_backoff_weight": 0.5,
+            "inner_validation_ndcg": 0.5306949591986864,
+            "fixed_rrf_semantic_weight": 0.98,
+            "training_rows": 396791,
+            "model_path": "<WORKSPACE>\\experiment_revision_20261107\\direct_bm25\\nq\\fusion_1000\\duetrank.joblib"
+          }
+        },
+        "candidate_counts": {
+          "ccadpe_exact_bm25_mean": 299.40758980301274,
+          "ccadpe_exact_bm25_max": 300,
+          "direct": {
+            "300": {
+              "candidate_rule": "First <= 300 FTS5 planner candidates; no CCADPE filtering; exact native BM25",
+              "scored_candidates_mean": 299.40758980301274,
+              "scored_candidates_max": 300,
+              "all_queries": {
+                "nDCG@10": 0.275508871267557,
+                "MRR@10": 0.239260539093969,
+                "Recall@10": 0.4282058709926613,
+                "Recall@100": 0.6651699497875628
+              },
+              "heldout_ndcg_at_10": 0.2729783809343273,
+              "calibration_ndcg_at_10": 0.2780777695101061,
+              "bm25_kernel_ms": {
+                "mean_ms": 0.2173213496939673,
+                "p50_ms": 0.20499993115663528,
+                "p95_ms": 0.26729999226517975
+              }
+            },
+            "1000": {
+              "candidate_rule": "First <= 1000 FTS5 planner candidates; no CCADPE filtering; exact native BM25",
+              "scored_candidates_mean": 995.5909617612978,
+              "scored_candidates_max": 1000,
+              "all_queries": {
+                "nDCG@10": 0.27942736059868034,
+                "MRR@10": 0.24263286523570418,
+                "Recall@10": 0.43453070683661643,
+                "Recall@100": 0.6981942835071455
+              },
+              "heldout_ndcg_at_10": 0.27562145394987747,
+              "calibration_ndcg_at_10": 0.28329103348967166,
+              "bm25_kernel_ms": {
+                "mean_ms": 0.42053487903637077,
+                "p50_ms": 0.4141000099480152,
+                "p95_ms": 0.506900018081069
+              }
+            }
+          }
+        }
+      },
+      "hotpotqa": {
+        "query_count": 7405,
+        "holdout_count": 3740,
+        "query_ids_sha256": "c476b8bcccfa637e597454e9f24abe83af3738a47b873661b172effb2ca5710c",
+        "methods": {
+          "duet": {
+            "semantic": {
+              "heldout_ndcg10": 0.6408977307190794,
+              "per_repeat": [
+                0.6408935948536961,
+                0.6408988178482972,
+                0.6409007794552479
+              ]
+            },
+            "lexical": {
+              "heldout_ndcg10": 0.5774618785725008,
+              "per_repeat": [
+                0.5774491873433759,
+                0.5774267545105342,
+                0.5775096938635713
+              ]
+            },
+            "duetrank": {
+              "heldout_ndcg10": 0.6843241488745767,
+              "per_repeat": [
+                0.6842965161367275,
+                0.6843249500058893,
+                0.6843509804811282
+              ]
+            },
+            "fixed_rrf": {
+              "heldout_ndcg10": 0.6518993438993539,
+              "per_repeat": [
+                0.6519505330305346,
+                0.6518270882523036,
+                0.6519204104152316
+              ]
+            },
+            "standard_rrf": {
+              "heldout_ndcg10": 0.6447280831391257,
+              "per_repeat": [
+                0.6448039396453712,
+                0.6449331848617471,
+                0.6444471249102653
+              ]
+            }
+          },
+          "direct300": {
+            "semantic": {
+              "heldout_ndcg10": 0.6408977307190794,
+              "per_repeat": [
+                0.6408935948536961,
+                0.6408988178482972,
+                0.6409007794552479
+              ]
+            },
+            "lexical": {
+              "heldout_ndcg10": 0.5810292793381235,
+              "per_repeat": [
+                0.5810292793381177,
+                0.5810292793381177,
+                0.5810292793381177
+              ]
+            },
+            "duetrank": {
+              "heldout_ndcg10": 0.6858698588967382,
+              "per_repeat": [
+                0.6858874550033984,
+                0.6858787616242638,
+                0.6858433600625665
+              ]
+            },
+            "fixed_rrf": {
+              "heldout_ndcg10": 0.6530576311316244,
+              "per_repeat": [
+                0.6530956137648372,
+                0.6529949081437114,
+                0.653082371486334
+              ]
+            },
+            "standard_rrf": {
+              "heldout_ndcg10": 0.6487396744438245,
+              "per_repeat": [
+                0.6487422928819583,
+                0.6489619713385121,
+                0.6485147591110102
+              ]
+            }
+          },
+          "direct1000": {
+            "semantic": {
+              "heldout_ndcg10": 0.6408977307190794,
+              "per_repeat": [
+                0.6408935948536961,
+                0.6408988178482972,
+                0.6409007794552479
+              ]
+            },
+            "lexical": {
+              "heldout_ndcg10": 0.5887446149099537,
+              "per_repeat": [
+                0.5887446149099488,
+                0.5887446149099488,
+                0.5887446149099488
+              ]
+            },
+            "duetrank": {
+              "heldout_ndcg10": 0.6877792330298856,
+              "per_repeat": [
+                0.6877800698730603,
+                0.687845596917813,
+                0.6877120322987995
+              ]
+            },
+            "fixed_rrf": {
+              "heldout_ndcg10": 0.6571712438503388,
+              "per_repeat": [
+                0.6572636603983237,
+                0.6571096596491293,
+                0.6571404115035732
+              ]
+            },
+            "standard_rrf": {
+              "heldout_ndcg10": 0.6553243291463073,
+              "per_repeat": [
+                0.6554514804607038,
+                0.6555546321554229,
+                0.6549668748228024
+              ]
+            }
+          }
+        },
+        "paired_comparisons": {
+          "duet_fusion_minus_semantic": {
+            "mean_difference": 0.04342641815549739,
+            "ci95": [
+              0.0388912761327774,
+              0.04798828645496998
+            ],
+            "one_sided_p_nonpositive": 0.0001999600079984003,
+            "win_fraction": 0.2556149732620321,
+            "tie_fraction": 0.5689839572192513,
+            "loss_fraction": 0.1754010695187166,
+            "queries": 3740
+          },
+          "duet_lexical_minus_direct300": {
+            "mean_difference": -0.003567400765622925,
+            "ci95": [
+              -0.005297292996615652,
+              -0.0019786474107032015
+            ],
+            "one_sided_p_nonpositive": 1.0,
+            "win_fraction": 0.01898395721925134,
+            "tie_fraction": 0.9668449197860962,
+            "loss_fraction": 0.014171122994652407,
+            "queries": 3740
+          },
+          "duet_fusion_minus_direct300_fusion": {
+            "mean_difference": -0.001545710022161466,
+            "ci95": [
+              -0.002754208387386083,
+              -0.00035937096528167477
+            ],
+            "one_sided_p_nonpositive": 0.9956008798240352,
+            "win_fraction": 0.05080213903743316,
+            "tie_fraction": 0.8957219251336899,
+            "loss_fraction": 0.053475935828877004,
+            "queries": 3740
+          },
+          "direct300_fusion_minus_semantic": {
+            "mean_difference": 0.044972128177658846,
+            "ci95": [
+              0.04042776816122908,
+              0.04965564257596198
+            ],
+            "one_sided_p_nonpositive": 0.0001999600079984003,
+            "win_fraction": 0.260427807486631,
+            "tie_fraction": 0.5700534759358289,
+            "loss_fraction": 0.1695187165775401,
+            "queries": 3740
+          },
+          "duet_lexical_minus_direct1000": {
+            "mean_difference": -0.01128273633745294,
+            "ci95": [
+              -0.014159878751460566,
+              -0.008481743803809082
+            ],
+            "one_sided_p_nonpositive": 1.0,
+            "win_fraction": 0.0572192513368984,
+            "tie_fraction": 0.8994652406417112,
+            "loss_fraction": 0.04331550802139037,
+            "queries": 3740
+          },
+          "duet_fusion_minus_direct1000_fusion": {
+            "mean_difference": -0.003455084155308845,
+            "ci95": [
+              -0.005382241250782791,
+              -0.001588393466599628
+            ],
+            "one_sided_p_nonpositive": 0.9996000799840032,
+            "win_fraction": 0.08636363636363636,
+            "tie_fraction": 0.8318181818181818,
+            "loss_fraction": 0.08181818181818182,
+            "queries": 3740
+          },
+          "direct1000_fusion_minus_semantic": {
+            "mean_difference": 0.04688150231080622,
+            "ci95": [
+              0.04206329564424658,
+              0.0516525103520564
+            ],
+            "one_sided_p_nonpositive": 0.0001999600079984003,
+            "win_fraction": 0.27406417112299464,
+            "tie_fraction": 0.5588235294117647,
+            "loss_fraction": 0.16711229946524064,
+            "queries": 3740
+          }
+        },
+        "selections": {
+          "duet": {
+            "max_leaf_nodes": 31,
+            "semantic_backoff_weight": 0.0,
+            "inner_validation_ndcg": 0.6721561685150922,
+            "fixed_rrf_semantic_weight": 0.9,
+            "training_rows": 876837,
+            "model_path": "<WORKSPACE>\\experiment_revision_20261107\\results\\hotpotqa\\duetrank.joblib"
+          },
+          "direct300": {
+            "max_leaf_nodes": 31,
+            "semantic_backoff_weight": 0.0,
+            "inner_validation_ndcg": 0.6736280545613651,
+            "fixed_rrf_semantic_weight": 0.9,
+            "training_rows": 876524,
+            "model_path": "<WORKSPACE>\\experiment_revision_20261107\\direct_bm25\\hotpotqa\\fusion_300\\duetrank.joblib"
+          },
+          "direct1000": {
+            "max_leaf_nodes": 15,
+            "semantic_backoff_weight": 0.0,
+            "inner_validation_ndcg": 0.6774400473279935,
+            "fixed_rrf_semantic_weight": 0.8,
+            "training_rows": 874077,
+            "model_path": "<WORKSPACE>\\experiment_revision_20261107\\direct_bm25\\hotpotqa\\fusion_1000\\duetrank.joblib"
+          }
+        },
+        "candidate_counts": {
+          "ccadpe_exact_bm25_mean": 298.03646185010126,
+          "ccadpe_exact_bm25_max": 300,
+          "direct": {
+            "300": {
+              "candidate_rule": "First <= 300 FTS5 planner candidates; no CCADPE filtering; exact native BM25",
+              "scored_candidates_mean": 298.03646185010126,
+              "scored_candidates_max": 300,
+              "all_queries": {
+                "nDCG@10": 0.5767179785879577,
+                "MRR@10": 0.7464218192341082,
+                "Recall@10": 0.5977042538825118,
+                "Recall@100": 0.70101282916948
+              },
+              "heldout_ndcg_at_10": 0.5810292793381235,
+              "calibration_ndcg_at_10": 0.572318452037993,
+              "bm25_kernel_ms": {
+                "mean_ms": 0.20547650140068122,
+                "p50_ms": 0.202000024728477,
+                "p95_ms": 0.24339999072253704
+              }
+            },
+            "1000": {
+              "candidate_rule": "First <= 1000 FTS5 planner candidates; no CCADPE filtering; exact native BM25",
+              "scored_candidates_mean": 990.997974341661,
+              "scored_candidates_max": 1000,
+              "all_queries": {
+                "nDCG@10": 0.5834364564244304,
+                "MRR@10": 0.7506209339463897,
+                "Recall@10": 0.6092505064145848,
+                "Recall@100": 0.7320729237002026
+              },
+              "heldout_ndcg_at_10": 0.5887446149099536,
+              "calibration_ndcg_at_10": 0.5780196725947286,
+              "bm25_kernel_ms": {
+                "mean_ms": 0.4334335178130537,
+                "p50_ms": 0.42129994835704565,
+                "p95_ms": 0.5292800487950443
+              }
+            }
+          }
+        }
+      },
+      "msmarco": {
+        "query_count": 6980,
+        "holdout_count": 3526,
+        "query_ids_sha256": "b1726d111e93b6ee4984f6c96b15620937b407eefa3514606123c5f8b1656b58",
+        "methods": {
+          "duet": {
+            "semantic": {
+              "heldout_ndcg10": 0.28348289887624556,
+              "per_repeat": [
+                0.283482898876244,
+                0.283482898876244,
+                0.283482898876244
+              ]
+            },
+            "lexical": {
+              "heldout_ndcg10": 0.22577672320581582,
+              "per_repeat": [
+                0.22577559206861117,
+                0.2257755920686112,
+                0.2257789854802238
+              ]
+            },
+            "duetrank": {
+              "heldout_ndcg10": 0.30232352229707676,
+              "per_repeat": [
+                0.3022997160893721,
+                0.30236434788926003,
+                0.3023065029125973
+              ]
+            },
+            "fixed_rrf": {
+              "heldout_ndcg10": 0.29335915059818285,
+              "per_repeat": [
+                0.2933569881994507,
+                0.2933569881994507,
+                0.2933634753956432
+              ]
+            },
+            "standard_rrf": {
+              "heldout_ndcg10": 0.2821968476083892,
+              "per_repeat": [
+                0.28219622885795875,
+                0.28214806503909784,
+                0.2822462489281092
+              ]
+            }
+          },
+          "direct300": {
+            "semantic": {
+              "heldout_ndcg10": 0.28348289887624556,
+              "per_repeat": [
+                0.283482898876244,
+                0.283482898876244,
+                0.283482898876244
+              ]
+            },
+            "lexical": {
+              "heldout_ndcg10": 0.22724832827721814,
+              "per_repeat": [
+                0.22724832827721775,
+                0.22724832827721775,
+                0.22724832827721775
+              ]
+            },
+            "duetrank": {
+              "heldout_ndcg10": 0.30236437390473697,
+              "per_repeat": [
+                0.3023485933862455,
+                0.30227454149517935,
+                0.3024699868327838
+              ]
+            },
+            "fixed_rrf": {
+              "heldout_ndcg10": 0.29328432919942454,
+              "per_repeat": [
+                0.2932821668006925,
+                0.2932821668006925,
+                0.293288653996885
+              ]
+            },
+            "standard_rrf": {
+              "heldout_ndcg10": 0.28330305049016646,
+              "per_repeat": [
+                0.28332772740543904,
+                0.2832424571962481,
+                0.28333896686880966
+              ]
+            }
+          },
+          "direct1000": {
+            "semantic": {
+              "heldout_ndcg10": 0.28348289887624556,
+              "per_repeat": [
+                0.283482898876244,
+                0.283482898876244,
+                0.283482898876244
+              ]
+            },
+            "lexical": {
+              "heldout_ndcg10": 0.22692151173279607,
+              "per_repeat": [
+                0.22692151173279568,
+                0.22692151173279568,
+                0.22692151173279568
+              ]
+            },
+            "duetrank": {
+              "heldout_ndcg10": 0.3033408318702812,
+              "per_repeat": [
+                0.30338131839377946,
+                0.3032722875671389,
+                0.3033688896499227
+              ]
+            },
+            "fixed_rrf": {
+              "heldout_ndcg10": 0.2933005960666494,
+              "per_repeat": [
+                0.29329843366791725,
+                0.29329843366791725,
+                0.2933049208641098
+              ]
+            },
+            "standard_rrf": {
+              "heldout_ndcg10": 0.28437883136510766,
+              "per_repeat": [
+                0.2844109875683135,
+                0.284311614398816,
+                0.2844138921281909
+              ]
+            }
+          }
+        },
+        "paired_comparisons": {
+          "duet_fusion_minus_semantic": {
+            "mean_difference": 0.018840623420831225,
+            "ci95": [
+              0.012840884817826654,
+              0.024639298968702896
+            ],
+            "one_sided_p_nonpositive": 0.0001999600079984003,
+            "win_fraction": 0.19398752127056154,
+            "tie_fraction": 0.6236528644356211,
+            "loss_fraction": 0.18235961429381736,
+            "queries": 3526
+          },
+          "duet_lexical_minus_direct300": {
+            "mean_difference": -0.001471605071402318,
+            "ci95": [
+              -0.002895451651316467,
+              -0.00014935417525595724
+            ],
+            "one_sided_p_nonpositive": 0.9868026394721056,
+            "win_fraction": 0.00935904707884288,
+            "tie_fraction": 0.9844015882019286,
+            "loss_fraction": 0.006239364719228588,
+            "queries": 3526
+          },
+          "duet_fusion_minus_direct300_fusion": {
+            "mean_difference": -4.08516076601557e-05,
+            "ci95": [
+              -0.00274538281509551,
+              0.002796819341815144
+            ],
+            "one_sided_p_nonpositive": 0.5040991801639672,
+            "win_fraction": 0.07855927396483267,
+            "tie_fraction": 0.8502552467385139,
+            "loss_fraction": 0.07118547929665343,
+            "queries": 3526
+          },
+          "direct300_fusion_minus_semantic": {
+            "mean_difference": 0.01888147502849138,
+            "ci95": [
+              0.012997945242256939,
+              0.02445790411615659
+            ],
+            "one_sided_p_nonpositive": 0.0001999600079984003,
+            "win_fraction": 0.18547929665343166,
+            "tie_fraction": 0.6366988088485536,
+            "loss_fraction": 0.17782189449801475,
+            "queries": 3526
+          },
+          "duet_lexical_minus_direct1000": {
+            "mean_difference": -0.0011447885269802527,
+            "ci95": [
+              -0.0029013365859565507,
+              0.0004540904877351586
+            ],
+            "one_sided_p_nonpositive": 0.9098180363927214,
+            "win_fraction": 0.016165626772546796,
+            "tie_fraction": 0.9761769710720363,
+            "loss_fraction": 0.007657402155416903,
+            "queries": 3526
+          },
+          "duet_fusion_minus_direct1000_fusion": {
+            "mean_difference": -0.0010173095732044595,
+            "ci95": [
+              -0.0038178319169708676,
+              0.0016995557933021765
+            ],
+            "one_sided_p_nonpositive": 0.7624475104979004,
+            "win_fraction": 0.08876914350538855,
+            "tie_fraction": 0.8312535450935905,
+            "loss_fraction": 0.07997731140102099,
+            "queries": 3526
+          },
+          "direct1000_fusion_minus_semantic": {
+            "mean_difference": 0.01985793299403569,
+            "ci95": [
+              0.014020614691035197,
+              0.02543545979123804
+            ],
+            "one_sided_p_nonpositive": 0.0001999600079984003,
+            "win_fraction": 0.19256948383437322,
+            "tie_fraction": 0.6352807714123653,
+            "loss_fraction": 0.17214974475326147,
+            "queries": 3526
+          }
+        },
+        "selections": {
+          "duet": {
+            "max_leaf_nodes": 15,
+            "semantic_backoff_weight": 0.0,
+            "inner_validation_ndcg": 0.3059766630575205,
+            "fixed_rrf_semantic_weight": 0.9,
+            "training_rows": 795319,
+            "model_path": "<WORKSPACE>\\experiment_revision_20261107\\results\\msmarco_dev\\duetrank.joblib"
+          },
+          "direct300": {
+            "max_leaf_nodes": 15,
+            "semantic_backoff_weight": 0.0,
+            "inner_validation_ndcg": 0.3084993781209323,
+            "fixed_rrf_semantic_weight": 0.9,
+            "training_rows": 794870,
+            "model_path": "<WORKSPACE>\\experiment_revision_20261107\\direct_bm25\\msmarco\\fusion_300\\duetrank.joblib"
+          },
+          "direct1000": {
+            "max_leaf_nodes": 31,
+            "semantic_backoff_weight": 0.0,
+            "inner_validation_ndcg": 0.3076399445812058,
+            "fixed_rrf_semantic_weight": 0.9,
+            "training_rows": 795335,
+            "model_path": "<WORKSPACE>\\experiment_revision_20261107\\direct_bm25\\msmarco\\fusion_1000\\duetrank.joblib"
+          }
+        },
+        "candidate_counts": {
+          "ccadpe_exact_bm25_mean": 291.7329512893983,
+          "ccadpe_exact_bm25_max": 300,
+          "direct": {
+            "300": {
+              "candidate_rule": "First <= 300 FTS5 planner candidates; no CCADPE filtering; exact native BM25",
+              "scored_candidates_mean": 291.7329512893983,
+              "scored_candidates_max": 300,
+              "all_queries": {
+                "nDCG@10": 0.22373433123144143,
+                "MRR@10": 0.17935797289307315,
+                "Recall@10": 0.37404489016236864,
+                "Recall@100": 0.6370343839541547
+              },
+              "heldout_ndcg_at_10": 0.22724832827721814,
+              "calibration_ndcg_at_10": 0.22014708352344817,
+              "bm25_kernel_ms": {
+                "mean_ms": 0.19258436912678736,
+                "p50_ms": 0.188400037586689,
+                "p95_ms": 0.2357050427235662
+              }
+            },
+            "1000": {
+              "candidate_rule": "First <= 1000 FTS5 planner candidates; no CCADPE filtering; exact native BM25",
+              "scored_candidates_mean": 961.3905444126075,
+              "scored_candidates_max": 1000,
+              "all_queries": {
+                "nDCG@10": 0.22349149908323077,
+                "MRR@10": 0.17926615727475326,
+                "Recall@10": 0.3735434574976122,
+                "Recall@100": 0.6361867239732569
+              },
+              "heldout_ndcg_at_10": 0.22692151173279607,
+              "calibration_ndcg_at_10": 0.21998998645949963,
+              "bm25_kernel_ms": {
+                "mean_ms": 0.4031504296069234,
+                "p50_ms": 0.404300051741302,
+                "p95_ms": 0.4890049982350319
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "pprag": {
+    "nq": {
+      "caprise_no_dp": {
+        "kprime": 100,
+        "mean_radius": 0.0,
+        "epsilon": null,
+        "heldout_ndcg10": 0.5177803782786138,
+        "heldout_recall100": 0.945945945945946,
+        "candidate_recall": 0.945945945945946
+      },
+      "dp002_heuristic": {
+        "kprime": 486,
+        "mean_radius": 0.02,
+        "epsilon": 19200.0,
+        "heldout_ndcg10": 0.5177803782786138,
+        "heldout_recall100": 0.9464251485528082,
+        "candidate_recall": 0.9804485336400228
+      },
+      "dp0033_heuristic": {
+        "kprime": 1251,
+        "mean_radius": 0.033,
+        "epsilon": 11636.363636363636,
+        "heldout_ndcg10": 0.5177803782786138,
+        "heldout_recall100": 0.9464251485528082,
+        "candidate_recall": 0.9896172768513193
+      },
+      "dp0033_matched": {
+        "kprime": 2048,
+        "mean_radius": 0.033,
+        "epsilon": 11636.363636363636,
+        "heldout_ndcg10": 0.5177803782786138,
+        "heldout_recall100": 0.9464251485528082,
+        "candidate_recall": 0.9909909909909911
+      }
+    },
+    "hotpotqa": {
+      "caprise_no_dp": {
+        "kprime": 100,
+        "mean_radius": 0.0,
+        "epsilon": null,
+        "heldout_ndcg10": 0.646881881857871,
+        "heldout_recall100": 0.7967468805704101,
+        "candidate_recall": 0.7967468805704101
+      },
+      "dp002_heuristic": {
+        "kprime": 516,
+        "mean_radius": 0.02,
+        "epsilon": 19200.0,
+        "heldout_ndcg10": 0.646881881857871,
+        "heldout_recall100": 0.7963903743315508,
+        "candidate_recall": 0.8624331550802139
+      },
+      "dp0033_heuristic": {
+        "kprime": 1380,
+        "mean_radius": 0.033,
+        "epsilon": 11636.363636363636,
+        "heldout_ndcg10": 0.646881881857871,
+        "heldout_recall100": 0.7963903743315508,
+        "candidate_recall": 0.8952317290552584
+      },
+      "dp0033_matched": {
+        "kprime": 2048,
+        "mean_radius": 0.033,
+        "epsilon": 11636.363636363636,
+        "heldout_ndcg10": 0.646881881857871,
+        "heldout_recall100": 0.7963903743315508,
+        "candidate_recall": 0.9096702317290553
+      }
+    },
+    "msmarco": {
+      "caprise_no_dp": {
+        "kprime": 100,
+        "mean_radius": 0.0,
+        "epsilon": null,
+        "heldout_ndcg10": 0.2859773439315867,
+        "heldout_recall100": 0.8066742295329931,
+        "candidate_recall": 0.8066742295329931
+      },
+      "dp002_heuristic": {
+        "kprime": 540,
+        "mean_radius": 0.02,
+        "epsilon": 19200.0,
+        "heldout_ndcg10": 0.2859773439315867,
+        "heldout_recall100": 0.8038381546606163,
+        "candidate_recall": 0.9291217621478541
+      },
+      "dp0033_heuristic": {
+        "kprime": 1488,
+        "mean_radius": 0.033,
+        "epsilon": 11636.363636363636,
+        "heldout_ndcg10": 0.2859773439315867,
+        "heldout_recall100": 0.8038381546606163,
+        "candidate_recall": 0.9639503371777903
+      },
+      "dp0033_matched": {
+        "kprime": 4096,
+        "mean_radius": 0.033,
+        "epsilon": 11636.363636363636,
+        "heldout_ndcg10": 0.2859773439315867,
+        "heldout_recall100": 0.8038381546606163,
+        "candidate_recall": 0.9820460704607047
+      }
+    }
+  },
+  "duet_minus_pprag": {
+    "nq": {
+      "caprise_no_dp": {
+        "mean_difference": 0.0027433147994824782,
+        "ci95": [
+          -0.0010754164603932672,
+          0.006308981470573934
+        ]
+      },
+      "dp002_heuristic": {
+        "mean_difference": 0.0027433147994824782,
+        "ci95": [
+          -0.0010754164603932672,
+          0.006308981470573934
+        ]
+      },
+      "dp0033_heuristic": {
+        "mean_difference": 0.0027433147994824782,
+        "ci95": [
+          -0.0010754164603932672,
+          0.006308981470573934
+        ]
+      },
+      "dp0033_matched": {
+        "mean_difference": 0.0027433147994824782,
+        "ci95": [
+          -0.0010754164603932672,
+          0.006308981470573934
+        ]
+      }
+    },
+    "hotpotqa": {
+      "caprise_no_dp": {
+        "mean_difference": 0.037442267016705666,
+        "ci95": [
+          0.0328629931860614,
+          0.04205007344238209
+        ]
+      },
+      "dp002_heuristic": {
+        "mean_difference": 0.037442267016705666,
+        "ci95": [
+          0.0328629931860614,
+          0.04205007344238209
+        ]
+      },
+      "dp0033_heuristic": {
+        "mean_difference": 0.037442267016705666,
+        "ci95": [
+          0.0328629931860614,
+          0.04205007344238209
+        ]
+      },
+      "dp0033_matched": {
+        "mean_difference": 0.037442267016705666,
+        "ci95": [
+          0.0328629931860614,
+          0.04205007344238209
+        ]
+      }
+    },
+    "msmarco": {
+      "caprise_no_dp": {
+        "mean_difference": 0.016346178365490092,
+        "ci95": [
+          0.010015364897231392,
+          0.022543143260561293
+        ]
+      },
+      "dp002_heuristic": {
+        "mean_difference": 0.016346178365490092,
+        "ci95": [
+          0.010015364897231392,
+          0.022543143260561293
+        ]
+      },
+      "dp0033_heuristic": {
+        "mean_difference": 0.016346178365490092,
+        "ci95": [
+          0.010015364897231392,
+          0.022543143260561293
+        ]
+      },
+      "dp0033_matched": {
+        "mean_difference": 0.016346178365490092,
+        "ci95": [
+          0.010015364897231392,
+          0.022543143260561293
+        ]
+      }
+    }
+  },
+  "loopback_protocol": {
+    "nq": {
+      "ccadpe": {
+        "source": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\nq_ccadpe\\results.json",
+        "scope": "Single persistent loopback TCP client/server; real text encoder through Top20 Fetch document decryption; no LLM generation or WAN",
+        "mean_ms": 772.9733,
+        "p50_ms": 769.29205,
+        "p95_ms": 818.3431899999999,
+        "unique_queries": 16,
+        "observations": 48,
+        "upload_bytes_mean": 69550.125,
+        "download_bytes_mean": 3944016.3958333335,
+        "encoder_device": "cpu",
+        "server_backend": "CPU FP32 per-query local scans",
+        "mean_fetched_documents": 20.0,
+        "per_query_mean_ms": {
+          "test0": 774.3014333333332,
+          "test1150": 775.2774,
+          "test1380": 794.1206666666667,
+          "test1610": 769.4204333333333,
+          "test1840": 755.2867666666666,
+          "test2070": 776.0226666666667,
+          "test230": 768.3997666666668,
+          "test2300": 793.9358333333333,
+          "test2530": 775.7252,
+          "test2760": 755.5448333333333,
+          "test2990": 799.8605333333334,
+          "test3220": 769.0437000000001,
+          "test3451": 749.3023666666667,
+          "test460": 748.0747333333334,
+          "test690": 787.7626,
+          "test920": 775.4938666666667
+        }
+      },
+      "direct300": {
+        "source": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\nq_direct300\\results.json",
+        "scope": "Single persistent loopback TCP client/server; real text encoder through Top20 Fetch document decryption; no LLM generation or WAN",
+        "mean_ms": 642.6172416666667,
+        "p50_ms": 638.18375,
+        "p95_ms": 690.86383,
+        "unique_queries": 16,
+        "observations": 48,
+        "upload_bytes_mean": 68529.125,
+        "download_bytes_mean": 3566030.0416666665,
+        "encoder_device": "cpu",
+        "server_backend": "CPU FP32 per-query local scans",
+        "mean_fetched_documents": 20.0,
+        "per_query_mean_ms": {
+          "test0": 638.2937000000001,
+          "test1150": 656.3996999999999,
+          "test1380": 685.9035,
+          "test1610": 645.5856333333334,
+          "test1840": 627.5725666666667,
+          "test2070": 644.5768,
+          "test230": 636.0803,
+          "test2300": 651.511,
+          "test2530": 634.2137666666666,
+          "test2760": 617.1971666666667,
+          "test2990": 651.0740333333333,
+          "test3220": 647.8068666666667,
+          "test3451": 632.2922333333332,
+          "test460": 627.4467999999999,
+          "test690": 654.8791666666667,
+          "test920": 631.0426333333334
+        }
+      },
+      "direct1000": {
+        "source": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\nq_direct1000\\results.json",
+        "scope": "Single persistent loopback TCP client/server; real text encoder through Top20 Fetch document decryption; no LLM generation or WAN",
+        "mean_ms": 776.5548145833333,
+        "p50_ms": 767.4895,
+        "p95_ms": 864.29036,
+        "unique_queries": 16,
+        "observations": 48,
+        "upload_bytes_mean": 68530.125,
+        "download_bytes_mean": 3942272.2083333335,
+        "encoder_device": "cpu",
+        "server_backend": "CPU FP32 per-query local scans",
+        "mean_fetched_documents": 20.0,
+        "per_query_mean_ms": {
+          "test0": 756.5836333333333,
+          "test1150": 773.2662333333333,
+          "test1380": 819.1462666666666,
+          "test1610": 781.9667,
+          "test1840": 784.5422666666667,
+          "test2070": 758.9137666666667,
+          "test230": 808.2078,
+          "test2300": 793.5416999999999,
+          "test2530": 761.773,
+          "test2760": 766.2161666666666,
+          "test2990": 783.7339333333333,
+          "test3220": 762.2754333333332,
+          "test3451": 742.5447666666665,
+          "test460": 762.1414,
+          "test690": 798.4939666666668,
+          "test920": 771.5300000000001
+        }
+      }
+    },
+    "hotpotqa": {
+      "ccadpe": {
+        "source": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\hotpotqa_ccadpe\\results.json",
+        "scope": "Single persistent loopback TCP client/server; real text encoder through Top20 Fetch document decryption; no LLM generation or WAN",
+        "mean_ms": 947.1071416666667,
+        "p50_ms": 950.68245,
+        "p95_ms": 1005.7093349999999,
+        "unique_queries": 16,
+        "observations": 48,
+        "upload_bytes_mean": 69556.375,
+        "download_bytes_mean": 3817468.1458333335,
+        "encoder_device": "cpu",
+        "server_backend": "CPU FP32 per-query local scans",
+        "mean_fetched_documents": 20.0,
+        "per_query_mean_ms": {
+          "5a7d22dc5542995ed0d16600": 926.9824333333332,
+          "5a831fc955429954d2e2ec28": 946.1430333333333,
+          "5a871e265542991e771816d1": 970.0831,
+          "5a8a5c0d554299515336137b": 951.2172666666667,
+          "5a8b57f25542995d1e6f1371": 916.6130333333334,
+          "5abb9928554299642a094ab9": 947.3776333333334,
+          "5abcedb355429959677d6b4f": 960.6558333333332,
+          "5ac132a755429964131be17c": 964.0298666666666,
+          "5ac27afa5542990b17b153b5": 942.1677333333333,
+          "5ac3b39e554299204fd21e09": 941.8274333333333,
+          "5ade908b55429975fa854f13": 947.4717666666667,
+          "5ade9545554299728e26c741": 885.4084333333334,
+          "5ae0945d55429906c02daadd": 959.7874333333333,
+          "5ae0b0ab55429945ae959423": 1012.2846,
+          "5ae3249555429928c423962f": 959.4848333333333,
+          "5ae5621655429908b63265fc": 922.1798333333332
+        }
+      },
+      "direct300": {
+        "source": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\hotpotqa_direct300\\results.json",
+        "scope": "Single persistent loopback TCP client/server; real text encoder through Top20 Fetch document decryption; no LLM generation or WAN",
+        "mean_ms": 812.78246875,
+        "p50_ms": 806.16795,
+        "p95_ms": 903.3814799999999,
+        "unique_queries": 16,
+        "observations": 48,
+        "upload_bytes_mean": 68535.375,
+        "download_bytes_mean": 3522459.125,
+        "encoder_device": "cpu",
+        "server_backend": "CPU FP32 per-query local scans",
+        "mean_fetched_documents": 20.0,
+        "per_query_mean_ms": {
+          "5a7d22dc5542995ed0d16600": 756.4579,
+          "5a831fc955429954d2e2ec28": 836.7132333333333,
+          "5a871e265542991e771816d1": 828.0273333333333,
+          "5a8a5c0d554299515336137b": 837.0152333333334,
+          "5a8b57f25542995d1e6f1371": 770.5358333333334,
+          "5abb9928554299642a094ab9": 832.9829,
+          "5abcedb355429959677d6b4f": 814.5784333333332,
+          "5ac132a755429964131be17c": 798.5199333333334,
+          "5ac27afa5542990b17b153b5": 804.1172,
+          "5ac3b39e554299204fd21e09": 803.3310666666666,
+          "5ade908b55429975fa854f13": 816.1921666666667,
+          "5ade9545554299728e26c741": 759.2093333333332,
+          "5ae0945d55429906c02daadd": 818.1556666666667,
+          "5ae0b0ab55429945ae959423": 909.1222333333334,
+          "5ae3249555429928c423962f": 817.0736999999999,
+          "5ae5621655429908b63265fc": 802.4873333333334
+        }
+      },
+      "direct1000": {
+        "source": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\hotpotqa_direct1000\\results.json",
+        "scope": "Single persistent loopback TCP client/server; real text encoder through Top20 Fetch document decryption; no LLM generation or WAN",
+        "mean_ms": 1000.0717291666666,
+        "p50_ms": 1000.4708,
+        "p95_ms": 1069.116595,
+        "unique_queries": 16,
+        "observations": 48,
+        "upload_bytes_mean": 68536.375,
+        "download_bytes_mean": 3810377.4791666665,
+        "encoder_device": "cpu",
+        "server_backend": "CPU FP32 per-query local scans",
+        "mean_fetched_documents": 20.0,
+        "per_query_mean_ms": {
+          "5a7d22dc5542995ed0d16600": 935.6707333333334,
+          "5a831fc955429954d2e2ec28": 1029.4009666666668,
+          "5a871e265542991e771816d1": 1037.8153333333332,
+          "5a8a5c0d554299515336137b": 981.6247333333334,
+          "5a8b57f25542995d1e6f1371": 998.6584333333334,
+          "5abb9928554299642a094ab9": 1018.3731333333334,
+          "5abcedb355429959677d6b4f": 992.0139666666668,
+          "5ac132a755429964131be17c": 1039.2659666666668,
+          "5ac27afa5542990b17b153b5": 962.0125333333332,
+          "5ac3b39e554299204fd21e09": 981.5201333333333,
+          "5ade908b55429975fa854f13": 1019.6184,
+          "5ade9545554299728e26c741": 948.1731,
+          "5ae0945d55429906c02daadd": 1001.6619333333333,
+          "5ae0b0ab55429945ae959423": 1054.8463666666667,
+          "5ae3249555429928c423962f": 1048.6647,
+          "5ae5621655429908b63265fc": 951.8272333333333
+        }
+      }
+    },
+    "msmarco": {
+      "ccadpe": {
+        "source": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\msmarco_ccadpe\\results.json",
+        "scope": "Single persistent loopback TCP client/server; real text encoder through Top20 Fetch document decryption; no LLM generation or WAN",
+        "mean_ms": 1557.4928499999999,
+        "p50_ms": 1544.25955,
+        "p95_ms": 1801.557355,
+        "unique_queries": 16,
+        "observations": 48,
+        "upload_bytes_mean": 69555.375,
+        "download_bytes_mean": 7243649.645833333,
+        "encoder_device": "cpu",
+        "server_backend": "CPU FP32 per-query local scans",
+        "mean_fetched_documents": 20.0,
+        "per_query_mean_ms": {
+          "1053901": 1472.2172,
+          "1057488": 1440.7855333333334,
+          "1057757": 1608.3054333333332,
+          "1084971": 1518.6013666666668,
+          "1099050": 1564.6916,
+          "1099653": 1564.2249666666667,
+          "153981": 1639.0757333333331,
+          "195199": 1604.9377000000002,
+          "300674": 1560.4509999999998,
+          "36473": 1763.3919999999998,
+          "438324": 1575.0596333333333,
+          "528760": 1586.7313333333332,
+          "537505": 1494.7691333333332,
+          "74637": 1479.3212333333333,
+          "84778": 1567.2440666666669,
+          "932223": 1480.0776666666668
+        }
+      },
+      "direct300": {
+        "source": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\msmarco_direct300\\results.json",
+        "scope": "Single persistent loopback TCP client/server; real text encoder through Top20 Fetch document decryption; no LLM generation or WAN",
+        "mean_ms": 1604.13190625,
+        "p50_ms": 1610.57085,
+        "p95_ms": 1749.70626,
+        "unique_queries": 16,
+        "observations": 48,
+        "upload_bytes_mean": 68534.375,
+        "download_bytes_mean": 6920033.020833333,
+        "encoder_device": "cpu",
+        "server_backend": "CPU FP32 per-query local scans",
+        "mean_fetched_documents": 20.0,
+        "per_query_mean_ms": {
+          "1053901": 1461.5982999999999,
+          "1057488": 1502.6731,
+          "1057757": 1592.1058,
+          "1084971": 1598.0865000000001,
+          "1099050": 1636.7918,
+          "1099653": 1569.4605333333332,
+          "153981": 1701.7037333333335,
+          "195199": 1600.5453666666665,
+          "300674": 1655.075466666667,
+          "36473": 1754.9216666666669,
+          "438324": 1650.7881666666665,
+          "528760": 1645.9596666666666,
+          "537505": 1569.6054333333332,
+          "74637": 1513.4178333333332,
+          "84778": 1674.7879,
+          "932223": 1538.5892333333334
+        }
+      },
+      "direct1000": {
+        "source": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\msmarco_direct1000\\results.json",
+        "scope": "Single persistent loopback TCP client/server; real text encoder through Top20 Fetch document decryption; no LLM generation or WAN",
+        "mean_ms": 1786.8152625000002,
+        "p50_ms": 1754.78,
+        "p95_ms": 2131.1158,
+        "unique_queries": 16,
+        "observations": 48,
+        "upload_bytes_mean": 68535.375,
+        "download_bytes_mean": 7237491.1875,
+        "encoder_device": "cpu",
+        "server_backend": "CPU FP32 per-query local scans",
+        "mean_fetched_documents": 20.0,
+        "per_query_mean_ms": {
+          "1053901": 1632.8531333333333,
+          "1057488": 1609.9532333333334,
+          "1057757": 1793.4345999999998,
+          "1084971": 1837.3115666666665,
+          "1099050": 1782.8086999999998,
+          "1099653": 1688.0388,
+          "153981": 1692.0465333333332,
+          "195199": 1764.5604999999998,
+          "300674": 1937.2838,
+          "36473": 1931.1883666666665,
+          "438324": 1791.6052,
+          "528760": 2079.0512,
+          "537505": 1773.1469333333334,
+          "74637": 1648.3062666666667,
+          "84778": 1962.4669999999999,
+          "932223": 1664.9883666666667
+        }
+      }
+    }
+  },
+  "pprag_serial_numerical_components": {
+    "nq": {
+      "dataset": "nq",
+      "completed": true,
+      "queries": 16,
+      "warmup_queries": 2,
+      "repeat": 1,
+      "beta": 0.1,
+      "mean_radius": 0.033,
+      "epsilon": 11636.363636363636,
+      "kprime": 2048,
+      "records": [
+        {
+          "query_id": "test1864",
+          "query_index": 1864,
+          "search_seconds": 0.6501094000414014,
+          "client_exact_rerank_seconds": 0.001271700020879507,
+          "total_seconds": 0.6513811000622809
+        },
+        {
+          "query_id": "test669",
+          "query_index": 669,
+          "search_seconds": 0.6300967000424862,
+          "client_exact_rerank_seconds": 0.0011548999464139342,
+          "total_seconds": 0.6312515999889001
+        },
+        {
+          "query_id": "test324",
+          "query_index": 324,
+          "search_seconds": 0.6508437999291345,
+          "client_exact_rerank_seconds": 0.20536660007201135,
+          "total_seconds": 0.8562104000011459
+        },
+        {
+          "query_id": "test371",
+          "query_index": 371,
+          "search_seconds": 0.6179548999061808,
+          "client_exact_rerank_seconds": 0.412772300071083,
+          "total_seconds": 1.0307271999772638
+        },
+        {
+          "query_id": "test86",
+          "query_index": 86,
+          "search_seconds": 0.6052816000301391,
+          "client_exact_rerank_seconds": 0.24136600003112108,
+          "total_seconds": 0.8466476000612602
+        },
+        {
+          "query_id": "test872",
+          "query_index": 872,
+          "search_seconds": 0.6102788000134751,
+          "client_exact_rerank_seconds": 0.3226170999696478,
+          "total_seconds": 0.932895899983123
+        },
+        {
+          "query_id": "test1413",
+          "query_index": 1413,
+          "search_seconds": 0.6026769999880344,
+          "client_exact_rerank_seconds": 0.319625600008294,
+          "total_seconds": 0.9223025999963284
+        },
+        {
+          "query_id": "test2764",
+          "query_index": 2764,
+          "search_seconds": 0.6449291000608355,
+          "client_exact_rerank_seconds": 0.5489517999812961,
+          "total_seconds": 1.1938809000421315
+        },
+        {
+          "query_id": "test2371",
+          "query_index": 2371,
+          "search_seconds": 0.6289086999604478,
+          "client_exact_rerank_seconds": 0.4592448000330478,
+          "total_seconds": 1.0881534999934956
+        },
+        {
+          "query_id": "test106",
+          "query_index": 106,
+          "search_seconds": 0.6235464999917895,
+          "client_exact_rerank_seconds": 0.3426022999919951,
+          "total_seconds": 0.9661487999837846
+        },
+        {
+          "query_id": "test3048",
+          "query_index": 3048,
+          "search_seconds": 0.6274759999942034,
+          "client_exact_rerank_seconds": 0.41037929989397526,
+          "total_seconds": 1.0378552998881787
+        },
+        {
+          "query_id": "test1741",
+          "query_index": 1741,
+          "search_seconds": 0.6206555999815464,
+          "client_exact_rerank_seconds": 0.25786520005203784,
+          "total_seconds": 0.8785208000335842
+        },
+        {
+          "query_id": "test3431",
+          "query_index": 3431,
+          "search_seconds": 0.6442795000039041,
+          "client_exact_rerank_seconds": 0.42314679990522563,
+          "total_seconds": 1.0674262999091297
+        },
+        {
+          "query_id": "test2546",
+          "query_index": 2546,
+          "search_seconds": 0.6137958000181243,
+          "client_exact_rerank_seconds": 0.2926590999122709,
+          "total_seconds": 0.9064548999303952
+        },
+        {
+          "query_id": "test572",
+          "query_index": 572,
+          "search_seconds": 0.6281812000088394,
+          "client_exact_rerank_seconds": 0.53502790001221,
+          "total_seconds": 1.1632091000210494
+        },
+        {
+          "query_id": "test1894",
+          "query_index": 1894,
+          "search_seconds": 0.6375580000458285,
+          "client_exact_rerank_seconds": 0.3860243000090122,
+          "total_seconds": 1.0235823000548407
+        }
+      ],
+      "summary": {
+        "search_seconds": {
+          "mean": 0.6272857875010232,
+          "p50": 0.6278286000015214,
+          "p95": 0.6502930000133347,
+          "min": 0.6026769999880344,
+          "max": 0.6508437999291345
+        },
+        "client_exact_rerank_seconds": {
+          "mean": 0.3225047312444076,
+          "p50": 0.33260969998082146,
+          "p95": 0.5385088750044815,
+          "min": 0.0011548999464139342,
+          "max": 0.5489517999812961
+        },
+        "total_seconds": {
+          "mean": 0.9497905187454307,
+          "p50": 0.9495223499834538,
+          "p95": 1.17087705002632,
+          "min": 0.6312515999889001,
+          "max": 1.1938809000421315
+        }
+      },
+      "scope": "Warm serial numerical global scan + plaintext client exact rerank. Search includes ciphertext/norm memmap reads, host-to-device transfer, distance scores, top-k and returning candidate indices. Query embedding/DP/encryption are precomputed; AES decryption, network, LLM generation excluded. Not end-to-end ppRAG protocol time and not directly comparable to a different complete protocol.",
+      "query_selection": "First 16 outer queries sorted by SHA256(pprag-serial-timing:query_id); no metric-based selection.",
+      "cache_state": "Warm OS file cache expected after quality run and two warmups; full ciphertext corpus is not kept on GPU.",
+      "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "document_block": 32768,
+      "code_sha256": "1d02bd1232d6ed95f550f784ec3f3dad59ad6178db64c9c3f8677e5d79a24cd7"
+    },
+    "hotpotqa": {
+      "dataset": "hotpotqa",
+      "completed": true,
+      "queries": 16,
+      "warmup_queries": 2,
+      "repeat": 1,
+      "beta": 0.1,
+      "mean_radius": 0.033,
+      "epsilon": 11636.363636363636,
+      "kprime": 2048,
+      "records": [
+        {
+          "query_id": "5adf82945542993344016ca4",
+          "query_index": 2728,
+          "search_seconds": 1.3275832999497652,
+          "client_exact_rerank_seconds": 0.001430500065907836,
+          "total_seconds": 1.329013800015673
+        },
+        {
+          "query_id": "5ae1b1445542997283cd223d",
+          "query_index": 2414,
+          "search_seconds": 1.2229386999970302,
+          "client_exact_rerank_seconds": 0.0014233000110834837,
+          "total_seconds": 1.2243620000081137
+        },
+        {
+          "query_id": "5ab741005542992aa3b8c800",
+          "query_index": 5979,
+          "search_seconds": 1.244748399942182,
+          "client_exact_rerank_seconds": 0.9731277000391856,
+          "total_seconds": 2.2178760999813676
+        },
+        {
+          "query_id": "5a7148d25542994082a3e766",
+          "query_index": 4126,
+          "search_seconds": 1.1971818000311032,
+          "client_exact_rerank_seconds": 0.9992208000039682,
+          "total_seconds": 2.1964026000350714
+        },
+        {
+          "query_id": "5ae3fec55542995dadf242a4",
+          "query_index": 1913,
+          "search_seconds": 1.2244789999676868,
+          "client_exact_rerank_seconds": 0.9671775000169873,
+          "total_seconds": 2.191656499984674
+        },
+        {
+          "query_id": "5a82bc7455429940e5e1a926",
+          "query_index": 1559,
+          "search_seconds": 1.1733852000907063,
+          "client_exact_rerank_seconds": 0.9109910998959094,
+          "total_seconds": 2.0843762999866158
+        },
+        {
+          "query_id": "5ab92e3c554299753720f777",
+          "query_index": 6660,
+          "search_seconds": 1.2012818000512198,
+          "client_exact_rerank_seconds": 0.9448017999529839,
+          "total_seconds": 2.1460836000042036
+        },
+        {
+          "query_id": "5ac49a1c5542996feb3fe905",
+          "query_index": 4000,
+          "search_seconds": 1.2108391999499872,
+          "client_exact_rerank_seconds": 0.688029499957338,
+          "total_seconds": 1.8988686999073252
+        },
+        {
+          "query_id": "5adcdc6c5542992c1e3a2437",
+          "query_index": 2611,
+          "search_seconds": 1.24859800003469,
+          "client_exact_rerank_seconds": 0.7841574000194669,
+          "total_seconds": 2.032755400054157
+        },
+        {
+          "query_id": "5a79eef75542996c55b2dca6",
+          "query_index": 2689,
+          "search_seconds": 1.262981600011699,
+          "client_exact_rerank_seconds": 0.8638191999634728,
+          "total_seconds": 2.1268007999751717
+        },
+        {
+          "query_id": "5adf50c05542992d7e9f931e",
+          "query_index": 1594,
+          "search_seconds": 1.2498854000587016,
+          "client_exact_rerank_seconds": 0.9050351999467239,
+          "total_seconds": 2.1549206000054255
+        },
+        {
+          "query_id": "5ae4083755429970de88d885",
+          "query_index": 4184,
+          "search_seconds": 1.6675644000060856,
+          "client_exact_rerank_seconds": 0.8928975000744686,
+          "total_seconds": 2.560461900080554
+        },
+        {
+          "query_id": "5a86f13c554299211dda2b5e",
+          "query_index": 3296,
+          "search_seconds": 1.487608699942939,
+          "client_exact_rerank_seconds": 0.8045744000701234,
+          "total_seconds": 2.2921831000130624
+        },
+        {
+          "query_id": "5ac41b9e5542995c82c4acc4",
+          "query_index": 6132,
+          "search_seconds": 1.4730940000154078,
+          "client_exact_rerank_seconds": 0.843656099983491,
+          "total_seconds": 2.316750099998899
+        },
+        {
+          "query_id": "5add2eab5542992ae4cec4da",
+          "query_index": 4290,
+          "search_seconds": 1.4326236000051722,
+          "client_exact_rerank_seconds": 0.8412474000360817,
+          "total_seconds": 2.273871000041254
+        },
+        {
+          "query_id": "5ae5b06e554299546bf82f2a",
+          "query_index": 4622,
+          "search_seconds": 1.400128799956292,
+          "client_exact_rerank_seconds": 0.6371641999576241,
+          "total_seconds": 2.037292999913916
+        }
+      ],
+      "summary": {
+        "search_seconds": {
+          "mean": 1.3140576187506667,
+          "p50": 1.2492417000466958,
+          "p95": 1.5325976249587256,
+          "min": 1.1733852000907063,
+          "max": 1.6675644000060856
+        },
+        "client_exact_rerank_seconds": {
+          "mean": 0.753672099999676,
+          "p50": 0.8537376499734819,
+          "p95": 0.9796509750303812,
+          "min": 0.0014233000110834837,
+          "max": 0.9992208000039682
+        },
+        "total_seconds": {
+          "mean": 2.0677297187503427,
+          "p50": 2.1505021000048146,
+          "p95": 2.3776780500193126,
+          "min": 1.2243620000081137,
+          "max": 2.560461900080554
+        }
+      },
+      "scope": "Warm serial numerical global scan + plaintext client exact rerank. Search includes ciphertext/norm memmap reads, host-to-device transfer, distance scores, top-k and returning candidate indices. Query embedding/DP/encryption are precomputed; AES decryption, network, LLM generation excluded. Not end-to-end ppRAG protocol time and not directly comparable to a different complete protocol.",
+      "query_selection": "First 16 outer queries sorted by SHA256(pprag-serial-timing:query_id); no metric-based selection.",
+      "cache_state": "Warm OS file cache expected after quality run and two warmups; full ciphertext corpus is not kept on GPU.",
+      "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "document_block": 32768,
+      "code_sha256": "1d02bd1232d6ed95f550f784ec3f3dad59ad6178db64c9c3f8677e5d79a24cd7"
+    },
+    "msmarco": {
+      "dataset": "msmarco",
+      "completed": true,
+      "queries": 16,
+      "warmup_queries": 2,
+      "repeat": 1,
+      "beta": 0.1,
+      "mean_radius": 0.033,
+      "epsilon": 11636.363636363636,
+      "kprime": 4096,
+      "records": [
+        {
+          "query_id": "1101236",
+          "query_index": 86,
+          "search_seconds": 3.0897010000189766,
+          "client_exact_rerank_seconds": 0.0023919999366626143,
+          "total_seconds": 3.0920929999556392
+        },
+        {
+          "query_id": "1092161",
+          "query_index": 5873,
+          "search_seconds": 2.6976839000126347,
+          "client_exact_rerank_seconds": 0.0027279999339953065,
+          "total_seconds": 2.70041189994663
+        },
+        {
+          "query_id": "424092",
+          "query_index": 2825,
+          "search_seconds": 2.620553300017491,
+          "client_exact_rerank_seconds": 1.4364024000242352,
+          "total_seconds": 4.056955700041726
+        },
+        {
+          "query_id": "146244",
+          "query_index": 2401,
+          "search_seconds": 2.846489300020039,
+          "client_exact_rerank_seconds": 1.1981028000591323,
+          "total_seconds": 4.044592100079171
+        },
+        {
+          "query_id": "488345",
+          "query_index": 4494,
+          "search_seconds": 2.5920888000400737,
+          "client_exact_rerank_seconds": 1.1967392000369728,
+          "total_seconds": 3.7888280000770465
+        },
+        {
+          "query_id": "712944",
+          "query_index": 2634,
+          "search_seconds": 2.7223399999784306,
+          "client_exact_rerank_seconds": 1.3308285999810323,
+          "total_seconds": 4.053168599959463
+        },
+        {
+          "query_id": "1026991",
+          "query_index": 1282,
+          "search_seconds": 2.2104865999426693,
+          "client_exact_rerank_seconds": 1.2501948000863194,
+          "total_seconds": 3.4606814000289887
+        },
+        {
+          "query_id": "1092551",
+          "query_index": 5632,
+          "search_seconds": 2.0299464999698102,
+          "client_exact_rerank_seconds": 1.1380441000219434,
+          "total_seconds": 3.1679905999917537
+        },
+        {
+          "query_id": "996922",
+          "query_index": 1680,
+          "search_seconds": 2.016589800012298,
+          "client_exact_rerank_seconds": 1.6656253000255674,
+          "total_seconds": 3.6822151000378653
+        },
+        {
+          "query_id": "526671",
+          "query_index": 4271,
+          "search_seconds": 2.114121999940835,
+          "client_exact_rerank_seconds": 1.481270999996923,
+          "total_seconds": 3.595392999937758
+        },
+        {
+          "query_id": "713360",
+          "query_index": 2630,
+          "search_seconds": 2.4767993999412283,
+          "client_exact_rerank_seconds": 1.5839622999774292,
+          "total_seconds": 4.0607616999186575
+        },
+        {
+          "query_id": "1090171",
+          "query_index": 46,
+          "search_seconds": 2.5530522000044584,
+          "client_exact_rerank_seconds": 1.6421823999844491,
+          "total_seconds": 4.195234599988908
+        },
+        {
+          "query_id": "489858",
+          "query_index": 4530,
+          "search_seconds": 2.537074499996379,
+          "client_exact_rerank_seconds": 1.3463852000422776,
+          "total_seconds": 3.8834597000386566
+        },
+        {
+          "query_id": "1051279",
+          "query_index": 966,
+          "search_seconds": 2.793074700050056,
+          "client_exact_rerank_seconds": 1.6409540999447927,
+          "total_seconds": 4.434028799994849
+        },
+        {
+          "query_id": "611271",
+          "query_index": 4447,
+          "search_seconds": 2.8165416999254376,
+          "client_exact_rerank_seconds": 1.5567579000489786,
+          "total_seconds": 4.373299599974416
+        },
+        {
+          "query_id": "1068584",
+          "query_index": 773,
+          "search_seconds": 2.8258958999067545,
+          "client_exact_rerank_seconds": 1.4295039999997243,
+          "total_seconds": 4.255399899906479
+        }
+      ],
+      "summary": {
+        "search_seconds": {
+          "mean": 2.5589024749860982,
+          "p50": 2.6063210500287823,
+          "p95": 2.9072922250197735,
+          "min": 2.016589800012298,
+          "max": 3.0897010000189766
+        },
+        "client_exact_rerank_seconds": {
+          "mean": 1.2438796312562772,
+          "p50": 1.387944600021001,
+          "p95": 1.6480431249947287,
+          "min": 0.0023919999366626143,
+          "max": 1.6656253000255674
+        },
+        "total_seconds": {
+          "mean": 3.8027821062423754,
+          "p50": 3.964025900058914,
+          "p95": 4.388481899979524,
+          "min": 2.70041189994663,
+          "max": 4.434028799994849
+        }
+      },
+      "scope": "Warm serial numerical global scan + plaintext client exact rerank. Search includes ciphertext/norm memmap reads, host-to-device transfer, distance scores, top-k and returning candidate indices. Query embedding/DP/encryption are precomputed; AES decryption, network, LLM generation excluded. Not end-to-end ppRAG protocol time and not directly comparable to a different complete protocol.",
+      "query_selection": "First 16 outer queries sorted by SHA256(pprag-serial-timing:query_id); no metric-based selection.",
+      "cache_state": "Warm OS file cache expected after quality run and two warmups; full ciphertext corpus is not kept on GPU.",
+      "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "document_block": 32768,
+      "code_sha256": "1d02bd1232d6ed95f550f784ec3f3dad59ad6178db64c9c3f8677e5d79a24cd7"
+    }
+  },
+  "protocol_postprocessing": {
+    "schema_version": 1,
+    "created_utc": "2026-11-07T08:13:12.888961+00:00",
+    "status": "complete",
+    "config_sha256": "149fb6ff7d30f24ca9d404c7e9cf5691b47202388c1a53104735404171f2d1f9",
+    "notes": [
+      "Real raw-text CPU encoder through TCP Search, protected payload/join decrypt, native rerank, DuetRank and Top20 Fetch/document decrypt. Excludes LLM generation, WAN, setup/model load and connection creation.",
+      "Each run has 16 fixed evenly spaced queries, 2 complete warmup passes and 3 complete measurement passes. All 48 measurements retained. Repeated passes use fixed repeat-0 query noise, not independent noise draws.",
+      "Nine modes ran once in fixed dataset/mode order, without randomizing order or repeating independent process runs. Warm OS/SQLite caches; do not interpret small differences as stable advantages.",
+      "CPU encoder parameters are bfloat16, encode output float32; native semantic rerank is FP32 dot product without re-normalizing stored vectors. Cached-quality and fresh CPU embeddings differ.",
+      "Stages overlap: server times are inside RPC spans; never sum all listed stages as end-to-end time. Record lookup is actual per-record SQLite access. No cache/batching optimization was applied during the formal runs.",
+      "Actual serialized application bytes include framing; exclude TCP/IP/link overhead. The server uses full FTS/semantic indices, historical workload-union lexical coordinates, and an offline sample-scoped encrypted record store; not a newly built full-corpus encrypted deployment.",
+      "The 16-query nDCG diagnostics include calibration/holdout queries and cannot replace full heldout utility evidence. No encoder, retrieval, training or benchmark is rerun by this postprocessor."
+    ],
+    "invariant_checks": {
+      "formal_runs": 9,
+      "warmup_observations": 288,
+      "measurement_observations": 432,
+      "distinct_query_ids_across_datasets": 48,
+      "all_input_source_hash_sets_identical": true,
+      "all_raw_final_timing_and_top20_equal": true,
+      "all_observation_counts_complete": true,
+      "failed_or_retried_formal_runs": 0
+    },
+    "runs": [
+      {
+        "dataset": "nq",
+        "lexical_mode": "ccadpe",
+        "semantic_enabled": true,
+        "source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\nq_ccadpe\\results.json",
+          "sha256": "b35c7d8010e979fbf684f10afd0d9aad56e619fbd41731bbd656dddf2bd938d0",
+          "bytes": 825611
+        },
+        "raw_source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\nq_ccadpe\\results.raw.json",
+          "sha256": "5fca1cf77b830494619be995a017e425f092a8961b1aeb49fee9f1fb923c6ed6",
+          "bytes": 802906
+        },
+        "server_log_source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\nq_ccadpe\\server_requests.jsonl",
+          "sha256": "927375a9527ca6c94eade82e2992f0e76013dc9668ba1dfcc7e32849908b4551",
+          "bytes": 27973
+        },
+        "warmup_observations": 32,
+        "measurement_observations": 48,
+        "distinct_sample_queries": 16,
+        "end_to_end_ms": {
+          "mean": 772.9733,
+          "p50": 769.29205,
+          "p95": 818.3431899999999,
+          "min": 727.7188,
+          "max": 831.8261
+        },
+        "application_bytes": {
+          "actual_application_upload_bytes": {
+            "mean": 69550.125,
+            "p50": 69551.0,
+            "p95": 69551.0,
+            "min": 69545.0,
+            "max": 69551.0
+          },
+          "actual_application_download_bytes": {
+            "mean": 3944016.3958333335,
+            "p50": 3944290.0,
+            "p95": 4048845.1,
+            "min": 3846125.0,
+            "max": 4079463.0
+          }
+        },
+        "stage_ms": {
+          "encoder_ms": {
+            "mean": 27.58243333333333,
+            "p50": 26.745449999999998,
+            "p95": 36.43951999999999,
+            "min": 21.5731,
+            "max": 42.5149
+          },
+          "request_build_ms": {
+            "mean": 13.317954166666667,
+            "p50": 13.205950000000001,
+            "p95": 14.48685,
+            "min": 11.6,
+            "max": 18.884
+          },
+          "search_rpc.rpc_wall_ms": {
+            "mean": 712.3722395833333,
+            "p50": 704.88355,
+            "p95": 751.41309,
+            "min": 671.0329,
+            "max": 772.5972
+          },
+          "search_rpc.request_serialize_ms": {
+            "mean": 0.022433333333333333,
+            "p50": 0.02225,
+            "p95": 0.02622,
+            "min": 0.0185,
+            "max": 0.0289
+          },
+          "search_rpc.transfer_and_server_ms": {
+            "mean": 710.9111208333334,
+            "p50": 703.4091,
+            "p95": 749.96954,
+            "min": 669.5371,
+            "max": 771.114
+          },
+          "search_rpc.response_parse_ms": {
+            "mean": 1.4386854166666667,
+            "p50": 1.44705,
+            "p95": 1.5325,
+            "min": 1.2882,
+            "max": 1.6413
+          },
+          "search_server.request_parse_ms": {
+            "mean": 0.04886041666666666,
+            "p50": 0.046,
+            "p95": 0.069705,
+            "min": 0.0382,
+            "max": 0.0791
+          },
+          "search_server.request_decode_vectors_ms": {
+            "mean": 0.07616666666666667,
+            "p50": 0.06509999999999999,
+            "p95": 0.110125,
+            "min": 0.055,
+            "max": 0.1529
+          },
+          "search_server.semantic_lookup_refine_ms": {
+            "mean": 138.48080833333333,
+            "p50": 139.21235000000001,
+            "p95": 161.67714,
+            "min": 107.8392,
+            "max": 164.2263
+          },
+          "search_server.lexical_fts5_planner_ms": {
+            "mean": 24.353004166666665,
+            "p50": 22.74945,
+            "p95": 40.51732,
+            "min": 7.0635,
+            "max": 44.6481
+          },
+          "search_server.lexical_partition_refine_ms": {
+            "mean": 3.7836916666666665,
+            "p50": 3.779,
+            "p95": 4.77532,
+            "min": 2.7553,
+            "max": 6.6674
+          },
+          "search_server.direct_candidate_selection_ms": {
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "search_server.record_lookup_ms": {
+            "mean": 537.9072770833333,
+            "p50": 535.4638500000001,
+            "p95": 566.1845599999999,
+            "min": 508.5369,
+            "max": 580.557
+          },
+          "payload_join_decrypt_dedup_ms": {
+            "mean": 7.9563645833333325,
+            "p50": 7.9846,
+            "p95": 8.275590000000001,
+            "min": 7.3293,
+            "max": 8.7826
+          },
+          "semantic_exact_rerank_ms": {
+            "mean": 1.7965250000000001,
+            "p50": 1.7781500000000001,
+            "p95": 2.08036,
+            "min": 1.5072,
+            "max": 2.4044
+          },
+          "planner_restore_cap_exact_bm25_ms": {
+            "mean": 2.7775604166666668,
+            "p50": 2.74925,
+            "p95": 3.238825,
+            "min": 2.2354,
+            "max": 3.7885
+          },
+          "duetrank_ms": {
+            "mean": 2.091275,
+            "p50": 1.92415,
+            "p95": 2.91266,
+            "min": 1.5961,
+            "max": 3.237
+          },
+          "fetch_rpc.rpc_wall_ms": {
+            "mean": 4.679683333333333,
+            "p50": 4.6183499999999995,
+            "p95": 5.048755,
+            "min": 4.3482,
+            "max": 5.5398
+          },
+          "fetch_server.document_lookup_ms": {
+            "mean": 4.177672916666666,
+            "p50": 4.1079,
+            "p95": 4.601735,
+            "min": 3.931,
+            "max": 5.0282
+          },
+          "fetch_decrypt_parse_verify_ms": {
+            "mean": 0.10301458333333331,
+            "p50": 0.10095,
+            "p95": 0.12394499999999999,
+            "min": 0.0832,
+            "max": 0.1489
+          },
+          "server_log.search.serialize_ms": {
+            "mean": 2.4031833333333332,
+            "p50": 2.3522999999999996,
+            "p95": 2.959305,
+            "min": 1.9386,
+            "max": 3.0628
+          },
+          "server_log.search.send_ms": {
+            "mean": 1.1735354166666665,
+            "p50": 1.20275,
+            "p95": 1.445365,
+            "min": 0.8793,
+            "max": 1.557
+          },
+          "server_log.search.server_wall_after_receive_ms": {
+            "mean": 708.7215354166668,
+            "p50": 701.1421,
+            "p95": 747.84685,
+            "min": 667.3852,
+            "max": 768.8726
+          },
+          "server_log.fetch.serialize_ms": {
+            "mean": 0.20640624999999999,
+            "p50": 0.2141,
+            "p95": 0.279875,
+            "min": 0.1359,
+            "max": 0.303
+          },
+          "server_log.fetch.send_ms": {
+            "mean": 0.03422708333333333,
+            "p50": 0.03375,
+            "p95": 0.03893,
+            "min": 0.0278,
+            "max": 0.049
+          },
+          "server_log.fetch.server_wall_after_receive_ms": {
+            "mean": 4.513977083333334,
+            "p50": 4.4548,
+            "p95": 4.925035,
+            "min": 4.2012,
+            "max": 5.402
+          }
+        },
+        "record_lookup_fraction_of_total_wall_mean": 0.6958937353765431,
+        "online_counts": {
+          "semantic_unique_candidates": {
+            "mean": 1896.5625,
+            "p50": 1906.5,
+            "p95": 1932.8,
+            "min": 1850.0,
+            "max": 1937.0
+          },
+          "lexical_survivors": {
+            "mean": 959.875,
+            "p50": 958.5,
+            "p95": 975.9,
+            "min": 939.0,
+            "max": 978.0
+          },
+          "lexical_exact_scored": {
+            "mean": 300.0,
+            "p50": 300.0,
+            "p95": 300.0,
+            "min": 300.0,
+            "max": 300.0
+          },
+          "dummy_slots": {
+            "mean": 64.125,
+            "p50": 65.5,
+            "p95": 83.6,
+            "min": 46.0,
+            "max": 85.0
+          },
+          "fetched_documents": {
+            "mean": 20.0,
+            "p50": 20.0,
+            "p95": 20.0,
+            "min": 20.0,
+            "max": 20.0
+          },
+          "fetched_plaintext_bytes": {
+            "mean": 11050.4375,
+            "p50": 11206.5,
+            "p95": 15206.75,
+            "min": 7571.0,
+            "max": 15268.0
+          }
+        },
+        "encoder_parameter_dtype": "torch.bfloat16",
+        "encoder_output_dtype_before_float32_cast": "float32",
+        "embedding_diagnostic": {
+          "max_absolute_difference_max": 0.00390625,
+          "cosine_min": 0.9999590516090393,
+          "fresh_norm_min": 0.9964386224746704,
+          "fresh_norm_max": 1.0020678043365479,
+          "cached_norm_min": 0.9979089498519897,
+          "cached_norm_max": 1.0036314725875854
+        },
+        "fresh_vs_cached_sample_quality": {
+          "distinct_sample_queries": 16,
+          "outer_holdout_sample_queries": 7,
+          "fresh_ndcg_at_10": 0.5260478445083125,
+          "cached_ndcg_at_10": 0.5260478445083125,
+          "paired_delta_ndcg_at_10": 0.0,
+          "top20_set_intersection_mean": 19.9375,
+          "top20_exact_match_rate": 0.375,
+          "queries_top20_exact_on_all_three_passes": 6,
+          "queries_top10_relevance_gain_sequence_exact_on_all_passes": 16,
+          "max_abs_per_query_ndcg_delta": 0.0,
+          "all_fresh_top20_stable_across_passes": true
+        }
+      },
+      {
+        "dataset": "nq",
+        "lexical_mode": "direct300",
+        "semantic_enabled": true,
+        "source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\nq_direct300\\results.json",
+          "sha256": "d277383a234ca4b46930943bb384f35cc149391aaf1a3a63bdb60df442d4b6cf",
+          "bytes": 829292
+        },
+        "raw_source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\nq_direct300\\results.raw.json",
+          "sha256": "8549de65b250a575559bb39d36da0d3eb1d9ce1a8f50f71721d107c9459c72b9",
+          "bytes": 806543
+        },
+        "server_log_source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\nq_direct300\\server_requests.jsonl",
+          "sha256": "ec43267f8c95752715dcd9d873f0e5f7349984aa89a996eded2a52263e97c417",
+          "bytes": 27929
+        },
+        "warmup_observations": 32,
+        "measurement_observations": 48,
+        "distinct_sample_queries": 16,
+        "end_to_end_ms": {
+          "mean": 642.6172416666667,
+          "p50": 638.18375,
+          "p95": 690.86383,
+          "min": 593.7696,
+          "max": 696.6888
+        },
+        "application_bytes": {
+          "actual_application_upload_bytes": {
+            "mean": 68529.125,
+            "p50": 68530.0,
+            "p95": 68530.0,
+            "min": 68524.0,
+            "max": 68530.0
+          },
+          "actual_application_download_bytes": {
+            "mean": 3566030.0416666665,
+            "p50": 3566306.0,
+            "p95": 3592168.35,
+            "min": 3544937.0,
+            "max": 3598056.0
+          }
+        },
+        "stage_ms": {
+          "encoder_ms": {
+            "mean": 28.57315416666667,
+            "p50": 26.4636,
+            "p95": 40.594244999999994,
+            "min": 21.9789,
+            "max": 52.2172
+          },
+          "request_build_ms": {
+            "mean": 7.0011125000000005,
+            "p50": 6.790900000000001,
+            "p95": 8.836694999999999,
+            "min": 5.9632,
+            "max": 11.1363
+          },
+          "search_rpc.rpc_wall_ms": {
+            "mean": 589.5075229166667,
+            "p50": 587.8958,
+            "p95": 627.6304700000001,
+            "min": 546.2491,
+            "max": 637.9671
+          },
+          "search_rpc.request_serialize_ms": {
+            "mean": 0.02535,
+            "p50": 0.024050000000000002,
+            "p95": 0.030634999999999996,
+            "min": 0.0215,
+            "max": 0.0497
+          },
+          "search_rpc.transfer_and_server_ms": {
+            "mean": 588.2623083333333,
+            "p50": 586.71275,
+            "p95": 626.35775,
+            "min": 545.0213,
+            "max": 636.7531
+          },
+          "search_rpc.response_parse_ms": {
+            "mean": 1.2198645833333333,
+            "p50": 1.1971500000000002,
+            "p95": 1.3394650000000001,
+            "min": 1.0945,
+            "max": 1.4807
+          },
+          "search_server.request_parse_ms": {
+            "mean": 0.06288125,
+            "p50": 0.044399999999999995,
+            "p95": 0.112285,
+            "min": 0.0373,
+            "max": 0.4142
+          },
+          "search_server.request_decode_vectors_ms": {
+            "mean": 0.09297291666666667,
+            "p50": 0.07495,
+            "p95": 0.14512999999999998,
+            "min": 0.0589,
+            "max": 0.3068
+          },
+          "search_server.semantic_lookup_refine_ms": {
+            "mean": 129.47113541666667,
+            "p50": 128.3254,
+            "p95": 147.64763,
+            "min": 107.8022,
+            "max": 151.1268
+          },
+          "search_server.lexical_fts5_planner_ms": {
+            "mean": 24.356695833333333,
+            "p50": 23.48905,
+            "p95": 38.865315,
+            "min": 7.0638,
+            "max": 39.1051
+          },
+          "search_server.lexical_partition_refine_ms": {
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "search_server.direct_candidate_selection_ms": {
+            "mean": 2.5165020833333336,
+            "p50": 2.39295,
+            "p95": 3.487685,
+            "min": 2.1394,
+            "max": 3.747
+          },
+          "search_server.record_lookup_ms": {
+            "mean": 426.55538958333335,
+            "p50": 423.34515,
+            "p95": 450.64563499999997,
+            "min": 399.3056,
+            "max": 482.4669
+          },
+          "payload_join_decrypt_dedup_ms": {
+            "mean": 6.410312500000001,
+            "p50": 6.369400000000001,
+            "p95": 6.70615,
+            "min": 5.9182,
+            "max": 7.1548
+          },
+          "semantic_exact_rerank_ms": {
+            "mean": 1.65529375,
+            "p50": 1.6218,
+            "p95": 1.89059,
+            "min": 1.4639,
+            "max": 1.929
+          },
+          "planner_restore_cap_exact_bm25_ms": {
+            "mean": 2.6766812499999997,
+            "p50": 2.66215,
+            "p95": 3.133785,
+            "min": 2.0688,
+            "max": 3.5115
+          },
+          "duetrank_ms": {
+            "mean": 1.7123937499999997,
+            "p50": 1.6499,
+            "p95": 2.09912,
+            "min": 1.3989,
+            "max": 2.6035
+          },
+          "fetch_rpc.rpc_wall_ms": {
+            "mean": 4.7364291666666665,
+            "p50": 4.675549999999999,
+            "p95": 5.359515,
+            "min": 4.2978,
+            "max": 5.7993
+          },
+          "fetch_server.document_lookup_ms": {
+            "mean": 4.320566666666667,
+            "p50": 4.225099999999999,
+            "p95": 4.910865,
+            "min": 3.9559,
+            "max": 5.4127
+          },
+          "fetch_decrypt_parse_verify_ms": {
+            "mean": 0.10494791666666668,
+            "p50": 0.10205,
+            "p95": 0.128485,
+            "min": 0.0844,
+            "max": 0.1903
+          },
+          "server_log.search.serialize_ms": {
+            "mean": 1.8652625000000003,
+            "p50": 1.85345,
+            "p95": 2.111965,
+            "min": 1.6248,
+            "max": 2.2821
+          },
+          "server_log.search.send_ms": {
+            "mean": 0.93449375,
+            "p50": 0.9089,
+            "p95": 1.13465,
+            "min": 0.8038,
+            "max": 1.3256
+          },
+          "server_log.search.server_wall_after_receive_ms": {
+            "mean": 586.3091395833334,
+            "p50": 584.74105,
+            "p95": 624.3400049999999,
+            "min": 543.0645,
+            "max": 634.4008
+          },
+          "server_log.fetch.serialize_ms": {
+            "mean": 0.15035208333333333,
+            "p50": 0.13590000000000002,
+            "p95": 0.24293499999999998,
+            "min": 0.1242,
+            "max": 0.3283
+          },
+          "server_log.fetch.send_ms": {
+            "mean": 0.0357625,
+            "p50": 0.034600000000000006,
+            "p95": 0.04485,
+            "min": 0.029,
+            "max": 0.0486
+          },
+          "server_log.fetch.server_wall_after_receive_ms": {
+            "mean": 4.5712062499999995,
+            "p50": 4.502000000000001,
+            "p95": 5.177245,
+            "min": 4.1721,
+            "max": 5.6462
+          }
+        },
+        "record_lookup_fraction_of_total_wall_mean": 0.6637783145641037,
+        "online_counts": {
+          "semantic_unique_candidates": {
+            "mean": 1896.5625,
+            "p50": 1906.5,
+            "p95": 1932.8,
+            "min": 1850.0,
+            "max": 1937.0
+          },
+          "lexical_survivors": {
+            "mean": 300.0,
+            "p50": 300.0,
+            "p95": 300.0,
+            "min": 300.0,
+            "max": 300.0
+          },
+          "lexical_exact_scored": {
+            "mean": 300.0,
+            "p50": 300.0,
+            "p95": 300.0,
+            "min": 300.0,
+            "max": 300.0
+          },
+          "dummy_slots": {
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "fetched_documents": {
+            "mean": 20.0,
+            "p50": 20.0,
+            "p95": 20.0,
+            "min": 20.0,
+            "max": 20.0
+          },
+          "fetched_plaintext_bytes": {
+            "mean": 11038.875,
+            "p50": 11216.0,
+            "p95": 14886.849999999999,
+            "min": 7571.0,
+            "max": 15093.0
+          }
+        },
+        "encoder_parameter_dtype": "torch.bfloat16",
+        "encoder_output_dtype_before_float32_cast": "float32",
+        "embedding_diagnostic": {
+          "max_absolute_difference_max": 0.00390625,
+          "cosine_min": 0.9999590516090393,
+          "fresh_norm_min": 0.9964386224746704,
+          "fresh_norm_max": 1.0020678043365479,
+          "cached_norm_min": 0.9979089498519897,
+          "cached_norm_max": 1.0036314725875854
+        },
+        "fresh_vs_cached_sample_quality": {
+          "distinct_sample_queries": 16,
+          "outer_holdout_sample_queries": 7,
+          "fresh_ndcg_at_10": 0.5385636692269415,
+          "cached_ndcg_at_10": 0.5385636692269415,
+          "paired_delta_ndcg_at_10": 0.0,
+          "top20_set_intersection_mean": 19.8125,
+          "top20_exact_match_rate": 0.3125,
+          "queries_top20_exact_on_all_three_passes": 5,
+          "queries_top10_relevance_gain_sequence_exact_on_all_passes": 16,
+          "max_abs_per_query_ndcg_delta": 0.0,
+          "all_fresh_top20_stable_across_passes": true
+        }
+      },
+      {
+        "dataset": "nq",
+        "lexical_mode": "direct1000",
+        "semantic_enabled": true,
+        "source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\nq_direct1000\\results.json",
+          "sha256": "35d8e7bb8399cbecb32e9e743ca0765efa8a976691b685a591eb830cbcfe30c2",
+          "bytes": 1813238
+        },
+        "raw_source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\nq_direct1000\\results.raw.json",
+          "sha256": "c145ac590ed0dbff4673d634deb3f5bada24321417cd34651f5379b7eda4b493",
+          "bytes": 1790487
+        },
+        "server_log_source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\nq_direct1000\\server_requests.jsonl",
+          "sha256": "b12a531659b3b4d7c4b69827c18b8f473ba7fd8648a239dfb7dd2e3a8e4c6830",
+          "bytes": 27942
+        },
+        "warmup_observations": 32,
+        "measurement_observations": 48,
+        "distinct_sample_queries": 16,
+        "end_to_end_ms": {
+          "mean": 776.5548145833333,
+          "p50": 767.4895,
+          "p95": 864.29036,
+          "min": 724.2073,
+          "max": 912.6986
+        },
+        "application_bytes": {
+          "actual_application_upload_bytes": {
+            "mean": 68530.125,
+            "p50": 68531.0,
+            "p95": 68531.0,
+            "min": 68525.0,
+            "max": 68531.0
+          },
+          "actual_application_download_bytes": {
+            "mean": 3942272.2083333335,
+            "p50": 3944094.0,
+            "p95": 4051017.85,
+            "min": 3842234.0,
+            "max": 4083768.0
+          }
+        },
+        "stage_ms": {
+          "encoder_ms": {
+            "mean": 29.3741375,
+            "p50": 28.2165,
+            "p95": 40.860724999999995,
+            "min": 22.5709,
+            "max": 47.1135
+          },
+          "request_build_ms": {
+            "mean": 7.287777083333332,
+            "p50": 6.727650000000001,
+            "p95": 8.77168,
+            "min": 6.0075,
+            "max": 18.7347
+          },
+          "search_rpc.rpc_wall_ms": {
+            "mean": 712.1603583333334,
+            "p50": 704.0508,
+            "p95": 794.767375,
+            "min": 659.6155,
+            "max": 826.3256
+          },
+          "search_rpc.request_serialize_ms": {
+            "mean": 0.023277083333333334,
+            "p50": 0.02225,
+            "p95": 0.02856,
+            "min": 0.0194,
+            "max": 0.0389
+          },
+          "search_rpc.transfer_and_server_ms": {
+            "mean": 708.6765895833332,
+            "p50": 702.52755,
+            "p95": 783.072215,
+            "min": 658.0632,
+            "max": 824.3914
+          },
+          "search_rpc.response_parse_ms": {
+            "mean": 3.4604916666666674,
+            "p50": 1.48885,
+            "p95": 1.8771449999999998,
+            "min": 1.3382,
+            "max": 94.7507
+          },
+          "search_server.request_parse_ms": {
+            "mean": 0.04827499999999999,
+            "p50": 0.0421,
+            "p95": 0.09999999999999995,
+            "min": 0.0261,
+            "max": 0.1218
+          },
+          "search_server.request_decode_vectors_ms": {
+            "mean": 0.08837708333333333,
+            "p50": 0.0709,
+            "p95": 0.1959449999999999,
+            "min": 0.0585,
+            "max": 0.2256
+          },
+          "search_server.semantic_lookup_refine_ms": {
+            "mean": 135.52481250000002,
+            "p50": 134.1834,
+            "p95": 160.70394,
+            "min": 112.0776,
+            "max": 171.7829
+          },
+          "search_server.lexical_fts5_planner_ms": {
+            "mean": 24.129025000000002,
+            "p50": 23.23735,
+            "p95": 37.890004999999995,
+            "min": 7.1162,
+            "max": 40.8712
+          },
+          "search_server.lexical_partition_refine_ms": {
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "search_server.direct_candidate_selection_ms": {
+            "mean": 2.9434083333333327,
+            "p50": 2.6780999999999997,
+            "p95": 3.8854349999999998,
+            "min": 2.3383,
+            "max": 4.4376
+          },
+          "search_server.record_lookup_ms": {
+            "mean": 539.2881270833333,
+            "p50": 533.94415,
+            "p95": 582.974985,
+            "min": 511.7163,
+            "max": 638.9389
+          },
+          "payload_join_decrypt_dedup_ms": {
+            "mean": 7.919566666666667,
+            "p50": 7.79655,
+            "p95": 8.797825,
+            "min": 7.3427,
+            "max": 10.6818
+          },
+          "semantic_exact_rerank_ms": {
+            "mean": 1.7849020833333331,
+            "p50": 1.7304,
+            "p95": 2.21588,
+            "min": 1.5068,
+            "max": 2.3449
+          },
+          "planner_restore_cap_exact_bm25_ms": {
+            "mean": 8.661341666666667,
+            "p50": 8.6558,
+            "p95": 10.6782,
+            "min": 5.9729,
+            "max": 12.9034
+          },
+          "duetrank_ms": {
+            "mean": 4.087533333333333,
+            "p50": 3.8081,
+            "p95": 5.704994999999999,
+            "min": 3.3191,
+            "max": 8.8819
+          },
+          "fetch_rpc.rpc_wall_ms": {
+            "mean": 4.851216666666667,
+            "p50": 4.663399999999999,
+            "p95": 5.851515,
+            "min": 4.2546,
+            "max": 6.0605
+          },
+          "fetch_server.document_lookup_ms": {
+            "mean": 4.332927083333334,
+            "p50": 4.17375,
+            "p95": 5.316085,
+            "min": 3.8899,
+            "max": 5.3891
+          },
+          "fetch_decrypt_parse_verify_ms": {
+            "mean": 0.11285208333333334,
+            "p50": 0.10389999999999999,
+            "p95": 0.17201999999999992,
+            "min": 0.0901,
+            "max": 0.2641
+          },
+          "server_log.search.serialize_ms": {
+            "mean": 2.3916,
+            "p50": 2.362,
+            "p95": 2.88828,
+            "min": 1.899,
+            "max": 3.0931
+          },
+          "server_log.search.send_ms": {
+            "mean": 1.1180895833333333,
+            "p50": 1.0141499999999999,
+            "p95": 1.5723599999999998,
+            "min": 0.8724,
+            "max": 1.6961
+          },
+          "server_log.search.server_wall_after_receive_ms": {
+            "mean": 706.1184374999999,
+            "p50": 699.57855,
+            "p95": 780.634425,
+            "min": 655.9201,
+            "max": 821.0949
+          },
+          "server_log.fetch.serialize_ms": {
+            "mean": 0.1948229166666667,
+            "p50": 0.1604,
+            "p95": 0.295215,
+            "min": 0.1317,
+            "max": 0.3376
+          },
+          "server_log.fetch.send_ms": {
+            "mean": 0.04479583333333333,
+            "p50": 0.033850000000000005,
+            "p95": 0.047955,
+            "min": 0.0276,
+            "max": 0.4617
+          },
+          "server_log.fetch.server_wall_after_receive_ms": {
+            "mean": 4.6646624999999995,
+            "p50": 4.5061,
+            "p95": 5.680165,
+            "min": 4.1279,
+            "max": 5.8389
+          }
+        },
+        "record_lookup_fraction_of_total_wall_mean": 0.6944624087775345,
+        "online_counts": {
+          "semantic_unique_candidates": {
+            "mean": 1896.5625,
+            "p50": 1906.5,
+            "p95": 1932.8,
+            "min": 1850.0,
+            "max": 1937.0
+          },
+          "lexical_survivors": {
+            "mean": 1000.0,
+            "p50": 1000.0,
+            "p95": 1000.0,
+            "min": 1000.0,
+            "max": 1000.0
+          },
+          "lexical_exact_scored": {
+            "mean": 1000.0,
+            "p50": 1000.0,
+            "p95": 1000.0,
+            "min": 1000.0,
+            "max": 1000.0
+          },
+          "dummy_slots": {
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "fetched_documents": {
+            "mean": 20.0,
+            "p50": 20.0,
+            "p95": 20.0,
+            "min": 20.0,
+            "max": 20.0
+          },
+          "fetched_plaintext_bytes": {
+            "mean": 11065.125,
+            "p50": 11195.0,
+            "p95": 15206.75,
+            "min": 7571.0,
+            "max": 15268.0
+          }
+        },
+        "encoder_parameter_dtype": "torch.bfloat16",
+        "encoder_output_dtype_before_float32_cast": "float32",
+        "embedding_diagnostic": {
+          "max_absolute_difference_max": 0.00390625,
+          "cosine_min": 0.9999590516090393,
+          "fresh_norm_min": 0.9964386224746704,
+          "fresh_norm_max": 1.0020678043365479,
+          "cached_norm_min": 0.9979089498519897,
+          "cached_norm_max": 1.0036314725875854
+        },
+        "fresh_vs_cached_sample_quality": {
+          "distinct_sample_queries": 16,
+          "outer_holdout_sample_queries": 7,
+          "fresh_ndcg_at_10": 0.5385636692269415,
+          "cached_ndcg_at_10": 0.5385636692269415,
+          "paired_delta_ndcg_at_10": 0.0,
+          "top20_set_intersection_mean": 19.75,
+          "top20_exact_match_rate": 0.3125,
+          "queries_top20_exact_on_all_three_passes": 5,
+          "queries_top10_relevance_gain_sequence_exact_on_all_passes": 16,
+          "max_abs_per_query_ndcg_delta": 0.0,
+          "all_fresh_top20_stable_across_passes": true
+        }
+      },
+      {
+        "dataset": "hotpotqa",
+        "lexical_mode": "ccadpe",
+        "semantic_enabled": true,
+        "source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\hotpotqa_ccadpe\\results.json",
+          "sha256": "9e0926740726a58afadad9694c2f99186f8562515058c8b42f6b26703bd3271e",
+          "bytes": 839608
+        },
+        "raw_source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\hotpotqa_ccadpe\\results.raw.json",
+          "sha256": "b5c1972a29aa1b1fcb760ae8f46f88a1c9e36df1aa90679bce56b266ba275ff6",
+          "bytes": 816861
+        },
+        "server_log_source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\hotpotqa_ccadpe\\server_requests.jsonl",
+          "sha256": "f57c459f25a16f275771493041d67e140fba49dcc2047d99799d8841638c8feb",
+          "bytes": 27955
+        },
+        "warmup_observations": 32,
+        "measurement_observations": 48,
+        "distinct_sample_queries": 16,
+        "end_to_end_ms": {
+          "mean": 947.1071416666667,
+          "p50": 950.68245,
+          "p95": 1005.7093349999999,
+          "min": 881.31,
+          "max": 1018.3162
+        },
+        "application_bytes": {
+          "actual_application_upload_bytes": {
+            "mean": 69556.375,
+            "p50": 69557.0,
+            "p95": 69557.0,
+            "min": 69551.0,
+            "max": 69557.0
+          },
+          "actual_application_download_bytes": {
+            "mean": 3817468.1458333335,
+            "p50": 3813745.5,
+            "p95": 3859782.35,
+            "min": 3784814.0,
+            "max": 3863893.0
+          }
+        },
+        "stage_ms": {
+          "encoder_ms": {
+            "mean": 56.716302083333325,
+            "p50": 52.339150000000004,
+            "p95": 83.72676,
+            "min": 31.2653,
+            "max": 84.2934
+          },
+          "request_build_ms": {
+            "mean": 13.966904166666666,
+            "p50": 13.9109,
+            "p95": 15.04446,
+            "min": 12.7629,
+            "max": 16.6012
+          },
+          "search_rpc.rpc_wall_ms": {
+            "mean": 857.1233583333333,
+            "p50": 861.1056,
+            "p95": 899.9804849999999,
+            "min": 808.5517,
+            "max": 920.9472
+          },
+          "search_rpc.request_serialize_ms": {
+            "mean": 0.022714583333333333,
+            "p50": 0.022,
+            "p95": 0.030069999999999993,
+            "min": 0.0192,
+            "max": 0.0355
+          },
+          "search_rpc.transfer_and_server_ms": {
+            "mean": 855.6881270833334,
+            "p50": 859.66805,
+            "p95": 898.49793,
+            "min": 807.2318,
+            "max": 919.4611
+          },
+          "search_rpc.response_parse_ms": {
+            "mean": 1.4125166666666666,
+            "p50": 1.4027,
+            "p95": 1.567165,
+            "min": 1.2453,
+            "max": 1.7295
+          },
+          "search_server.request_parse_ms": {
+            "mean": 0.03747291666666667,
+            "p50": 0.04035,
+            "p95": 0.048595,
+            "min": 0.0256,
+            "max": 0.0698
+          },
+          "search_server.request_decode_vectors_ms": {
+            "mean": 0.07922708333333334,
+            "p50": 0.07965,
+            "p95": 0.098745,
+            "min": 0.0556,
+            "max": 0.1965
+          },
+          "search_server.semantic_lookup_refine_ms": {
+            "mean": 270.45492083333335,
+            "p50": 271.1424,
+            "p95": 303.345105,
+            "min": 239.0753,
+            "max": 314.9571
+          },
+          "search_server.lexical_fts5_planner_ms": {
+            "mean": 32.399387499999996,
+            "p50": 33.11345,
+            "p95": 39.545105,
+            "min": 19.1188,
+            "max": 41.2865
+          },
+          "search_server.lexical_partition_refine_ms": {
+            "mean": 7.130635416666666,
+            "p50": 7.107,
+            "p95": 7.503195,
+            "min": 6.5645,
+            "max": 7.6555
+          },
+          "search_server.direct_candidate_selection_ms": {
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "search_server.record_lookup_ms": {
+            "mean": 537.8714729166667,
+            "p50": 535.61,
+            "p95": 566.813195,
+            "min": 517.6529,
+            "max": 581.8647
+          },
+          "payload_join_decrypt_dedup_ms": {
+            "mean": 7.663210416666666,
+            "p50": 7.70425,
+            "p95": 8.07772,
+            "min": 7.082,
+            "max": 8.7756
+          },
+          "semantic_exact_rerank_ms": {
+            "mean": 1.9123333333333334,
+            "p50": 1.877,
+            "p95": 2.157705,
+            "min": 1.6322,
+            "max": 2.2924
+          },
+          "planner_restore_cap_exact_bm25_ms": {
+            "mean": 2.348120833333333,
+            "p50": 2.2847,
+            "p95": 3.004575,
+            "min": 1.7627,
+            "max": 3.3139
+          },
+          "duetrank_ms": {
+            "mean": 2.3015958333333333,
+            "p50": 2.0802,
+            "p95": 3.369089999999999,
+            "min": 1.7178,
+            "max": 4.3637
+          },
+          "fetch_rpc.rpc_wall_ms": {
+            "mean": 4.641814583333333,
+            "p50": 4.5656,
+            "p95": 5.186815,
+            "min": 3.9906,
+            "max": 6.5776
+          },
+          "fetch_server.document_lookup_ms": {
+            "mean": 4.043266666666667,
+            "p50": 4.008,
+            "p95": 4.58366,
+            "min": 3.5335,
+            "max": 6.0412
+          },
+          "fetch_decrypt_parse_verify_ms": {
+            "mean": 0.10518125,
+            "p50": 0.09795000000000001,
+            "p95": 0.124565,
+            "min": 0.0862,
+            "max": 0.3097
+          },
+          "server_log.search.serialize_ms": {
+            "mean": 2.443233333333333,
+            "p50": 2.39425,
+            "p95": 2.932195,
+            "min": 2.0658,
+            "max": 3.5505
+          },
+          "server_log.search.send_ms": {
+            "mean": 1.3437541666666666,
+            "p50": 1.31805,
+            "p95": 1.5853,
+            "min": 1.1459,
+            "max": 1.6537
+          },
+          "server_log.search.server_wall_after_receive_ms": {
+            "mean": 852.2514645833335,
+            "p50": 857.0639,
+            "p95": 895.99531,
+            "min": 805.0004,
+            "max": 916.8442
+          },
+          "server_log.fetch.serialize_ms": {
+            "mean": 0.27179375,
+            "p50": 0.2673,
+            "p95": 0.324665,
+            "min": 0.2364,
+            "max": 0.4213
+          },
+          "server_log.fetch.send_ms": {
+            "mean": 0.03363541666666666,
+            "p50": 0.03195,
+            "p95": 0.044184999999999995,
+            "min": 0.0274,
+            "max": 0.052
+          },
+          "server_log.fetch.server_wall_after_receive_ms": {
+            "mean": 4.4460187499999995,
+            "p50": 4.4006,
+            "p95": 4.960325,
+            "min": 3.8911,
+            "max": 6.4561
+          }
+        },
+        "record_lookup_fraction_of_total_wall_mean": 0.5679098480559973,
+        "online_counts": {
+          "semantic_unique_candidates": {
+            "mean": 1904.4375,
+            "p50": 1910.0,
+            "p95": 1944.9,
+            "min": 1855.0,
+            "max": 1947.0
+          },
+          "lexical_survivors": {
+            "mean": 963.0,
+            "p50": 963.5,
+            "p95": 973.55,
+            "min": 951.0,
+            "max": 976.0
+          },
+          "lexical_exact_scored": {
+            "mean": 300.0,
+            "p50": 300.0,
+            "p95": 300.0,
+            "min": 300.0,
+            "max": 300.0
+          },
+          "dummy_slots": {
+            "mean": 61.0,
+            "p50": 60.5,
+            "p95": 71.94999999999999,
+            "min": 48.0,
+            "max": 73.0
+          },
+          "fetched_documents": {
+            "mean": 20.0,
+            "p50": 20.0,
+            "p95": 20.0,
+            "min": 20.0,
+            "max": 20.0
+          },
+          "fetched_plaintext_bytes": {
+            "mean": 8291.25,
+            "p50": 8236.5,
+            "p95": 10537.65,
+            "min": 6454.0,
+            "max": 10587.0
+          }
+        },
+        "encoder_parameter_dtype": "torch.bfloat16",
+        "encoder_output_dtype_before_float32_cast": "float32",
+        "embedding_diagnostic": {
+          "max_absolute_difference_max": 0.00390625,
+          "cosine_min": 0.9999575018882751,
+          "fresh_norm_min": 0.996671736240387,
+          "fresh_norm_max": 1.0042930841445923,
+          "cached_norm_min": 0.9961514472961426,
+          "cached_norm_max": 1.004057765007019
+        },
+        "fresh_vs_cached_sample_quality": {
+          "distinct_sample_queries": 16,
+          "outer_holdout_sample_queries": 5,
+          "fresh_ndcg_at_10": 0.6796183553026309,
+          "cached_ndcg_at_10": 0.6796183553026309,
+          "paired_delta_ndcg_at_10": -3.469446951953614e-18,
+          "top20_set_intersection_mean": 19.5,
+          "top20_exact_match_rate": 0.375,
+          "queries_top20_exact_on_all_three_passes": 6,
+          "queries_top10_relevance_gain_sequence_exact_on_all_passes": 16,
+          "max_abs_per_query_ndcg_delta": 1.1102230246251565e-16,
+          "all_fresh_top20_stable_across_passes": true
+        }
+      },
+      {
+        "dataset": "hotpotqa",
+        "lexical_mode": "direct300",
+        "semantic_enabled": true,
+        "source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\hotpotqa_direct300\\results.json",
+          "sha256": "b62ac7155b58e38f0c836b75c116f3bd842499b4b9b3e677e60e9fafc61c8d09",
+          "bytes": 843050
+        },
+        "raw_source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\hotpotqa_direct300\\results.raw.json",
+          "sha256": "d2abdfe16417219566995409c00b493443fea89d49678c3b5e1124469853618b",
+          "bytes": 820273
+        },
+        "server_log_source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\hotpotqa_direct300\\server_requests.jsonl",
+          "sha256": "ff9ed0239be817c9d8ee644ac9d30e0da0247f11875b3af4540f00ca0b69c704",
+          "bytes": 27913
+        },
+        "warmup_observations": 32,
+        "measurement_observations": 48,
+        "distinct_sample_queries": 16,
+        "end_to_end_ms": {
+          "mean": 812.78246875,
+          "p50": 806.16795,
+          "p95": 903.3814799999999,
+          "min": 729.4023,
+          "max": 952.8219
+        },
+        "application_bytes": {
+          "actual_application_upload_bytes": {
+            "mean": 68535.375,
+            "p50": 68536.0,
+            "p95": 68536.0,
+            "min": 68530.0,
+            "max": 68536.0
+          },
+          "actual_application_download_bytes": {
+            "mean": 3522459.125,
+            "p50": 3520866.5,
+            "p95": 3537576.0,
+            "min": 3510881.0,
+            "max": 3537739.0
+          }
+        },
+        "stage_ms": {
+          "encoder_ms": {
+            "mean": 57.95643749999999,
+            "p50": 51.751599999999996,
+            "p95": 84.5907,
+            "min": 31.3727,
+            "max": 94.0177
+          },
+          "request_build_ms": {
+            "mean": 6.875039583333333,
+            "p50": 6.777699999999999,
+            "p95": 7.690655,
+            "min": 6.2448,
+            "max": 8.3244
+          },
+          "search_rpc.rpc_wall_ms": {
+            "mean": 730.5635541666667,
+            "p50": 726.33505,
+            "p95": 808.00386,
+            "min": 665.8288,
+            "max": 834.2882
+          },
+          "search_rpc.request_serialize_ms": {
+            "mean": 0.023081249999999998,
+            "p50": 0.0234,
+            "p95": 0.025464999999999998,
+            "min": 0.0186,
+            "max": 0.0293
+          },
+          "search_rpc.transfer_and_server_ms": {
+            "mean": 729.3613979166666,
+            "p50": 725.07845,
+            "p95": 806.75364,
+            "min": 664.5924,
+            "max": 833.1049
+          },
+          "search_rpc.response_parse_ms": {
+            "mean": 1.179075,
+            "p50": 1.1696499999999999,
+            "p95": 1.2745499999999998,
+            "min": 1.0555,
+            "max": 1.31
+          },
+          "search_server.request_parse_ms": {
+            "mean": 0.03770833333333334,
+            "p50": 0.03515,
+            "p95": 0.063985,
+            "min": 0.0254,
+            "max": 0.074
+          },
+          "search_server.request_decode_vectors_ms": {
+            "mean": 0.09509374999999999,
+            "p50": 0.0858,
+            "p95": 0.15262,
+            "min": 0.0566,
+            "max": 0.4957
+          },
+          "search_server.semantic_lookup_refine_ms": {
+            "mean": 255.71349166666667,
+            "p50": 247.3803,
+            "p95": 310.175295,
+            "min": 200.9873,
+            "max": 332.9843
+          },
+          "search_server.lexical_fts5_planner_ms": {
+            "mean": 32.746014583333334,
+            "p50": 33.31045,
+            "p95": 40.162855,
+            "min": 19.045,
+            "max": 41.8769
+          },
+          "search_server.lexical_partition_refine_ms": {
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "search_server.direct_candidate_selection_ms": {
+            "mean": 5.30605,
+            "p50": 5.79765,
+            "p95": 6.771545,
+            "min": 3.6804,
+            "max": 7.2998
+          },
+          "search_server.record_lookup_ms": {
+            "mean": 429.5607229166667,
+            "p50": 426.2283,
+            "p95": 457.606295,
+            "min": 408.3407,
+            "max": 487.4445
+          },
+          "payload_join_decrypt_dedup_ms": {
+            "mean": 6.2695875,
+            "p50": 6.2666,
+            "p95": 6.539145,
+            "min": 5.69,
+            "max": 7.0755
+          },
+          "semantic_exact_rerank_ms": {
+            "mean": 1.7917812500000003,
+            "p50": 1.77555,
+            "p95": 2.082045,
+            "min": 1.4754,
+            "max": 2.1661
+          },
+          "planner_restore_cap_exact_bm25_ms": {
+            "mean": 2.24988125,
+            "p50": 2.21365,
+            "p95": 2.83763,
+            "min": 1.6954,
+            "max": 2.9094
+          },
+          "duetrank_ms": {
+            "mean": 2.1481104166666665,
+            "p50": 2.0477499999999997,
+            "p95": 2.746985,
+            "min": 1.7602,
+            "max": 3.2275
+          },
+          "fetch_rpc.rpc_wall_ms": {
+            "mean": 4.558575,
+            "p50": 4.5915,
+            "p95": 5.0460650000000005,
+            "min": 3.9067,
+            "max": 5.1678
+          },
+          "fetch_server.document_lookup_ms": {
+            "mean": 4.08043125,
+            "p50": 4.09595,
+            "p95": 4.5317300000000005,
+            "min": 3.5505,
+            "max": 4.7412
+          },
+          "fetch_decrypt_parse_verify_ms": {
+            "mean": 0.10707499999999999,
+            "p50": 0.1015,
+            "p95": 0.16217499999999999,
+            "min": 0.0827,
+            "max": 0.1701
+          },
+          "server_log.search.serialize_ms": {
+            "mean": 2.03548125,
+            "p50": 2.0111999999999997,
+            "p95": 2.4595700000000003,
+            "min": 1.5618,
+            "max": 2.592
+          },
+          "server_log.search.send_ms": {
+            "mean": 1.0995854166666665,
+            "p50": 1.13255,
+            "p95": 1.349015,
+            "min": 0.8252,
+            "max": 1.414
+          },
+          "server_log.search.server_wall_after_receive_ms": {
+            "mean": 727.2644270833333,
+            "p50": 722.98635,
+            "p95": 804.173835,
+            "min": 662.938,
+            "max": 830.7338
+          },
+          "server_log.fetch.serialize_ms": {
+            "mean": 0.204175,
+            "p50": 0.23454999999999998,
+            "p95": 0.256955,
+            "min": 0.1245,
+            "max": 0.2653
+          },
+          "server_log.fetch.send_ms": {
+            "mean": 0.03096041666666667,
+            "p50": 0.030699999999999998,
+            "p95": 0.036355,
+            "min": 0.0217,
+            "max": 0.0392
+          },
+          "server_log.fetch.server_wall_after_receive_ms": {
+            "mean": 4.391322916666667,
+            "p50": 4.4201,
+            "p95": 4.825785,
+            "min": 3.7908,
+            "max": 4.9843
+          }
+        },
+        "record_lookup_fraction_of_total_wall_mean": 0.5285063832359717,
+        "online_counts": {
+          "semantic_unique_candidates": {
+            "mean": 1904.4375,
+            "p50": 1910.0,
+            "p95": 1944.9,
+            "min": 1855.0,
+            "max": 1947.0
+          },
+          "lexical_survivors": {
+            "mean": 300.0,
+            "p50": 300.0,
+            "p95": 300.0,
+            "min": 300.0,
+            "max": 300.0
+          },
+          "lexical_exact_scored": {
+            "mean": 300.0,
+            "p50": 300.0,
+            "p95": 300.0,
+            "min": 300.0,
+            "max": 300.0
+          },
+          "dummy_slots": {
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "fetched_documents": {
+            "mean": 20.0,
+            "p50": 20.0,
+            "p95": 20.0,
+            "min": 20.0,
+            "max": 20.0
+          },
+          "fetched_plaintext_bytes": {
+            "mean": 8252.125,
+            "p50": 8243.5,
+            "p95": 10417.65,
+            "min": 6434.0,
+            "max": 10446.0
+          }
+        },
+        "encoder_parameter_dtype": "torch.bfloat16",
+        "encoder_output_dtype_before_float32_cast": "float32",
+        "embedding_diagnostic": {
+          "max_absolute_difference_max": 0.00390625,
+          "cosine_min": 0.9999575018882751,
+          "fresh_norm_min": 0.996671736240387,
+          "fresh_norm_max": 1.0042930841445923,
+          "cached_norm_min": 0.9961514472961426,
+          "cached_norm_max": 1.004057765007019
+        },
+        "fresh_vs_cached_sample_quality": {
+          "distinct_sample_queries": 16,
+          "outer_holdout_sample_queries": 5,
+          "fresh_ndcg_at_10": 0.6899600510237716,
+          "cached_ndcg_at_10": 0.6899600510237716,
+          "paired_delta_ndcg_at_10": 0.0,
+          "top20_set_intersection_mean": 19.6875,
+          "top20_exact_match_rate": 0.375,
+          "queries_top20_exact_on_all_three_passes": 6,
+          "queries_top10_relevance_gain_sequence_exact_on_all_passes": 16,
+          "max_abs_per_query_ndcg_delta": 1.1102230246251565e-16,
+          "all_fresh_top20_stable_across_passes": true
+        }
+      },
+      {
+        "dataset": "hotpotqa",
+        "lexical_mode": "direct1000",
+        "semantic_enabled": true,
+        "source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\hotpotqa_direct1000\\results.json",
+          "sha256": "40f8ae231d34e77650a4a75fec0a6f19a905d3432b23b9f536e744ca074df438",
+          "bytes": 1839938
+        },
+        "raw_source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\hotpotqa_direct1000\\results.raw.json",
+          "sha256": "b1f150d4bc4e1b40ceb5032013a5aa505695efc94e2dd247132f242d1f9e5f73",
+          "bytes": 1817158
+        },
+        "server_log_source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\hotpotqa_direct1000\\server_requests.jsonl",
+          "sha256": "cd3def195055d5d52fe79995c65394492e800e6be480523897135285a9c5c5e5",
+          "bytes": 27900
+        },
+        "warmup_observations": 32,
+        "measurement_observations": 48,
+        "distinct_sample_queries": 16,
+        "end_to_end_ms": {
+          "mean": 1000.0717291666666,
+          "p50": 1000.4708,
+          "p95": 1069.116595,
+          "min": 898.8418,
+          "max": 1137.287
+        },
+        "application_bytes": {
+          "actual_application_upload_bytes": {
+            "mean": 68536.375,
+            "p50": 68537.0,
+            "p95": 68537.0,
+            "min": 68531.0,
+            "max": 68537.0
+          },
+          "actual_application_download_bytes": {
+            "mean": 3810377.4791666665,
+            "p50": 3806229.5,
+            "p95": 3855757.05,
+            "min": 3775510.0,
+            "max": 3859908.0
+          }
+        },
+        "stage_ms": {
+          "encoder_ms": {
+            "mean": 63.93111458333333,
+            "p50": 59.08435,
+            "p95": 93.75570499999999,
+            "min": 35.7944,
+            "max": 110.2236
+          },
+          "request_build_ms": {
+            "mean": 7.6039916666666665,
+            "p50": 7.41095,
+            "p95": 9.517365,
+            "min": 6.4753,
+            "max": 11.6434
+          },
+          "search_rpc.rpc_wall_ms": {
+            "mean": 898.6611958333333,
+            "p50": 895.65365,
+            "p95": 962.663995,
+            "min": 817.9496,
+            "max": 988.387
+          },
+          "search_rpc.request_serialize_ms": {
+            "mean": 0.023964583333333334,
+            "p50": 0.0238,
+            "p95": 0.027489999999999997,
+            "min": 0.0209,
+            "max": 0.031
+          },
+          "search_rpc.transfer_and_server_ms": {
+            "mean": 897.0732416666666,
+            "p50": 894.08905,
+            "p95": 961.048895,
+            "min": 816.292,
+            "max": 986.6593
+          },
+          "search_rpc.response_parse_ms": {
+            "mean": 1.5639895833333333,
+            "p50": 1.54585,
+            "p95": 1.714,
+            "min": 1.4264,
+            "max": 1.8837
+          },
+          "search_server.request_parse_ms": {
+            "mean": 0.047454166666666665,
+            "p50": 0.045700000000000005,
+            "p95": 0.07240499999999998,
+            "min": 0.0264,
+            "max": 0.094
+          },
+          "search_server.request_decode_vectors_ms": {
+            "mean": 0.11668125,
+            "p50": 0.10555,
+            "p95": 0.16389499999999999,
+            "min": 0.0634,
+            "max": 0.5268
+          },
+          "search_server.semantic_lookup_refine_ms": {
+            "mean": 267.59214375,
+            "p50": 260.5944,
+            "p95": 324.33104,
+            "min": 212.8707,
+            "max": 335.7392
+          },
+          "search_server.lexical_fts5_planner_ms": {
+            "mean": 35.344320833333335,
+            "p50": 35.75005,
+            "p95": 44.414735,
+            "min": 20.9216,
+            "max": 46.3903
+          },
+          "search_server.lexical_partition_refine_ms": {
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "search_server.direct_candidate_selection_ms": {
+            "mean": 5.028395833333334,
+            "p50": 4.3891,
+            "p95": 6.980354999999999,
+            "min": 4.0513,
+            "max": 7.2584
+          },
+          "search_server.record_lookup_ms": {
+            "mean": 581.9558479166667,
+            "p50": 584.0109,
+            "p95": 604.199355,
+            "min": 552.4371,
+            "max": 631.2758
+          },
+          "payload_join_decrypt_dedup_ms": {
+            "mean": 8.29079375,
+            "p50": 8.32285,
+            "p95": 9.042159999999999,
+            "min": 7.6875,
+            "max": 9.1882
+          },
+          "semantic_exact_rerank_ms": {
+            "mean": 1.9239229166666665,
+            "p50": 1.8789500000000001,
+            "p95": 2.238985,
+            "min": 1.6408,
+            "max": 2.609
+          },
+          "planner_restore_cap_exact_bm25_ms": {
+            "mean": 7.398431249999999,
+            "p50": 7.1841,
+            "p95": 9.613914999999999,
+            "min": 5.5179,
+            "max": 11.4949
+          },
+          "duetrank_ms": {
+            "mean": 6.877002083333333,
+            "p50": 4.6247,
+            "p95": 6.923004999999999,
+            "min": 3.7494,
+            "max": 102.416
+          },
+          "fetch_rpc.rpc_wall_ms": {
+            "mean": 4.948014583333333,
+            "p50": 4.8959,
+            "p95": 5.92025,
+            "min": 4.0863,
+            "max": 6.1571
+          },
+          "fetch_server.document_lookup_ms": {
+            "mean": 4.443279166666667,
+            "p50": 4.3980999999999995,
+            "p95": 5.417705,
+            "min": 3.6552,
+            "max": 5.7538
+          },
+          "fetch_decrypt_parse_verify_ms": {
+            "mean": 0.1113125,
+            "p50": 0.1085,
+            "p95": 0.130075,
+            "min": 0.0911,
+            "max": 0.1846
+          },
+          "server_log.search.serialize_ms": {
+            "mean": 2.4031583333333333,
+            "p50": 2.3522499999999997,
+            "p95": 2.994955,
+            "min": 1.8555,
+            "max": 3.1299
+          },
+          "server_log.search.send_ms": {
+            "mean": 1.1707375000000002,
+            "p50": 1.0772499999999998,
+            "p95": 1.522465,
+            "min": 0.9247,
+            "max": 1.73
+          },
+          "server_log.search.server_wall_after_receive_ms": {
+            "mean": 894.4028875,
+            "p50": 891.81395,
+            "p95": 958.22895,
+            "min": 814.5255,
+            "max": 984.2925
+          },
+          "server_log.fetch.serialize_ms": {
+            "mean": 0.1991875,
+            "p50": 0.17704999999999999,
+            "p95": 0.297535,
+            "min": 0.1314,
+            "max": 0.3195
+          },
+          "server_log.fetch.send_ms": {
+            "mean": 0.03955,
+            "p50": 0.03515,
+            "p95": 0.049159999999999995,
+            "min": 0.0279,
+            "max": 0.1779
+          },
+          "server_log.fetch.server_wall_after_receive_ms": {
+            "mean": 4.776916666666667,
+            "p50": 4.7284500000000005,
+            "p95": 5.77133,
+            "min": 3.9234,
+            "max": 6.0313
+          }
+        },
+        "record_lookup_fraction_of_total_wall_mean": 0.5819141077026496,
+        "online_counts": {
+          "semantic_unique_candidates": {
+            "mean": 1904.4375,
+            "p50": 1910.0,
+            "p95": 1944.9,
+            "min": 1855.0,
+            "max": 1947.0
+          },
+          "lexical_survivors": {
+            "mean": 1000.0,
+            "p50": 1000.0,
+            "p95": 1000.0,
+            "min": 1000.0,
+            "max": 1000.0
+          },
+          "lexical_exact_scored": {
+            "mean": 1000.0,
+            "p50": 1000.0,
+            "p95": 1000.0,
+            "min": 1000.0,
+            "max": 1000.0
+          },
+          "dummy_slots": {
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "fetched_documents": {
+            "mean": 20.0,
+            "p50": 20.0,
+            "p95": 20.0,
+            "min": 20.0,
+            "max": 20.0
+          },
+          "fetched_plaintext_bytes": {
+            "mean": 8290.375,
+            "p50": 8090.5,
+            "p95": 10932.849999999999,
+            "min": 5547.0,
+            "max": 11146.0
+          }
+        },
+        "encoder_parameter_dtype": "torch.bfloat16",
+        "encoder_output_dtype_before_float32_cast": "float32",
+        "embedding_diagnostic": {
+          "max_absolute_difference_max": 0.00390625,
+          "cosine_min": 0.9999575018882751,
+          "fresh_norm_min": 0.996671736240387,
+          "fresh_norm_max": 1.0042930841445923,
+          "cached_norm_min": 0.9961514472961426,
+          "cached_norm_max": 1.004057765007019
+        },
+        "fresh_vs_cached_sample_quality": {
+          "distinct_sample_queries": 16,
+          "outer_holdout_sample_queries": 5,
+          "fresh_ndcg_at_10": 0.7014960320724946,
+          "cached_ndcg_at_10": 0.7014960320724946,
+          "paired_delta_ndcg_at_10": -6.938893903907228e-18,
+          "top20_set_intersection_mean": 19.5,
+          "top20_exact_match_rate": 0.375,
+          "queries_top20_exact_on_all_three_passes": 6,
+          "queries_top10_relevance_gain_sequence_exact_on_all_passes": 16,
+          "max_abs_per_query_ndcg_delta": 1.1102230246251565e-16,
+          "all_fresh_top20_stable_across_passes": true
+        }
+      },
+      {
+        "dataset": "msmarco",
+        "lexical_mode": "ccadpe",
+        "semantic_enabled": true,
+        "source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\msmarco_ccadpe\\results.json",
+          "sha256": "ad8d32f348936d7b38047d7389c54b934e1efdf639e626f71c2473d926f1fb55",
+          "bytes": 842944
+        },
+        "raw_source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\msmarco_ccadpe\\results.raw.json",
+          "sha256": "7287b1e6f045da2d064cdd6ffb4fb1ac92c81ef8b1167174ef8927b804842a35",
+          "bytes": 820211
+        },
+        "server_log_source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\msmarco_ccadpe\\server_requests.jsonl",
+          "sha256": "1c71efc7491a0e24b8dbd301da25ec2a2cddcef9fc832b40c7ce2a57a5ee5736",
+          "bytes": 27992
+        },
+        "warmup_observations": 32,
+        "measurement_observations": 48,
+        "distinct_sample_queries": 16,
+        "end_to_end_ms": {
+          "mean": 1557.4928499999999,
+          "p50": 1544.25955,
+          "p95": 1801.557355,
+          "min": 1339.9575,
+          "max": 2092.8218
+        },
+        "application_bytes": {
+          "actual_application_upload_bytes": {
+            "mean": 69555.375,
+            "p50": 69556.0,
+            "p95": 69556.0,
+            "min": 69550.0,
+            "max": 69556.0
+          },
+          "actual_application_download_bytes": {
+            "mean": 7243649.645833333,
+            "p50": 7236891.0,
+            "p95": 7303581.6,
+            "min": 7214664.0,
+            "max": 7314532.0
+          }
+        },
+        "stage_ms": {
+          "encoder_ms": {
+            "mean": 22.51720208333333,
+            "p50": 20.298499999999997,
+            "p95": 37.237175,
+            "min": 13.4079,
+            "max": 46.232
+          },
+          "request_build_ms": {
+            "mean": 14.727891666666666,
+            "p50": 13.479099999999999,
+            "p95": 25.796889999999987,
+            "min": 11.3535,
+            "max": 33.4041
+          },
+          "search_rpc.rpc_wall_ms": {
+            "mean": 1492.4661020833335,
+            "p50": 1483.89995,
+            "p95": 1728.5261399999997,
+            "min": 1279.5167,
+            "max": 2004.2374
+          },
+          "search_rpc.request_serialize_ms": {
+            "mean": 0.025616666666666666,
+            "p50": 0.0228,
+            "p95": 0.04449999999999998,
+            "min": 0.0194,
+            "max": 0.0736
+          },
+          "search_rpc.transfer_and_server_ms": {
+            "mean": 1487.85665,
+            "p50": 1481.4725,
+            "p95": 1725.9425399999998,
+            "min": 1277.2081,
+            "max": 2001.1533
+          },
+          "search_rpc.response_parse_ms": {
+            "mean": 4.583835416666667,
+            "p50": 2.3312,
+            "p95": 2.9472349999999996,
+            "min": 2.142,
+            "max": 104.7503
+          },
+          "search_server.request_parse_ms": {
+            "mean": 0.03342916666666667,
+            "p50": 0.02795,
+            "p95": 0.05976,
+            "min": 0.0238,
+            "max": 0.0825
+          },
+          "search_server.request_decode_vectors_ms": {
+            "mean": 0.07423958333333334,
+            "p50": 0.060649999999999996,
+            "p95": 0.13713499999999998,
+            "min": 0.0524,
+            "max": 0.1627
+          },
+          "search_server.semantic_lookup_refine_ms": {
+            "mean": 457.7107104166667,
+            "p50": 458.079,
+            "p95": 585.354155,
+            "min": 346.8345,
+            "max": 615.0246
+          },
+          "search_server.lexical_fts5_planner_ms": {
+            "mean": 80.04914166666667,
+            "p50": 73.75094999999999,
+            "p95": 159.558305,
+            "min": 2.295,
+            "max": 182.429
+          },
+          "search_server.lexical_partition_refine_ms": {
+            "mean": 8.934370833333334,
+            "p50": 9.447700000000001,
+            "p95": 10.723355,
+            "min": 5.8499,
+            "max": 14.4551
+          },
+          "search_server.direct_candidate_selection_ms": {
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "search_server.record_lookup_ms": {
+            "mean": 928.957375,
+            "p50": 913.42155,
+            "p95": 1104.9510599999999,
+            "min": 863.9936,
+            "max": 1252.9189
+          },
+          "payload_join_decrypt_dedup_ms": {
+            "mean": 14.131485416666663,
+            "p50": 13.54265,
+            "p95": 14.838989999999999,
+            "min": 12.1743,
+            "max": 30.9374
+          },
+          "semantic_exact_rerank_ms": {
+            "mean": 3.9888666666666666,
+            "p50": 3.8361,
+            "p95": 4.666715,
+            "min": 3.1219,
+            "max": 7.3328
+          },
+          "planner_restore_cap_exact_bm25_ms": {
+            "mean": 2.384441666666667,
+            "p50": 2.2284,
+            "p95": 3.8474249999999977,
+            "min": 1.8012,
+            "max": 4.7276
+          },
+          "duetrank_ms": {
+            "mean": 1.7427979166666667,
+            "p50": 1.61905,
+            "p95": 2.4373299999999998,
+            "min": 1.3351,
+            "max": 3.2679
+          },
+          "fetch_rpc.rpc_wall_ms": {
+            "mean": 4.827183333333333,
+            "p50": 4.6007,
+            "p95": 5.429169999999999,
+            "min": 4.1742,
+            "max": 11.3133
+          },
+          "fetch_server.document_lookup_ms": {
+            "mean": 4.0671333333333335,
+            "p50": 3.8428500000000003,
+            "p95": 4.67208,
+            "min": 3.655,
+            "max": 9.9191
+          },
+          "fetch_decrypt_parse_verify_ms": {
+            "mean": 0.10562708333333333,
+            "p50": 0.09425,
+            "p95": 0.18819999999999998,
+            "min": 0.0845,
+            "max": 0.247
+          },
+          "server_log.search.serialize_ms": {
+            "mean": 3.747427083333333,
+            "p50": 3.6901,
+            "p95": 4.17115,
+            "min": 3.157,
+            "max": 8.3148
+          },
+          "server_log.search.send_ms": {
+            "mean": 2.4977895833333332,
+            "p50": 2.64985,
+            "p95": 3.117625,
+            "min": 1.6466,
+            "max": 4.2106
+          },
+          "server_log.search.server_wall_after_receive_ms": {
+            "mean": 1482.62868125,
+            "p50": 1476.8906,
+            "p95": 1721.4421949999999,
+            "min": 1273.9534,
+            "max": 1979.8004
+          },
+          "server_log.fetch.serialize_ms": {
+            "mean": 0.4210833333333333,
+            "p50": 0.4624,
+            "p95": 0.579155,
+            "min": 0.212,
+            "max": 0.8537
+          },
+          "server_log.fetch.send_ms": {
+            "mean": 0.03594791666666667,
+            "p50": 0.032049999999999995,
+            "p95": 0.05470499999999999,
+            "min": 0.0263,
+            "max": 0.0655
+          },
+          "server_log.fetch.server_wall_after_receive_ms": {
+            "mean": 4.6412562500000005,
+            "p50": 4.41555,
+            "p95": 5.25455,
+            "min": 4.0413,
+            "max": 11.0783
+          }
+        },
+        "record_lookup_fraction_of_total_wall_mean": 0.5964440703531962,
+        "online_counts": {
+          "semantic_unique_candidates": {
+            "mean": 3800.1875,
+            "p50": 3805.0,
+            "p95": 3899.3,
+            "min": 3692.0,
+            "max": 3907.0
+          },
+          "lexical_survivors": {
+            "mean": 962.625,
+            "p50": 961.5,
+            "p95": 972.65,
+            "min": 947.0,
+            "max": 973.0
+          },
+          "lexical_exact_scored": {
+            "mean": 300.0,
+            "p50": 300.0,
+            "p95": 300.0,
+            "min": 300.0,
+            "max": 300.0
+          },
+          "dummy_slots": {
+            "mean": 61.375,
+            "p50": 62.5,
+            "p95": 74.19999999999999,
+            "min": 51.0,
+            "max": 77.0
+          },
+          "fetched_documents": {
+            "mean": 20.0,
+            "p50": 20.0,
+            "p95": 20.0,
+            "min": 20.0,
+            "max": 20.0
+          },
+          "fetched_plaintext_bytes": {
+            "mean": 7831.9375,
+            "p50": 7765.0,
+            "p95": 9231.8,
+            "min": 6684.0,
+            "max": 9355.0
+          }
+        },
+        "encoder_parameter_dtype": "torch.bfloat16",
+        "encoder_output_dtype_before_float32_cast": "float32",
+        "embedding_diagnostic": {
+          "max_absolute_difference_max": 0.00390625,
+          "cosine_min": 0.9999351501464844,
+          "fresh_norm_min": 0.996917724609375,
+          "fresh_norm_max": 1.0038615465164185,
+          "cached_norm_min": 0.9970126152038574,
+          "cached_norm_max": 1.0045132637023926
+        },
+        "fresh_vs_cached_sample_quality": {
+          "distinct_sample_queries": 16,
+          "outer_holdout_sample_queries": 10,
+          "fresh_ndcg_at_10": 0.37348646875464314,
+          "cached_ndcg_at_10": 0.37348646875464314,
+          "paired_delta_ndcg_at_10": 0.0,
+          "top20_set_intersection_mean": 19.8125,
+          "top20_exact_match_rate": 0.625,
+          "queries_top20_exact_on_all_three_passes": 10,
+          "queries_top10_relevance_gain_sequence_exact_on_all_passes": 16,
+          "max_abs_per_query_ndcg_delta": 0.0,
+          "all_fresh_top20_stable_across_passes": true
+        }
+      },
+      {
+        "dataset": "msmarco",
+        "lexical_mode": "direct300",
+        "semantic_enabled": true,
+        "source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\msmarco_direct300\\results.json",
+          "sha256": "f22d3bb971f2734a720f2795dfd381f6b6a50e9218872088d9d9169f232f0d40",
+          "bytes": 846490
+        },
+        "raw_source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\msmarco_direct300\\results.raw.json",
+          "sha256": "022eb24a5275579ef8f373975512058d3eda4118fea28ed18c9634e8f035d88d",
+          "bytes": 823729
+        },
+        "server_log_source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\msmarco_direct300\\server_requests.jsonl",
+          "sha256": "42df3c2e5f5d1d19296e477baba682ef24c3c53d4e592cb1e7f06e362bb3dd4b",
+          "bytes": 27992
+        },
+        "warmup_observations": 32,
+        "measurement_observations": 48,
+        "distinct_sample_queries": 16,
+        "end_to_end_ms": {
+          "mean": 1604.13190625,
+          "p50": 1610.57085,
+          "p95": 1749.70626,
+          "min": 1453.8197,
+          "max": 1867.4221
+        },
+        "application_bytes": {
+          "actual_application_upload_bytes": {
+            "mean": 68534.375,
+            "p50": 68535.0,
+            "p95": 68535.0,
+            "min": 68529.0,
+            "max": 68535.0
+          },
+          "actual_application_download_bytes": {
+            "mean": 6920033.020833333,
+            "p50": 6918197.0,
+            "p95": 6934418.55,
+            "min": 6908967.0,
+            "max": 6935642.0
+          }
+        },
+        "stage_ms": {
+          "encoder_ms": {
+            "mean": 25.365068749999995,
+            "p50": 22.8466,
+            "p95": 44.019229999999986,
+            "min": 14.928,
+            "max": 53.2995
+          },
+          "request_build_ms": {
+            "mean": 8.338110416666666,
+            "p50": 7.42945,
+            "p95": 13.151539999999997,
+            "min": 6.7653,
+            "max": 17.454
+          },
+          "search_rpc.rpc_wall_ms": {
+            "mean": 1542.9532604166664,
+            "p50": 1552.56675,
+            "p95": 1692.4248149999999,
+            "min": 1393.6711,
+            "max": 1790.9173
+          },
+          "search_rpc.request_serialize_ms": {
+            "mean": 0.023593749999999997,
+            "p50": 0.0224,
+            "p95": 0.035995,
+            "min": 0.0199,
+            "max": 0.0476
+          },
+          "search_rpc.transfer_and_server_ms": {
+            "mean": 1538.5463708333334,
+            "p50": 1543.0102499999998,
+            "p95": 1690.120115,
+            "min": 1390.9287,
+            "max": 1788.5064
+          },
+          "search_rpc.response_parse_ms": {
+            "mean": 4.3832958333333325,
+            "p50": 2.2750500000000002,
+            "p95": 2.735505,
+            "min": 2.1048,
+            "max": 100.7545
+          },
+          "search_server.request_parse_ms": {
+            "mean": 0.036004166666666663,
+            "p50": 0.0298,
+            "p95": 0.063015,
+            "min": 0.0261,
+            "max": 0.0846
+          },
+          "search_server.request_decode_vectors_ms": {
+            "mean": 0.08703958333333332,
+            "p50": 0.0691,
+            "p95": 0.159695,
+            "min": 0.0604,
+            "max": 0.1681
+          },
+          "search_server.semantic_lookup_refine_ms": {
+            "mean": 543.9533770833333,
+            "p50": 535.1332,
+            "p95": 632.94006,
+            "min": 450.5303,
+            "max": 789.7113
+          },
+          "search_server.lexical_fts5_planner_ms": {
+            "mean": 87.11570208333335,
+            "p50": 85.4114,
+            "p95": 170.695315,
+            "min": 2.5124,
+            "max": 174.9212
+          },
+          "search_server.lexical_partition_refine_ms": {
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "search_server.direct_candidate_selection_ms": {
+            "mean": 8.240202083333333,
+            "p50": 8.85255,
+            "p95": 9.851235,
+            "min": 5.654,
+            "max": 10.2494
+          },
+          "search_server.record_lookup_ms": {
+            "mean": 886.8067729166668,
+            "p50": 886.3051,
+            "p95": 918.22548,
+            "min": 838.8616,
+            "max": 927.9675
+          },
+          "payload_join_decrypt_dedup_ms": {
+            "mean": 13.285352083333335,
+            "p50": 13.19705,
+            "p95": 13.95082,
+            "min": 12.4621,
+            "max": 15.0331
+          },
+          "semantic_exact_rerank_ms": {
+            "mean": 3.8655833333333334,
+            "p50": 3.88075,
+            "p95": 4.21452,
+            "min": 3.2145,
+            "max": 4.6126
+          },
+          "planner_restore_cap_exact_bm25_ms": {
+            "mean": 2.2902687499999996,
+            "p50": 2.2945,
+            "p95": 2.67224,
+            "min": 1.8769,
+            "max": 2.7734
+          },
+          "duetrank_ms": {
+            "mean": 2.4476375,
+            "p50": 2.2694,
+            "p95": 3.313865,
+            "min": 1.8309,
+            "max": 5.112
+          },
+          "fetch_rpc.rpc_wall_ms": {
+            "mean": 4.917872916666667,
+            "p50": 4.894500000000001,
+            "p95": 5.465325,
+            "min": 4.4087,
+            "max": 5.7836
+          },
+          "fetch_server.document_lookup_ms": {
+            "mean": 4.2363375,
+            "p50": 4.19025,
+            "p95": 4.709505,
+            "min": 3.8454,
+            "max": 4.9217
+          },
+          "fetch_decrypt_parse_verify_ms": {
+            "mean": 0.10346041666666668,
+            "p50": 0.09659999999999999,
+            "p95": 0.14790999999999999,
+            "min": 0.0833,
+            "max": 0.2237
+          },
+          "server_log.search.serialize_ms": {
+            "mean": 3.5633770833333336,
+            "p50": 3.5499,
+            "p95": 4.036905,
+            "min": 3.1224,
+            "max": 4.1495
+          },
+          "server_log.search.send_ms": {
+            "mean": 2.3674166666666667,
+            "p50": 2.40925,
+            "p95": 2.93804,
+            "min": 1.6676,
+            "max": 3.1393
+          },
+          "server_log.search.server_wall_after_receive_ms": {
+            "mean": 1533.2086499999998,
+            "p50": 1533.5772000000002,
+            "p95": 1685.6162749999999,
+            "min": 1386.3708,
+            "max": 1784.008
+          },
+          "server_log.fetch.serialize_ms": {
+            "mean": 0.3732083333333333,
+            "p50": 0.39975000000000005,
+            "p95": 0.496195,
+            "min": 0.211,
+            "max": 0.5325
+          },
+          "server_log.fetch.send_ms": {
+            "mean": 0.034070833333333335,
+            "p50": 0.0336,
+            "p95": 0.042824999999999995,
+            "min": 0.0219,
+            "max": 0.0443
+          },
+          "server_log.fetch.server_wall_after_receive_ms": {
+            "mean": 4.7488874999999995,
+            "p50": 4.7308,
+            "p95": 5.329885,
+            "min": 4.2228,
+            "max": 5.5802
+          }
+        },
+        "record_lookup_fraction_of_total_wall_mean": 0.5528265907943734,
+        "online_counts": {
+          "semantic_unique_candidates": {
+            "mean": 3800.1875,
+            "p50": 3805.0,
+            "p95": 3899.3,
+            "min": 3692.0,
+            "max": 3907.0
+          },
+          "lexical_survivors": {
+            "mean": 300.0,
+            "p50": 300.0,
+            "p95": 300.0,
+            "min": 300.0,
+            "max": 300.0
+          },
+          "lexical_exact_scored": {
+            "mean": 300.0,
+            "p50": 300.0,
+            "p95": 300.0,
+            "min": 300.0,
+            "max": 300.0
+          },
+          "dummy_slots": {
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "fetched_documents": {
+            "mean": 20.0,
+            "p50": 20.0,
+            "p95": 20.0,
+            "min": 20.0,
+            "max": 20.0
+          },
+          "fetched_plaintext_bytes": {
+            "mean": 7808.625,
+            "p50": 7773.0,
+            "p95": 9176.5,
+            "min": 6684.0,
+            "max": 9355.0
+          }
+        },
+        "encoder_parameter_dtype": "torch.bfloat16",
+        "encoder_output_dtype_before_float32_cast": "float32",
+        "embedding_diagnostic": {
+          "max_absolute_difference_max": 0.00390625,
+          "cosine_min": 0.9999351501464844,
+          "fresh_norm_min": 0.996917724609375,
+          "fresh_norm_max": 1.0038615465164185,
+          "cached_norm_min": 0.9970126152038574,
+          "cached_norm_max": 1.0045132637023926
+        },
+        "fresh_vs_cached_sample_quality": {
+          "distinct_sample_queries": 16,
+          "outer_holdout_sample_queries": 10,
+          "fresh_ndcg_at_10": 0.3727386456705123,
+          "cached_ndcg_at_10": 0.3727386456705123,
+          "paired_delta_ndcg_at_10": 0.0,
+          "top20_set_intersection_mean": 19.75,
+          "top20_exact_match_rate": 0.5,
+          "queries_top20_exact_on_all_three_passes": 8,
+          "queries_top10_relevance_gain_sequence_exact_on_all_passes": 16,
+          "max_abs_per_query_ndcg_delta": 0.0,
+          "all_fresh_top20_stable_across_passes": true
+        }
+      },
+      {
+        "dataset": "msmarco",
+        "lexical_mode": "direct1000",
+        "semantic_enabled": true,
+        "source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\msmarco_direct1000\\results.json",
+          "sha256": "779aa4aedacc28adecb784ac483143bb5cd88354e0169afda4e2054d5a666987",
+          "bytes": 1847826
+        },
+        "raw_source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\msmarco_direct1000\\results.raw.json",
+          "sha256": "f30128468f845076d7533b6638eed0f7942a7f4ac635b010cc178b7cd3b00994",
+          "bytes": 1825046
+        },
+        "server_log_source": {
+          "path": "<WORKSPACE>\\experiment_revision_20261107\\protocol\\runs\\msmarco_direct1000\\server_requests.jsonl",
+          "sha256": "326a82d508c069cb3c9f19efc3f834206b145841d4a33e8e6f577d77a7d33c2f",
+          "bytes": 27987
+        },
+        "warmup_observations": 32,
+        "measurement_observations": 48,
+        "distinct_sample_queries": 16,
+        "end_to_end_ms": {
+          "mean": 1786.8152625000002,
+          "p50": 1754.78,
+          "p95": 2131.1158,
+          "min": 1529.1828,
+          "max": 2438.6273
+        },
+        "application_bytes": {
+          "actual_application_upload_bytes": {
+            "mean": 68535.375,
+            "p50": 68536.0,
+            "p95": 68536.0,
+            "min": 68530.0,
+            "max": 68536.0
+          },
+          "actual_application_download_bytes": {
+            "mean": 7237491.1875,
+            "p50": 7229824.5,
+            "p95": 7299444.25,
+            "min": 7207754.0,
+            "max": 7310394.0
+          }
+        },
+        "stage_ms": {
+          "encoder_ms": {
+            "mean": 25.56375,
+            "p50": 22.38425,
+            "p95": 47.14539499999999,
+            "min": 14.8432,
+            "max": 66.1479
+          },
+          "request_build_ms": {
+            "mean": 9.049737499999999,
+            "p50": 7.85265,
+            "p95": 15.96545,
+            "min": 6.6459,
+            "max": 18.9985
+          },
+          "search_rpc.rpc_wall_ms": {
+            "mean": 1716.017354166667,
+            "p50": 1686.20845,
+            "p95": 2055.061705,
+            "min": 1463.1848,
+            "max": 2367.1983
+          },
+          "search_rpc.request_serialize_ms": {
+            "mean": 0.02499583333333333,
+            "p50": 0.0229,
+            "p95": 0.039735,
+            "min": 0.0198,
+            "max": 0.056
+          },
+          "search_rpc.transfer_and_server_ms": {
+            "mean": 1713.3175708333335,
+            "p50": 1683.2197,
+            "p95": 2052.393645,
+            "min": 1460.6399,
+            "max": 2364.2641
+          },
+          "search_rpc.response_parse_ms": {
+            "mean": 2.6747875000000003,
+            "p50": 2.6662,
+            "p95": 2.90003,
+            "min": 2.3923,
+            "max": 3.2241
+          },
+          "search_server.request_parse_ms": {
+            "mean": 0.03679583333333333,
+            "p50": 0.0288,
+            "p95": 0.06788999999999999,
+            "min": 0.0262,
+            "max": 0.0999
+          },
+          "search_server.request_decode_vectors_ms": {
+            "mean": 0.08927708333333334,
+            "p50": 0.07314999999999999,
+            "p95": 0.15672,
+            "min": 0.0605,
+            "max": 0.1894
+          },
+          "search_server.semantic_lookup_refine_ms": {
+            "mean": 556.1836562499999,
+            "p50": 546.0935999999999,
+            "p95": 682.888385,
+            "min": 460.4717,
+            "max": 758.3997
+          },
+          "search_server.lexical_fts5_planner_ms": {
+            "mean": 90.02473958333333,
+            "p50": 86.12469999999999,
+            "p95": 167.555935,
+            "min": 2.7089,
+            "max": 182.1869
+          },
+          "search_server.lexical_partition_refine_ms": {
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "search_server.direct_candidate_selection_ms": {
+            "mean": 8.22946875,
+            "p50": 8.293800000000001,
+            "p95": 10.45402,
+            "min": 5.6233,
+            "max": 13.8431
+          },
+          "search_server.record_lookup_ms": {
+            "mean": 1046.9193958333333,
+            "p50": 1006.82095,
+            "p95": 1235.12805,
+            "min": 955.1891,
+            "max": 1648.0699
+          },
+          "payload_join_decrypt_dedup_ms": {
+            "mean": 15.051335416666667,
+            "p50": 14.6732,
+            "p95": 16.916005,
+            "min": 13.7651,
+            "max": 20.8158
+          },
+          "semantic_exact_rerank_ms": {
+            "mean": 3.94569375,
+            "p50": 3.92875,
+            "p95": 4.781264999999999,
+            "min": 3.2224,
+            "max": 5.1508
+          },
+          "planner_restore_cap_exact_bm25_ms": {
+            "mean": 7.463983333333334,
+            "p50": 7.193300000000001,
+            "p95": 9.797524999999998,
+            "min": 6.1264,
+            "max": 13.0121
+          },
+          "duetrank_ms": {
+            "mean": 4.01350625,
+            "p50": 3.7112,
+            "p95": 5.74085,
+            "min": 3.2323,
+            "max": 6.3848
+          },
+          "fetch_rpc.rpc_wall_ms": {
+            "mean": 5.0052125,
+            "p50": 4.911,
+            "p95": 5.562914999999999,
+            "min": 4.3886,
+            "max": 6.9255
+          },
+          "fetch_server.document_lookup_ms": {
+            "mean": 4.300245833333333,
+            "p50": 4.1925,
+            "p95": 4.89005,
+            "min": 3.8103,
+            "max": 5.8155
+          },
+          "fetch_decrypt_parse_verify_ms": {
+            "mean": 0.10562083333333334,
+            "p50": 0.0999,
+            "p95": 0.15564499999999995,
+            "min": 0.0906,
+            "max": 0.2237
+          },
+          "server_log.search.serialize_ms": {
+            "mean": 3.7876270833333336,
+            "p50": 3.6580500000000002,
+            "p95": 4.43527,
+            "min": 3.2832,
+            "max": 4.8849
+          },
+          "server_log.search.send_ms": {
+            "mean": 2.2943124999999998,
+            "p50": 2.11265,
+            "p95": 3.026665,
+            "min": 1.7204,
+            "max": 3.3616
+          },
+          "server_log.search.server_wall_after_receive_ms": {
+            "mean": 1708.5966645833334,
+            "p50": 1678.5081500000001,
+            "p95": 2048.3516649999997,
+            "min": 1456.8137,
+            "max": 2359.0794
+          },
+          "server_log.fetch.serialize_ms": {
+            "mean": 0.35529166666666673,
+            "p50": 0.2723,
+            "p95": 0.521925,
+            "min": 0.22,
+            "max": 0.5596
+          },
+          "server_log.fetch.send_ms": {
+            "mean": 0.034,
+            "p50": 0.033350000000000005,
+            "p95": 0.04363,
+            "min": 0.0272,
+            "max": 0.0479
+          },
+          "server_log.fetch.server_wall_after_receive_ms": {
+            "mean": 4.805310416666667,
+            "p50": 4.6965,
+            "p95": 5.3143199999999995,
+            "min": 4.1887,
+            "max": 6.5713
+          }
+        },
+        "record_lookup_fraction_of_total_wall_mean": 0.5859136183829934,
+        "online_counts": {
+          "semantic_unique_candidates": {
+            "mean": 3800.1875,
+            "p50": 3805.0,
+            "p95": 3899.3,
+            "min": 3692.0,
+            "max": 3907.0
+          },
+          "lexical_survivors": {
+            "mean": 1000.0,
+            "p50": 1000.0,
+            "p95": 1000.0,
+            "min": 1000.0,
+            "max": 1000.0
+          },
+          "lexical_exact_scored": {
+            "mean": 1000.0,
+            "p50": 1000.0,
+            "p95": 1000.0,
+            "min": 1000.0,
+            "max": 1000.0
+          },
+          "dummy_slots": {
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "fetched_documents": {
+            "mean": 20.0,
+            "p50": 20.0,
+            "p95": 20.0,
+            "min": 20.0,
+            "max": 20.0
+          },
+          "fetched_plaintext_bytes": {
+            "mean": 7898.125,
+            "p50": 7795.0,
+            "p95": 9258.499999999998,
+            "min": 7224.0,
+            "max": 9528.0
+          }
+        },
+        "encoder_parameter_dtype": "torch.bfloat16",
+        "encoder_output_dtype_before_float32_cast": "float32",
+        "embedding_diagnostic": {
+          "max_absolute_difference_max": 0.00390625,
+          "cosine_min": 0.9999351501464844,
+          "fresh_norm_min": 0.996917724609375,
+          "fresh_norm_max": 1.0038615465164185,
+          "cached_norm_min": 0.9970126152038574,
+          "cached_norm_max": 1.0045132637023926
+        },
+        "fresh_vs_cached_sample_quality": {
+          "distinct_sample_queries": 16,
+          "outer_holdout_sample_queries": 10,
+          "fresh_ndcg_at_10": 0.37707136079092524,
+          "cached_ndcg_at_10": 0.37707136079092524,
+          "paired_delta_ndcg_at_10": 0.0,
+          "top20_set_intersection_mean": 19.375,
+          "top20_exact_match_rate": 0.3125,
+          "queries_top20_exact_on_all_three_passes": 5,
+          "queries_top10_relevance_gain_sequence_exact_on_all_passes": 16,
+          "max_abs_per_query_ndcg_delta": 0.0,
+          "all_fresh_top20_stable_across_passes": true
+        }
+      }
+    ]
+  },
+  "scope_notes": [
+    "Full quality workloads: 3452 NQ, 7405 HotpotQA, 6980 MS MARCO; three query-noise repeats.",
+    "Fusion quality uses fixed SHA256 outer holdouts only; models/hyperparameters selected within repeat-zero calibration.",
+    "End-to-end retrieval excludes LLM generation and is warm-process localhost TCP over a sample-scoped encrypted record store.",
+    "DuetER/direct loopback protocol: 16 unique latency queries, repeated three times; 48 observations are not 48 independent query samples.",
+    "ppRAG is an independent numerical simulation with ideal native-vector access, not official code or matched privacy.",
+    "ppRAG serial numerical timing excludes encoding, AES, network and generation; no end-to-end speedup ratio is inferred.",
+    "Cached encoder-normalized vectors are scored by FP32 inner product without renormalization; internal encoder dtype/device is recorded separately."
+  ]
+}

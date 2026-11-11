@@ -1,0 +1,604 @@
+{
+  "status": "complete_and_verified",
+  "config_sha256": "149fb6ff7d30f24ca9d404c7e9cf5691b47202388c1a53104735404171f2d1f9",
+  "scope": "Complete-query retrieval utility, not protocol latency; fixed document/query embeddings and deterministic planner candidates reused, all query noise/local refinement/native scoring/fusion recomputed.",
+  "model_policy": "One repeat-zero calibration-selected model per dataset; frozen for three query-noise repeats. Quality scored only on outer holdout; current-repeat features only.",
+  "bootstrap_scope": "5000 paired-query resamples after averaging per-query differences across repeats; conditional on one trained model, not training-seed uncertainty.",
+  "verification_path": "<WORKSPACE>\\experiment_revision_20261107\\quality_final_verification.json",
+  "datasets": {
+    "nq": {
+      "query_count": 3452,
+      "calibration_queries": 1713,
+      "outer_holdout_queries": 1739,
+      "repeats": 3,
+      "ndcg_at_10": {
+        "semantic": 0.5149372924909454,
+        "lexical": 0.27210065800033306,
+        "duetrank": 0.5205236930780963,
+        "fixed_rrf": 0.5149372924909454,
+        "standard_rrf": 0.41895946061396605
+      },
+      "duetrank_vs_semantic": {
+        "mean_absolute_gain": 0.005586400587150803,
+        "ci95_low": 0.0031812962685734097,
+        "ci95_high": 0.008081731720445495,
+        "one_sided_bootstrap_p": 0.0001999600079984003,
+        "query_win_fraction": 0.09660724554341575,
+        "query_tie_fraction": 0.8378378378378378,
+        "query_loss_fraction": 0.0655549166187464,
+        "relative_percent": 1.0848700742040416
+      },
+      "duetrank_vs_fixed_rrf": {
+        "mean_absolute_gain": 0.005586400587150803,
+        "ci95_low": 0.0031812962685734097,
+        "ci95_high": 0.008081731720445495,
+        "one_sided_bootstrap_p": 0.0001999600079984003,
+        "query_win_fraction": 0.09660724554341575,
+        "query_tie_fraction": 0.8378378378378378,
+        "query_loss_fraction": 0.0655549166187464
+      },
+      "per_repeat": {
+        "semantic": {
+          "mean_ndcg_at_10": 0.5149372924909454,
+          "per_repeat_ndcg_at_10": [
+            0.5149439088813398,
+            0.5149339842957462,
+            0.5149339842957462
+          ]
+        },
+        "lexical": {
+          "mean_ndcg_at_10": 0.27210065800033306,
+          "per_repeat_ndcg_at_10": [
+            0.2718987018244386,
+            0.2722923390430782,
+            0.27211093313348317
+          ]
+        },
+        "duetrank": {
+          "mean_ndcg_at_10": 0.5205236930780963,
+          "per_repeat_ndcg_at_10": [
+            0.520472466806778,
+            0.5204661938427592,
+            0.5206324185847476
+          ]
+        },
+        "fixed_rrf": {
+          "mean_ndcg_at_10": 0.5149372924909454,
+          "per_repeat_ndcg_at_10": [
+            0.5149439088813398,
+            0.5149339842957462,
+            0.5149339842957462
+          ]
+        },
+        "standard_rrf": {
+          "mean_ndcg_at_10": 0.41895946061396605,
+          "per_repeat_ndcg_at_10": [
+            0.4186741150693922,
+            0.41910852815902266,
+            0.4190957386134818
+          ]
+        }
+      },
+      "selection": {
+        "max_leaf_nodes": 31,
+        "semantic_backoff_weight": 0.5,
+        "inner_validation_ndcg": 0.5291306471949918,
+        "fixed_rrf_semantic_weight": 1.0,
+        "training_rows": 398291,
+        "model_path": "<WORKSPACE>\\experiment_revision_20261107\\results\\nq\\duetrank.joblib"
+      },
+      "semantic_native_scoring_candidates": {
+        "n": 10356,
+        "mean": 1889.8288914638856,
+        "p50": 1892.0,
+        "p95": 1939.0,
+        "min": 1755.0,
+        "max": 1983.0
+      },
+      "lexical_pre_cap_candidates": {
+        "n": 10356,
+        "mean": 957.9058516801854,
+        "p50": 962.0,
+        "p95": 977.0,
+        "min": 1.0,
+        "max": 989.0
+      },
+      "lexical_native_scoring_candidates": {
+        "n": 10356,
+        "mean": 299.40758980301274,
+        "p50": 300.0,
+        "p95": 300.0,
+        "min": 1.0,
+        "max": 300.0
+      },
+      "fusion_source": "<WORKSPACE>\\experiment_revision_20261107\\results\\nq\\fusion.json",
+      "verification": {
+        "query_count": 3452,
+        "outer_holdout_queries": 1739,
+        "calibration_queries": 1713,
+        "repeats": 3,
+        "query_order_sha256": "8b460055e92ec160a0ebe514efe1ada92b0c2e63e843c41b94cfd1ed5d4ba619",
+        "artifacts": {
+          "semantic.rankings.npz": {
+            "shape": [
+              3,
+              3452,
+              100
+            ],
+            "sha256": "780abe4ce394072d9330b8c402d0d07c102b667b85bcd5364c6889bc061cc880",
+            "valid_candidate_counts": {
+              "n": 10356,
+              "mean": 100.0,
+              "p50": 100.0,
+              "p95": 100.0,
+              "min": 100.0,
+              "max": 100.0
+            }
+          },
+          "lexical_candidates.npz": {
+            "shape": [
+              3,
+              3452,
+              300
+            ],
+            "sha256": "7d0aca8b7114bfd7a95ee434ea77bb4ad33d7b6b9e97929a111ec2934c02e2ae",
+            "valid_candidate_counts": {
+              "n": 10356,
+              "mean": 299.40758980301274,
+              "p50": 300.0,
+              "p95": 300.0,
+              "min": 1.0,
+              "max": 300.0
+            }
+          },
+          "exact_bm25.rankings.npz": {
+            "shape": [
+              3,
+              3452,
+              300
+            ],
+            "sha256": "41dc129a90ba34334641a5c09b508c1982ddb7cb40c8274ace21285ecad7a7d6",
+            "valid_candidate_counts": {
+              "n": 10356,
+              "mean": 299.40758980301274,
+              "p50": 300.0,
+              "p95": 300.0,
+              "min": 1.0,
+              "max": 300.0
+            }
+          },
+          "duetrank.rankings.npz": {
+            "shape": [
+              3,
+              3452,
+              100
+            ],
+            "sha256": "210d9ffa2c9ddb1d7d605546dc58c64006b6da0ccaca71b530ebd05c1a2614aa",
+            "valid_candidate_counts": {
+              "n": 10356,
+              "mean": 100.0,
+              "p50": 100.0,
+              "p95": 100.0,
+              "min": 100.0,
+              "max": 100.0
+            }
+          }
+        },
+        "all_lexical_candidate_members_preserved_by_exact_scoring": true,
+        "all_lexical_candidates_keep_original_planner_order": true,
+        "shared_payload_vocabulary_and_query_ids_match": true,
+        "sampled_fp64_exact_rerank": {
+          "not_repeated": "NQ used original completed run; 9 FP64 smoke comparisons already passed"
+        },
+        "model_sha256": "f3efcc453ed2c2d259a38dc7992ff1a245e9728322de9b9978b0632355ed3d4b",
+        "all_result_config_hashes_match": true
+      }
+    },
+    "hotpotqa": {
+      "query_count": 7405,
+      "calibration_queries": 3665,
+      "outer_holdout_queries": 3740,
+      "repeats": 3,
+      "ndcg_at_10": {
+        "semantic": 0.6408977307190794,
+        "lexical": 0.5774618785725008,
+        "duetrank": 0.6843241488745767,
+        "fixed_rrf": 0.6518993438993539,
+        "standard_rrf": 0.6447280831391257
+      },
+      "duetrank_vs_semantic": {
+        "mean_absolute_gain": 0.04342641815549739,
+        "ci95_low": 0.0388912761327774,
+        "ci95_high": 0.04798828645496998,
+        "one_sided_bootstrap_p": 0.0001999600079984003,
+        "query_win_fraction": 0.2556149732620321,
+        "query_tie_fraction": 0.5689839572192513,
+        "query_loss_fraction": 0.1754010695187166,
+        "relative_percent": 6.775873290544105
+      },
+      "duetrank_vs_fixed_rrf": {
+        "mean_absolute_gain": 0.032424804975222765,
+        "ci95_low": 0.0284981124342055,
+        "ci95_high": 0.03653732018630694,
+        "one_sided_bootstrap_p": 0.0001999600079984003,
+        "query_win_fraction": 0.23475935828877006,
+        "query_tie_fraction": 0.5919786096256684,
+        "query_loss_fraction": 0.17326203208556148
+      },
+      "per_repeat": {
+        "semantic": {
+          "mean_ndcg_at_10": 0.6408977307190794,
+          "per_repeat_ndcg_at_10": [
+            0.6408935948536961,
+            0.6408988178482972,
+            0.6409007794552479
+          ]
+        },
+        "lexical": {
+          "mean_ndcg_at_10": 0.5774618785725008,
+          "per_repeat_ndcg_at_10": [
+            0.5774491873433759,
+            0.5774267545105342,
+            0.5775096938635713
+          ]
+        },
+        "duetrank": {
+          "mean_ndcg_at_10": 0.6843241488745767,
+          "per_repeat_ndcg_at_10": [
+            0.6842965161367275,
+            0.6843249500058893,
+            0.6843509804811282
+          ]
+        },
+        "fixed_rrf": {
+          "mean_ndcg_at_10": 0.6518993438993539,
+          "per_repeat_ndcg_at_10": [
+            0.6519505330305346,
+            0.6518270882523036,
+            0.6519204104152316
+          ]
+        },
+        "standard_rrf": {
+          "mean_ndcg_at_10": 0.6447280831391257,
+          "per_repeat_ndcg_at_10": [
+            0.6448039396453712,
+            0.6449331848617471,
+            0.6444471249102653
+          ]
+        }
+      },
+      "selection": {
+        "max_leaf_nodes": 31,
+        "semantic_backoff_weight": 0.0,
+        "inner_validation_ndcg": 0.6721561685150922,
+        "fixed_rrf_semantic_weight": 0.9,
+        "training_rows": 876837,
+        "model_path": "<WORKSPACE>\\experiment_revision_20261107\\results\\hotpotqa\\duetrank.joblib"
+      },
+      "semantic_native_scoring_candidates": {
+        "n": 22215,
+        "mean": 1906.6783254557731,
+        "p50": 1909.0,
+        "p95": 1953.0,
+        "min": 1755.0,
+        "max": 1993.0
+      },
+      "lexical_pre_cap_candidates": {
+        "n": 22215,
+        "mean": 953.696691424713,
+        "p50": 963.0,
+        "p95": 977.0,
+        "min": 1.0,
+        "max": 991.0
+      },
+      "lexical_native_scoring_candidates": {
+        "n": 22215,
+        "mean": 298.03646185010126,
+        "p50": 300.0,
+        "p95": 300.0,
+        "min": 1.0,
+        "max": 300.0
+      },
+      "fusion_source": "<WORKSPACE>\\experiment_revision_20261107\\results\\hotpotqa\\fusion.json",
+      "verification": {
+        "query_count": 7405,
+        "outer_holdout_queries": 3740,
+        "calibration_queries": 3665,
+        "repeats": 3,
+        "query_order_sha256": "c476b8bcccfa637e597454e9f24abe83af3738a47b873661b172effb2ca5710c",
+        "artifacts": {
+          "semantic.rankings.npz": {
+            "shape": [
+              3,
+              7405,
+              100
+            ],
+            "sha256": "978b2310646781edd2e19fcd851735dc783a16afeedc43156b3d2a96eda31504",
+            "valid_candidate_counts": {
+              "n": 22215,
+              "mean": 100.0,
+              "p50": 100.0,
+              "p95": 100.0,
+              "min": 100.0,
+              "max": 100.0
+            }
+          },
+          "lexical_candidates.npz": {
+            "shape": [
+              3,
+              7405,
+              300
+            ],
+            "sha256": "d520548706fecf86cf2cc1eced817eb709755866330428aa8cef6ba100d85574",
+            "valid_candidate_counts": {
+              "n": 22215,
+              "mean": 298.03646185010126,
+              "p50": 300.0,
+              "p95": 300.0,
+              "min": 1.0,
+              "max": 300.0
+            }
+          },
+          "exact_bm25.rankings.npz": {
+            "shape": [
+              3,
+              7405,
+              300
+            ],
+            "sha256": "758ee6d1a5d5720c42f318d6e5c74c1e41104319640274c893ef1e891d56b21c",
+            "valid_candidate_counts": {
+              "n": 22215,
+              "mean": 298.03646185010126,
+              "p50": 300.0,
+              "p95": 300.0,
+              "min": 1.0,
+              "max": 300.0
+            }
+          },
+          "duetrank.rankings.npz": {
+            "shape": [
+              3,
+              7405,
+              100
+            ],
+            "sha256": "b5bdad11b9dcd1e7a0af338ea72a96a8b79a56d885e9ae17b255ac3cf344237e",
+            "valid_candidate_counts": {
+              "n": 22215,
+              "mean": 100.0,
+              "p50": 100.0,
+              "p95": 100.0,
+              "min": 100.0,
+              "max": 100.0
+            }
+          }
+        },
+        "all_lexical_candidate_members_preserved_by_exact_scoring": true,
+        "all_lexical_candidates_keep_original_planner_order": true,
+        "shared_payload_vocabulary_and_query_ids_match": true,
+        "sampled_fp64_exact_rerank": {
+          "queries": [
+            0,
+            1057,
+            2115,
+            3173,
+            4230,
+            5288,
+            6346,
+            7404
+          ],
+          "query_repeats_checked": 24,
+          "mean_top100_set_overlap": 1.0,
+          "exact_top100_order_equal": 24,
+          "maximum_float64_threshold_shortfall": 0.0,
+          "all_members_or_near_boundary_ties_valid": true
+        },
+        "model_sha256": "2c2ae5a05ec62c4c23201646d8840c77095428c828e96d678a5b9ef8ed489890",
+        "all_result_config_hashes_match": true
+      }
+    },
+    "msmarco": {
+      "query_count": 6980,
+      "calibration_queries": 3454,
+      "outer_holdout_queries": 3526,
+      "repeats": 3,
+      "ndcg_at_10": {
+        "semantic": 0.28348289887624556,
+        "lexical": 0.22577672320581582,
+        "duetrank": 0.30232352229707676,
+        "fixed_rrf": 0.29335915059818285,
+        "standard_rrf": 0.2821968476083892
+      },
+      "duetrank_vs_semantic": {
+        "mean_absolute_gain": 0.018840623420831225,
+        "ci95_low": 0.012840884817826654,
+        "ci95_high": 0.024639298968702896,
+        "one_sided_bootstrap_p": 0.0001999600079984003,
+        "query_win_fraction": 0.19398752127056154,
+        "query_tie_fraction": 0.6236528644356211,
+        "query_loss_fraction": 0.18235961429381736,
+        "relative_percent": 6.646123450662221
+      },
+      "duetrank_vs_fixed_rrf": {
+        "mean_absolute_gain": 0.008964371698893898,
+        "ci95_low": 0.004274449096465179,
+        "ci95_high": 0.013490465993022794,
+        "one_sided_bootstrap_p": 0.0001999600079984003,
+        "query_win_fraction": 0.15314804310833807,
+        "query_tie_fraction": 0.6783891094724901,
+        "query_loss_fraction": 0.16846284741917186
+      },
+      "per_repeat": {
+        "semantic": {
+          "mean_ndcg_at_10": 0.28348289887624556,
+          "per_repeat_ndcg_at_10": [
+            0.283482898876244,
+            0.283482898876244,
+            0.283482898876244
+          ]
+        },
+        "lexical": {
+          "mean_ndcg_at_10": 0.22577672320581582,
+          "per_repeat_ndcg_at_10": [
+            0.22577559206861117,
+            0.2257755920686112,
+            0.2257789854802238
+          ]
+        },
+        "duetrank": {
+          "mean_ndcg_at_10": 0.30232352229707676,
+          "per_repeat_ndcg_at_10": [
+            0.3022997160893721,
+            0.30236434788926003,
+            0.3023065029125973
+          ]
+        },
+        "fixed_rrf": {
+          "mean_ndcg_at_10": 0.29335915059818285,
+          "per_repeat_ndcg_at_10": [
+            0.2933569881994507,
+            0.2933569881994507,
+            0.2933634753956432
+          ]
+        },
+        "standard_rrf": {
+          "mean_ndcg_at_10": 0.2821968476083892,
+          "per_repeat_ndcg_at_10": [
+            0.28219622885795875,
+            0.28214806503909784,
+            0.2822462489281092
+          ]
+        }
+      },
+      "selection": {
+        "max_leaf_nodes": 15,
+        "semantic_backoff_weight": 0.0,
+        "inner_validation_ndcg": 0.3059766630575205,
+        "fixed_rrf_semantic_weight": 0.9,
+        "training_rows": 795319,
+        "model_path": "<WORKSPACE>\\experiment_revision_20261107\\results\\msmarco_dev\\duetrank.joblib"
+      },
+      "semantic_native_scoring_candidates": {
+        "n": 20940,
+        "mean": 3803.3938872970393,
+        "p50": 3806.0,
+        "p95": 3910.0,
+        "min": 3497.0,
+        "max": 3995.0
+      },
+      "lexical_pre_cap_candidates": {
+        "n": 20940,
+        "mean": 925.4822349570201,
+        "p50": 962.0,
+        "p95": 977.0,
+        "min": 1.0,
+        "max": 990.0
+      },
+      "lexical_native_scoring_candidates": {
+        "n": 20940,
+        "mean": 291.7329512893983,
+        "p50": 300.0,
+        "p95": 300.0,
+        "min": 1.0,
+        "max": 300.0
+      },
+      "fusion_source": "<WORKSPACE>\\experiment_revision_20261107\\results\\msmarco_dev\\fusion.json",
+      "verification": {
+        "query_count": 6980,
+        "outer_holdout_queries": 3526,
+        "calibration_queries": 3454,
+        "repeats": 3,
+        "query_order_sha256": "b1726d111e93b6ee4984f6c96b15620937b407eefa3514606123c5f8b1656b58",
+        "artifacts": {
+          "semantic.rankings.npz": {
+            "shape": [
+              3,
+              6980,
+              100
+            ],
+            "sha256": "c554dc74e60647979dcbe982fb9c84275e564046aaa3af33e7d3f83e6751e40c",
+            "valid_candidate_counts": {
+              "n": 20940,
+              "mean": 100.0,
+              "p50": 100.0,
+              "p95": 100.0,
+              "min": 100.0,
+              "max": 100.0
+            }
+          },
+          "lexical_candidates.npz": {
+            "shape": [
+              3,
+              6980,
+              300
+            ],
+            "sha256": "5a0a4211eea9b36aed5d7fc80d914f0bb5f9039da62948450819a8fc2baaf2a9",
+            "valid_candidate_counts": {
+              "n": 20940,
+              "mean": 291.7329512893983,
+              "p50": 300.0,
+              "p95": 300.0,
+              "min": 1.0,
+              "max": 300.0
+            }
+          },
+          "exact_bm25.rankings.npz": {
+            "shape": [
+              3,
+              6980,
+              300
+            ],
+            "sha256": "fc75f51444f74a81320c3df3a01a7d6761dce1df9ed61f9cb7a1905d2be4210f",
+            "valid_candidate_counts": {
+              "n": 20940,
+              "mean": 291.7329512893983,
+              "p50": 300.0,
+              "p95": 300.0,
+              "min": 1.0,
+              "max": 300.0
+            }
+          },
+          "duetrank.rankings.npz": {
+            "shape": [
+              3,
+              6980,
+              100
+            ],
+            "sha256": "8bb18b5559cbfbf975f2597b7b509df8136609229f1915002d46a9a9d3f21cbd",
+            "valid_candidate_counts": {
+              "n": 20940,
+              "mean": 100.0,
+              "p50": 100.0,
+              "p95": 100.0,
+              "min": 100.0,
+              "max": 100.0
+            }
+          }
+        },
+        "all_lexical_candidate_members_preserved_by_exact_scoring": true,
+        "all_lexical_candidates_keep_original_planner_order": true,
+        "shared_payload_vocabulary_and_query_ids_match": true,
+        "sampled_fp64_exact_rerank": {
+          "queries": [
+            0,
+            997,
+            1994,
+            2991,
+            3988,
+            4985,
+            5982,
+            6979
+          ],
+          "query_repeats_checked": 24,
+          "mean_top100_set_overlap": 1.0,
+          "exact_top100_order_equal": 24,
+          "maximum_float64_threshold_shortfall": 0.0,
+          "all_members_or_near_boundary_ties_valid": true
+        },
+        "model_sha256": "e8058fa842a8eeba846fbb42dc07f0b3e9ecd59f9d376275816cd1f7b7f6c3af",
+        "all_result_config_hashes_match": true
+      }
+    }
+  },
+  "write_scope": "Execution code writes only under experiment_revision_20261107; historical indexes loaded read-only. Listed source and input fingerprints unchanged; not a hash audit of every original workspace file.",
+  "cache_hash_limit": "Full SHA256 checked when recorded at prerequisite time; large cache files checked by exact size and 4096-byte header fingerprint, not a full content hash."
+}

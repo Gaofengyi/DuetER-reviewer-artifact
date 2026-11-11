@@ -1,0 +1,136 @@
+完整检索协议计时：新实现，旧项目保持只读
+============================================================
+
+状态与边界
+本目录实现独立 client/server 的本机 TCP 检索流程。主计时从原始 query
+文本开始，到 Top20 Fetch 返回的完整文档经 AES-GCM 解密、解析与身份验证
+结束。包括真实单条 query encoder、HMAC probes、统一 CCADPE query views、
+请求构造/序列化、TCP、服务端 semantic IVF + local scans、FTS5 + local
+refinement、固定返回 slots、受保护的 payload/join records 查库、客户端
+解密/去重、精排、DuetRank 和 Fetch。没有 LLM 生成或跨机器/WAN。
+
+基础代码与复用
+1. 旧 benchmark_budgeted_lexical_candidates.py: select_terms_under_budget
+   的 alpha=.5 policy；FTS5 仍为 ORDER BY bm25(postings) LIMIT 1000。
+   wire 上发送排序后的真实 term labels + 确认不在词表中的 padding labels。
+2. 新统一 unified_pipeline.py: semantic_global_queries、semantic_query_views、
+   query_mips、lexical_query_views、query_seed。直接复用，同 qid + repeat0。
+3. 旧 semantic cache: owner持有mean/centroids与posting到global row映射；
+   server仅持有opaque labels/offsets、FP16 local coordinates及FP32 norms，
+   每query在CPU上真实读取并评分，以cell-local ordinal查受保护records。
+4. 旧 lexical cache: candidate_rows/partition assignment/FP16 local
+   coordinates 及 FP32 norms；每 query 重新跑 FTS5、分区与 top64。
+5. 旧 query_features/learned_rankings/mix_rankings 作为冻结模型推断函数。
+   overlap 仅基于本 query 的单次 semantic100 和 exact lexical[:100]，
+   在线 trace terms/postings；保留训练使用的 postings/50000 feature。
+6. 旧 communication.py 只有合成 records 的 AES-GCM roundtrip 和字节估算，
+   没有 TCP/Fetch。此处没有把那些结果冒充完整实测。
+
+接口
+wire.py: encode/decode/send/receive/rpc，二进制长度前缀 + JSON metadata +
+binary blocks。实际应用层字节包括 frames；不把它称作以太网线上总字节。
+server.py: RetrievalIndex.select(meta, blocks)；server 不加载 owner AES keys、
+encoder、plaintext vectors 或明文文档。metadata 给出 stage spans 和实际计数。
+正式server/validate只使用server_indexes/{dataset}.sqlite3隔离副本（或显式
+--server-index）：副本排除docmap，保留FTS逻辑与row IDs；NQ使用复制后清理，
+Hot/MS直接导出live FTS shadow表而不复制docmap，详见各副本manifest。不存在则
+直接失败，不fallback原owner库。server启动记录副本SHA256/大小，并再次
+检查docmap表不存在。owner离线prepare仍可只读原FTS库。
+client.py: QueryOwner.request/rerank；measured_query 返回单段 client wall-clock。
+records.py: 三个独立 AES-256-GCM keys 用于 payload/join/full document。
+每次离线准备 fresh keys；随机 32-bit nonce prefix + 全局单调 uint64 counter。
+不可变数据库；online 只读取已有密文，没有 lazy plaintext/encryption fallback。
+
+数据编码与离线准备
+prepare.py 默认固定16个均匀 linspace query IDs。可用 --coverage-encoder
+额外为真实 single-query encoder 输出覆盖记录。语义每 cell 预备 2 倍输出
+depth 供边界覆盖，词法完整准备该样本 planner1000 的记录。每条记录用
+真实 embedding 或完整文档 token-ID 序列；不是 query-term TF 子矩阵。
+token IDs 是 owner 分配的无碰撞 uint32 IDs，AEAD 内部的顺序 token 序列
+可在线重建完整 TF；256-byte length buckets。语义 payload 是 FP32
+384维，匹配现有质量计算的原始精排向量；其实际带宽与旧 FP16 估算不同。
+join capsule 为 uint64 row + uint64 opaque locator + uint32 version；
+alias 是 per-path/per-cell HMAC。Fetch 文档为完整原始 JSONL 行的密文。
+准备会扫描 corpus、索引并暖缓存；manifest 报 prepared records/docs 数、
+字节、corpus streamed bytes、setup 时间与 SHA256。线上缺记录直接失败。
+FTS5与semantic IVF覆盖全语料；复用的lexical local-coordinate文件是旧
+benchmark workload的candidate-union范围，并非所有语料文档，缺失时硬失败。
+这属于全语料候选索引查找、已有工作负载范围的词法坐标，以及样本范围的
+encrypted payload working set，
+不等于重建了全库受保护 payload store，也不是 cold-cache benchmark。
+semantic server不加载semantic_postings.npy，records的语义SQL键也只存cell
+内局部位置。prepare由owner把它映射到global document并加密到join capsule；
+lexical FTS5 row仅作本路径内部lookup ID。仍不把此harness视为完整部署安全证明。
+
+流程与模式
+Search RPC 一次返回所有受保护 records；随后 Fetch RPC 请求 Top20 文档。
+semantic 各 probe 固定 local depth slots；CCADPE 词法固定16*64 slots。
+客户端先按 planner ordinal 恢复词法顺序，再取300并从解密的 tokens 算BM25。
+--lexical-mode direct300: 无词法 CCADPE views/scans，实发300 records。
+--lexical-mode direct1000: 实发1000 records、解密/精排全部1000，不套300公式。
+--lexical-only: 不调用 semantic encoder/检索/DuetRank，词法结果Top20直接Fetch。
+direct + semantic 模式要求调用方提供各自冻结的 fusion model/report。
+
+计时和验证
+默认两轮完整 warmup + 三轮完整 measurement，每轮16条；每次在线重新执行。
+模型加载、离线索引/受保护记录准备、进程启动与TCP连接不在查询主计时内。
+端到端值来自单段墙钟；RPC 与 server spans 重叠，禁止直接相加冒充总时长。
+server 是 CPU FP32 每 query 评分；encoder device 单独记录，不把它混成
+GPU batch throughput。相同 repeat0 query noise 为跨轮配对计时固定，并非
+宣称每轮独立新 query noise。AEAD nonce 仅在离线记录生成时使用且不复用。
+server log 在内存积累，全部查询结束后写盘，不在每次 RPC 后插入日志磁盘I/O。
+
+三层一致性
+prepare: 每个样本实时 FTS5 planner rows 的顺序SHA256与旧raw[:1000]一致，
+不一致就中止。新增candidate retrieval不会返回旧rankings。
+client: 真实 encoder 在每次在线调用；maxabs/cosine 与 cached embedding 的
+诊断以及双方范数在主计时结束后计算。不会用cached embedding替代正式计时
+encoder。cached query/vector并不强行重归一化；双方native语义精排均为
+FP32点积，不能把cached质量称作新CPU单条encoder的同一浮点实例。
+validate.py: 单独使用cached embedding跑真实request encode/decode、当前
+candidate/refinement、record解密、精排、DuetRank，与新质量结果逐项比较。
+该检查不是时钟结果。FP32 CPU/GPU评分或tie差异必须在报告中显示，不能静默
+称为完全一致。正常运行前须先完成验证；同embedding比较出现差异需调查。
+本次39个query-cell边界差异已逐例复现原batch GPU：query字节全同，原GPU
+选择全复现；native精排与final Top20全部相同。--allow-local-backend-differences
+仅允许此类local集合差异通过功能门槛，JSON仍保留all_queries_match=false，
+并单独报告all_functional_checks_match/accepted_for_timing；不能称bitwise全同。
+
+运行方法（主代理调度，不能与质量GPU或磁盘任务并行）
+Python 必须使用现有 3.12 运行时；系统python311不兼容旧cp312依赖。
+C:/Program Files/WindowsApps/OpenAI.CodexPrimaryRuntime.v26-1104-2876-0_26.1104.2876.0_x64__3k8sg7r9htsxt/dependencies/python/python.exe
+该运行时已有cryptography 50.0.2，无需更改原环境。
+
+以下参数路径以本次 CPU NQ 运行目录为例，其他数据集替换 dataset/label。
+本次 prepared 和 runs 已存在；这些命令用于说明复现入口，不应覆盖既有证据。
+如需再次复现，应显式使用新的输出目录，并另外调度计时窗口。
+
+1. prepare.py --config ../config.json --dataset nq --output prepared/nq_cpu_v1
+   --query-count 16 --semantic-margin 2 --coverage-encoder --encoder-device cpu
+2. validate.py --config ../config.json --dataset nq --prepared prepared/nq_cpu_v1
+   --fusion-model ../results/nq/duetrank.joblib
+   --fusion-report ../results/nq/fusion.json --output validation/final_v2/nq_ccadpe.json
+   --allow-local-backend-differences
+3. run_loopback.py --config ../config.json --dataset nq --prepared prepared/nq_cpu_v1
+   --output-dir runs/nq_ccadpe --encoder-device cpu
+   --fusion-model ../results/nq/duetrank.joblib
+   --fusion-report ../results/nq/fusion.json --warmup-passes 2 --measurement-passes 3
+4. 本次正式9-mode入口（3 datasets x ccadpe/direct300/direct1000，均含semantic）：
+   timing_suite.py --config ../config.json --output-dir runs
+   自动使用 prepared/{nq,hotpotqa,msmarco}_cpu_v1 与对应冻结融合模型，
+   先检查 validation/final_v2 的9组功能核对记录，再逐组串行启动。
+5. 仅作接口说明、未纳入本次9组正式结果的纯词法模式：run_loopback.py 加
+   --lexical-only --lexical-mode direct300 或 direct1000；无须fusion参数。
+6. 只读后处理已保存结果（不会运行encoder/检索/benchmark）：
+   postprocess_timing.py
+   输出 PROTOCOL_TIMING_SUMMARY.json、sample_encoder_quality_diagnostic.json
+   和 完整流程计时摘要.txt；不改动 runs 下的正式测量记录。
+
+每条命令均应在本protocol目录执行或传绝对路径。run_loopback启动两个独立
+隐藏进程，并在client成功/失败后停止server，不留下后台服务。
+本次9组已全部完成，每组32 warmup + 48 measurement，总432正式观测，
+无失败或重跑；使用CPU single-query encoder（实际参数BF16、输出FP32）与
+CPU server。模式固定顺序，warm OS/SQLite cache，不据小差值主张稳定优势。
+runs/summary.json记录运行顺序；runs/{dataset}_{mode}/results.json保存完整
+观测，results.raw.json保留后处理诊断之前的原始输出。所有实测执行源文件
+在9组之间未改动；本说明及postprocess_timing.py于计时结束后更新/新增。

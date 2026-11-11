@@ -1,0 +1,54 @@
+{
+  "experiment": "final dual-Compartment-DPE nprobe ablation",
+  "projection_dimension": 256,
+  "semantic_cells": 2048,
+  "fixed_seed": 20260917,
+  "datasets": {
+    "nq": {
+      "rows": [
+        {
+          "nprobe": 64,
+          "local_depth": 16,
+          "scan_percent": 6.8621139800386155,
+          "mean_union": 948.2920046349942,
+          "reference_top100_coverage": 0.6822392815758981,
+          "nDCG@10": 0.5159635844189687,
+          "nDCG@10_retention": 0.990020756757993,
+          "Recall@100": 0.8987060641174197,
+          "Recall@100_retention": 0.9533906986273303,
+          "batch_server_ms_per_query": 4.748244264187965,
+          "interactive_server_ms": 375.3475200093817,
+          "client_rerank_ms_per_query": 52.29067873696487
+        },
+        {
+          "nprobe": 128,
+          "local_depth": 16,
+          "scan_percent": 13.19415486428327,
+          "mean_union": 1907.1352838933951,
+          "reference_top100_coverage": 0.7294843568945539,
+          "nDCG@10": 0.51833240456792,
+          "nDCG@10_retention": 0.9945660021731887,
+          "Recall@100": 0.9096658941676322,
+          "Recall@100_retention": 0.965017414464249,
+          "batch_server_ms_per_query": 4.716552578213356,
+          "interactive_server_ms": 774.5318999921437,
+          "client_rerank_ms_per_query": 11.602369785629689
+        },
+        {
+          "nprobe": 256,
+          "local_depth": 16,
+          "scan_percent": 25.588105160314623,
+          "mean_union": 3827.572132097335,
+          "reference_top100_coverage": 0.7608111239860951,
+          "nDCG@10": 0.5198443588111358,
+          "nDCG@10_retention": 0.9974671101762614,
+          "Recall@100": 0.9165701042873696,
+          "Recall@100_retention": 0.972341733251383,
+          "batch_server_ms_per_query": 6.0965931344100035,
+          "interactive_server_ms": 1328.6696399911307,
+          "client_rerank_ms_per_query": 12.127940961763965
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "experiment": "missing larger lexical local-depth points",
+  "projection_dimension": 256,
+  "lexical_cells": 64,
+  "fixed_seed": 20260917,
+  "datasets": {
+    "nq": {
+      "dataset": "nq",
+      "documents": 2681468,
+      "queries": 3452,
+      "split": "test",
+      "path": "lexical",
+      "top_per_cell": 32,
+      "repeats": 3,
+      "nDCG@10": 0.20500090733785944,
+      "Recall@100": 0.6196890691386636,
+      "mean_union": 995.5816917728853,
+      "candidate_p95": 1000.0,
+      "server_latency_ms": {
+        "mean": 3.265666560341702,
+        "p50": 0.9589000255800784,
+        "p95": 13.28704999468755
+      }
+    },
+    "msmarco": {
+      "dataset": "msmarco",
+      "documents": 8841823,
+      "queries": 6980,
+      "split": "dev",
+      "path": "lexical",
+      "top_per_cell": 32,
+      "repeats": 1,
+      "nDCG@10": 0.2106560840895597,
+      "Recall@100": 0.6212631327602673,
+      "mean_union": 961.38223495702,
+      "candidate_p95": 1000.0,
+      "server_latency_ms": {
+        "mean": 12.524028696262553,
+        "p50": 1.2709999864455312,
+        "p95": 77.4498549813868
+      }
+    }
+  }
+}
